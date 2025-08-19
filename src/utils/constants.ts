@@ -1,8 +1,12 @@
 export const API_CONFIG = {
-  BASE_URL: 'http://lactafarma.bebemundi.com/api',
+  BASE_URL: 'https://api.fda.gov', // Remove the full path
   TIMEOUT: 10000,
   MAX_RETRIES: 3,
 } as const;
+
+
+
+
 
 export const RISK_LEVELS = {
   very_low: { color: '#28a745', label: 'Very Low Risk' },

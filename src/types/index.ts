@@ -1,4 +1,3 @@
-// src/types/index.ts
 export interface Drug {
   id: string;
   name: string;
@@ -33,7 +32,13 @@ export interface DrugDetail extends Drug {
   alternativeMedications?: Drug[];
 }
 
-export type RiskLevel = 'very_low' | 'low' | 'moderate' | 'high' | 'very_high' | 'unknown';
+export type RiskLevel =
+  | "very_low"
+  | "low"
+  | "moderate"
+  | "high"
+  | "very_high"
+  | "unknown";
 
 export interface ApiResponse<T> {
   data?: T;
@@ -47,11 +52,4 @@ export interface SearchFilters {
   riskLevel?: RiskLevel;
   limit?: number;
   offset?: number;
-}
-
-// API Error types
-export interface ApiError {
-  message: string;
-  code?: string;
-  status?: number;
 }
