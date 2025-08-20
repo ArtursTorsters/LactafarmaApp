@@ -19,6 +19,7 @@
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
+    "@types/puppeteer": "^5.4.7",
     "axios": "^1.11.0",
     "cheerio": "^1.1.2",
     "cors": "^2.8.5",
@@ -26,6 +27,7 @@
     "express": "^4.21.2",
     "express-validator": "^7.2.1",
     "helmet": "^7.2.0",
+    "puppeteer": "^24.17.0",
     "rate-limiter-flexible": "^2.4.2"
   },
   "devDependencies": {
