@@ -1,254 +1,199 @@
-import { Router, Request, Response } from 'express';
-import { puppeteerScraper } from '../services/PuppeteerScraper';
+// // src/routes/simpleDrugRoutes.ts - Working scraper routes
+// import { Router, Request, Response } from 'express';
+// // import { workingElactanciaScraper } from '../services/Scraper';
 
-const router = Router();
+// const router = Router();
 
-// Health check
-router.get('/health', (req: Request, res: Response) => {
-  res.json({
-    success: true,
-    service: 'puppeteer-scraper',
-    status: 'healthy',
-    timestamp: new Date().toISOString()
-  });
-});
+// // Health check
+// router.get('/health', (req: Request, res: Response) => {
+//   res.json({
+//     success: true,
+//     status: 'healthy',
+//     service: 'simple e-lactancia scraper',
+//     timestamp: new Date().toISOString()
+//   });
+// });
 
-// Search drugs with Puppeteer (super simple!)
-router.get('/search/:term', async (req: Request, res: Response) => {
-  try {
-    const { term } = req.params;
+// // Simple autocomplete endpoint
+// router.get('/autocomplete/:term', async (req: Request, res: Response) => {
+//   try {
+//     const { term } = req.params;
 
-    if (!term || term.length < 2) {
-      return res.status(400).json({
-        success: false,
-        error: 'Search term must be at least 2 characters'
-      });
-    }
+//     if (!term || term.length < 1) {
+//       return res.status(400).json({
+//         success: false,
+//         error: 'Search term is required'
+//       });
+//     }
 
-    console.log(`🤖 Puppeteer search for: "${term}"`);
+//     console.log(`🔍 Autocomplete request for: "${term}"`);
+//     // const result = await workingElactanciaScraper.getAutocompleteSuggestions(term);
 
-    // This one line does everything!
-    const result = await puppeteerScraper.searchDrugWithSuggestions(term);
+//     res.json({
+//       success: result.totalResults > 0,
+//       data: {
+//         suggestions: result.suggestions,
+//         searchTerm: term,
+//         totalResults: result.totalResults,
+//         method: result.method,
+//       },
+//       timestamp: new Date().toISOString()
+//     });
 
-    res.json({
-      success: true,
-      data: {
-        drugs: result.drugs,
-        searchTerm: term,
-        totalResults: result.drugs.length,
-        source: 'e-lactancia.org',
-        suggestions: result.suggestions, // Include suggestions for frontend
-        bestMatch: result.bestMatch
-      },
-      timestamp: new Date().toISOString()
-    });
-  } catch (error) {
-    console.error('❌ Puppeteer search error:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Failed to search drugs',
-      message: error instanceof Error ? error.message : 'Unknown error'
-    });
-  }
-});
+//   } catch (error) {
+//     console.error('❌ Autocomplete error:', error);
+//     res.status(500).json({
+//       success: false,
+//       error: 'Autocomplete failed',
+//       message: error instanceof Error ? error.message : 'Unknown error'
+//     });
+//   }
+// });
 
-// Get suggestions only (for autocomplete)
-router.get('/suggestions/:term', async (req: Request, res: Response) => {
-  try {
-    const { term } = req.params;
+// // Test endpoint with debug info
+// router.get('/test/:term', async (req: Request, res: Response) => {
+//   try {
+//     const { term } = req.params;
 
-    if (!term || term.length < 2) {
-      return res.json({
-        success: true,
-        data: { suggestions: [] }
-      });
-    }
+//     console.log(`🧪 Test request for: "${term}"`);
 
-    console.log(`💡 Getting suggestions for: "${term}"`);
-    const suggestions = await puppeteerScraper.getSuggestions(term);
+//     // Test the search
+//     const result = await workingElactanciaScraper.getAutocompleteSuggestions(term);
 
-    res.json({
-      success: true,
-      data: {
-        suggestions,
-        searchTerm: term
-      },
-      timestamp: new Date().toISOString()
-    });
-  } catch (error) {
-    console.error('❌ Suggestions error:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Failed to get suggestions'
-    });
-  }
-});
+//     res.json({
+//       success: true,
+//       test: {
+//         searchTerm: term,
+//         result: result,
+//         debug: {
+//           searchUrl: `https://www.e-lactancia.org/buscar/?q=${encodeURIComponent(term)}`,
+//           method: result.method,
+//           likelyUrls: [
+//             `https://www.e-lactancia.org/breastfeeding/${term.toLowerCase()}/product/`,
+//             `https://www.e-lactancia.org/breastfeeding/${term.toLowerCase()}-hydrochloride/product/`,
+//           ]
+//         }
+//       },
+//       timestamp: new Date().toISOString()
+//     });
 
-// Attribution endpoint (required by CC license)
-router.get('/attribution', (req: Request, res: Response) => {
-  res.json({
-    success: true,
-    data: {
-      dataSource: 'e-lactancia.org',
-      organization: 'APILAM (Asociación para la Promoción e Investigación científica y cultural de la Lactancia Materna)',
-      license: 'CC BY-NC-SA 4.0',
-      url: 'https://www.e-lactancia.org/',
-      disclaimer: 'This information complements but does not replace medical advice. Always consult your healthcare provider.',
-      scrapingMethod: 'Puppeteer browser automation'
-    },
-    timestamp: new Date().toISOString()
-  });
-});
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       error: error instanceof Error ? error.message : 'Test failed'
+//     });
+//   }
+// });
 
+// // Debug endpoint to test specific URLs
+// router.get('/debug/test-url/:term', async (req: Request, res: Response) => {
+//   try {
+//     const { term } = req.params;
+//     console.log(`🔗 Testing direct URLs for: "${term}"`);
 
-// Add this debug route to your drugRoutes.ts
+//     const testUrls = [
+//       `https://www.e-lactancia.org/breastfeeding/${term.toLowerCase()}/product/`,
+//       `https://www.e-lactancia.org/breastfeeding/${term.toLowerCase()}-hydrochloride/product/`,
+//       `https://www.e-lactancia.org/buscar/?q=${encodeURIComponent(term)}`,
+//     ];
 
-// Debug endpoint - see what Puppeteer actually sees
-router.get('/debug/:term', async (req: Request, res: Response) => {
-  try {
-    const { term } = req.params;
+//     const results = [];
 
-    console.log(`🔍 Debug: Starting debug for "${term}"`);
+//     for (const url of testUrls) {
+//       try {
+//         const axios = require('axios');
+//         const response = await axios.get(url, { timeout: 10000 });
+//         results.push({
+//           url,
+//           status: response.status,
+//           success: true,
+//           title: response.data.match(/<title>(.*?)<\/title>/)?.[1] || 'No title'
+//         });
+//       } catch (error: any) {
+//         results.push({
+//           url,
+//           status: error.response?.status || 'timeout',
+//           success: false,
+//           error: error.message
+//         });
+//       }
+//     }
 
-    await puppeteerScraper.init();
-    const browser = (puppeteerScraper as any).browser;
-    const page = await browser.newPage();
+//     res.json({
+//       success: true,
+//       urlTests: results,
+//       timestamp: new Date().toISOString()
+//     });
 
-    try {
-      // Go to e-lactancia and take a screenshot
-      await page.goto('https://www.e-lactancia.org/', {
-        waitUntil: 'networkidle2',
-        timeout: 30000
-      });
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       error: 'URL test failed',
+//       message: error instanceof Error ? error.message : 'Unknown error'
+//     });
+//   }
+// });
 
-      // Take screenshot before typing
-      await page.screenshot({ path: 'debug-before.png', fullPage: true });
-      console.log('📸 Screenshot saved: debug-before.png');
+// // Debug endpoint to see discovered endpoints
+// router.get('/debug/discover', async (req: Request, res: Response) => {
+//   try {
+//     console.log(`🕵️ Running endpoint discovery...`);
 
-      // Get page title and URL
-      const title = await page.title();
-      const url = page.url();
+//     // Force discovery by making a test search
+//     await workingElactanciaScraper.getAutocompleteSuggestions('test');
 
-      // Find all input elements
-      const inputs = await page.evaluate(() => {
-        const inputElements = document.querySelectorAll('input');
-        const results: any[] = [];
-        inputElements.forEach((input, index) => {
-          results.push({
-            index,
-            type: input.type,
-            placeholder: input.placeholder,
-            id: input.id,
-            className: input.className,
-            name: input.name
-          });
-        });
-        return results;
-      });
+//     const discoveredEndpoint = workingElactanciaScraper.getDiscoveredEndpoint();
 
-      // Try to type in the search box
-      let typingResult = 'No search input found';
-      try {
-        await page.waitForSelector('input[type="text"], input[type="search"], #search', { timeout: 5000 });
-        await page.type('input[type="text"], input[type="search"], #search', term);
-        await page.waitForTimeout(3000); // Wait 3 seconds
+//     res.json({
+//       success: true,
+//       discovery: {
+//         discoveredEndpoint,
+//         hasEndpoint: !!discoveredEndpoint,
+//         message: discoveredEndpoint
+//           ? `Found autocomplete endpoint: ${discoveredEndpoint}`
+//           : 'No autocomplete endpoint discovered yet'
+//       },
+//       timestamp: new Date().toISOString()
+//     });
 
-        // Take screenshot after typing
-        await page.screenshot({ path: 'debug-after.png', fullPage: true });
-        console.log('📸 Screenshot saved: debug-after.png');
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       error: 'Discovery failed',
+//       message: error instanceof Error ? error.message : 'Unknown error'
+//     });
+//   }
+// });
 
-        typingResult = 'Successfully typed in search box';
-      } catch (error) {
-        // typingResult = `Failed to type: ${error.message}`;
-      }
+// // Clear cache
+// router.post('/cache/clear', (req: Request, res: Response) => {
+//   try {
+//     workingElactanciaScraper.clearCache();
+//     res.json({
+//       success: true,
+//       message: 'Cache cleared',
+//       timestamp: new Date().toISOString()
+//     });
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       error: 'Failed to clear cache'
+//     });
+//   }
+// });
 
-      // Get all visible text on page
-      const pageText = await page.evaluate(() => {
-        return document.body.innerText.substring(0, 500);
-      });
+// // Attribution
+// router.get('/attribution', (req: Request, res: Response) => {
+//   res.json({
+//     success: true,
+//     data: {
+//       dataSource: 'e-lactancia.org',
+//       organization: 'APILAM',
+//       disclaimer: 'This information complements but does not replace medical advice.',
+//       scrapingMethod: 'Simple search page scraping'
+//     },
+//     timestamp: new Date().toISOString()
+//   });
+// });
 
-      // Look for any elements that might be suggestions
-      const suggestionElements = await page.evaluate(() => {
-        const suggestions: any[] = [];
-
-        // Look for common suggestion patterns
-        const selectors = [
-          '.autocomplete', '.dropdown', '.suggestions', '.typeahead',
-          '[role="listbox"]', '[role="option"]', '.ui-menu',
-          'datalist', '.search-suggestions'
-        ];
-
-        selectors.forEach(selector => {
-          const elements = document.querySelectorAll(selector);
-          elements.forEach((el, index) => {
-            suggestions.push({
-              selector,
-              index,
-              text: el.textContent?.substring(0, 100),
-              visible: (el as HTMLElement).offsetParent !== null,
-              className: el.className
-            });
-          });
-        });
-
-        return suggestions;
-      });
-
-      res.json({
-        success: true,
-        debug: {
-          term,
-          pageTitle: title,
-          pageUrl: url,
-          pageTextPreview: pageText,
-          inputElements: inputs,
-          typingResult,
-          suggestionElements,
-          screenshots: ['debug-before.png', 'debug-after.png']
-        },
-        timestamp: new Date().toISOString()
-      });
-
-    } finally {
-      await page.close();
-    }
-
-  } catch (error) {
-    console.error('Debug failed:', error);
-    res.status(500).json({
-      success: false,
-      // error: error.message
-    });
-  }
-});
-
-// Also add a simple test endpoint
-router.get('/test-simple/:term', async (req: Request, res: Response) => {
-  const { term } = req.params;
-
-  // Just try the direct URL approach we know works
-  const directUrl = `https://www.e-lactancia.org/breastfeeding/${term}-hydrochloride/product/`;
-
-  console.log(`🧪 Testing direct URL: ${directUrl}`);
-
-  try {
-    const result = await puppeteerScraper.getDrugDetails(`${term}-hydrochloride`);
-
-    res.json({
-      success: true,
-      data: {
-        drugs: result ? [result] : [],
-        searchTerm: term,
-        totalResults: result ? 1 : 0,
-        method: 'direct-with-suffix'
-      }
-    });
-  } catch (error) {
-    res.json({
-      success: false,
-      // error: error.message
-    });
-  }
-});
-
-export { router as drugRoutes };
+// export { router as simpleDrugRoutes };
