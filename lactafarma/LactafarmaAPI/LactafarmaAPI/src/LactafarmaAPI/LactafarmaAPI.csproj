@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>LactafarmaAPI</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>LactafarmaAPI</PackageId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\net8.0\LactafarmaAPI.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\net8.0\LactafarmaAPI.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+<FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.0" />
+    <PackageReference Include="MimeKit" Version="4.13.0" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="5.3.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+<PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LactafarmaAPI.Core\LactafarmaAPI.Core.csproj" />
+    <ProjectReference Include="..\LactafarmaAPI.Data\LactafarmaAPI.Data.csproj" />
+    <ProjectReference Include="..\LactafarmaAPI.Domain\LactafarmaAPI.Domain.csproj" />
+    <ProjectReference Include="..\LactafarmaAPI.Services\LactafarmaAPI.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\css\themes\" />
+    <Folder Include="wwwroot\lib\_app\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+</Project>

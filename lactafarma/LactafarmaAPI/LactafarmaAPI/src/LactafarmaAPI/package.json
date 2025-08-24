@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "name": "LactafarmaAPI",
+  "private": true,
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "gulp-uglify": "~3.0.0"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}
