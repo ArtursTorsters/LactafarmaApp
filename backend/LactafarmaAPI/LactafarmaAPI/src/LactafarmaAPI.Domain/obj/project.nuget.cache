@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9uMgwutMgq0=",
+  "dgSpecHash": "CKU+jbIbtU8=",
   "success": true,
-  "projectFilePath": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/LactafarmaAPI.Domain.csproj",
+  "projectFilePath": "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/LactafarmaAPI.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

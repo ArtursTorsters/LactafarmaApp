@@ -8,3 +8,13 @@
 /Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/obj/Debug/net8.0/refint/LactafarmaAPI.Domain.dll
 /Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/obj/Debug/net8.0/LactafarmaAPI.Domain.pdb
 /Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/obj/Debug/net8.0/ref/LactafarmaAPI.Domain.dll
+/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/bin/Debug/net8.0/LactafarmaAPI.Domain.deps.json
+/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/bin/Debug/net8.0/LactafarmaAPI.Domain.dll
+/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/bin/Debug/net8.0/LactafarmaAPI.Domain.pdb
+/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/obj/Debug/net8.0/LactafarmaAPI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/obj/Debug/net8.0/LactafarmaAPI.Domain.csproj.CoreCompileInputs.cache
+/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/obj/Debug/net8.0/LactafarmaAPI.Domain.sourcelink.json
+/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/obj/Debug/net8.0/LactafarmaAPI.Domain.dll
+/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/obj/Debug/net8.0/refint/LactafarmaAPI.Domain.dll
+/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/obj/Debug/net8.0/LactafarmaAPI.Domain.pdb
+/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/obj/Debug/net8.0/ref/LactafarmaAPI.Domain.dll

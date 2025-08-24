@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nu28a0EbQ2g=",
+  "dgSpecHash": "Chtiom26YVU=",
   "success": true,
-  "projectFilePath": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/LactafarmaAPI.csproj",
+  "projectFilePath": "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/LactafarmaAPI.csproj",
   "expectedPackageFiles": [
     "/Users/arturs/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/Users/arturs/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",

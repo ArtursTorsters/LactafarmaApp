@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LactafarmaAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b65cacf81c72f2c12950f5e7fca204a38e2c5178")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5259ec1d7bc8ba9f4d118526b278f55a980b5bc4")]
 [assembly: System.Reflection.AssemblyProductAttribute("LactafarmaAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LactafarmaAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -10338,11 +10338,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/LactafarmaAPI.csproj",
+      "projectUniqueName": "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/LactafarmaAPI.csproj",
       "projectName": "LactafarmaAPI",
-      "projectPath": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/LactafarmaAPI.csproj",
+      "projectPath": "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/LactafarmaAPI.csproj",
       "packagesPath": "/Users/arturs/.nuget/packages/",
-      "outputPath": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/obj/",
+      "outputPath": "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/arturs/.nuget/NuGet/NuGet.Config"
@@ -10357,17 +10357,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Core/LactafarmaAPI.Core.csproj": {
-              "projectPath": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Core/LactafarmaAPI.Core.csproj"
+            "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Core/LactafarmaAPI.Core.csproj": {
+              "projectPath": "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Core/LactafarmaAPI.Core.csproj"
             },
-            "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/LactafarmaAPI.Data.csproj": {
-              "projectPath": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/LactafarmaAPI.Data.csproj"
+            "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/LactafarmaAPI.Data.csproj": {
+              "projectPath": "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/LactafarmaAPI.Data.csproj"
             },
-            "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/LactafarmaAPI.Domain.csproj": {
-              "projectPath": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/LactafarmaAPI.Domain.csproj"
+            "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/LactafarmaAPI.Domain.csproj": {
+              "projectPath": "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Domain/LactafarmaAPI.Domain.csproj"
             },
-            "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Services/LactafarmaAPI.Services.csproj": {
-              "projectPath": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Services/LactafarmaAPI.Services.csproj"
+            "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Services/LactafarmaAPI.Services.csproj": {
+              "projectPath": "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Services/LactafarmaAPI.Services.csproj"
             }
           }
         }

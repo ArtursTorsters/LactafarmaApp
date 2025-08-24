@@ -1914,11 +1914,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Core/LactafarmaAPI.Core.csproj",
+      "projectUniqueName": "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Core/LactafarmaAPI.Core.csproj",
       "projectName": "LactafarmaAPI.Core",
-      "projectPath": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Core/LactafarmaAPI.Core.csproj",
+      "projectPath": "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Core/LactafarmaAPI.Core.csproj",
       "packagesPath": "/Users/arturs/.nuget/packages/",
-      "outputPath": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Core/obj/",
+      "outputPath": "/Users/arturs/Desktop/code/LactafarmaApp/backend/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/arturs/.nuget/NuGet/NuGet.Config"
