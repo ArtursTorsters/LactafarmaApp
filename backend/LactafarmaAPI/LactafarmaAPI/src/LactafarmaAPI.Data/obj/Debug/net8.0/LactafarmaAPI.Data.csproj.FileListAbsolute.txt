@@ -1,0 +1,16 @@
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/bin/Debug/net8.0/LactafarmaAPI.Data.deps.json
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/bin/Debug/net8.0/LactafarmaAPI.Data.runtimeconfig.json
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/bin/Debug/net8.0/LactafarmaAPI.Data.dll
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/bin/Debug/net8.0/LactafarmaAPI.Data.pdb
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/bin/Debug/net8.0/LactafarmaAPI.Core.dll
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/bin/Debug/net8.0/LactafarmaAPI.Core.pdb
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/obj/Debug/net8.0/LactafarmaAPI.Data.csproj.AssemblyReference.cache
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/obj/Debug/net8.0/LactafarmaAPI.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/obj/Debug/net8.0/LactafarmaAPI.Data.csproj.CoreCompileInputs.cache
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/obj/Debug/net8.0/LactafarmaAPI.Data.sourcelink.json
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/obj/Debug/net8.0/Lactafar.10280F7D.Up2Date
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/obj/Debug/net8.0/LactafarmaAPI.Data.dll
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/obj/Debug/net8.0/refint/LactafarmaAPI.Data.dll
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/obj/Debug/net8.0/LactafarmaAPI.Data.pdb
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/obj/Debug/net8.0/LactafarmaAPI.Data.genruntimeconfig.cache
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI.Data/obj/Debug/net8.0/ref/LactafarmaAPI.Data.dll

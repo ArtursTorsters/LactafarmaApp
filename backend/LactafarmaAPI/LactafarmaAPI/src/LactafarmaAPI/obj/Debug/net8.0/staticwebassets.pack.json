@@ -1,0 +1,1089 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/css/themes/theme-feeling-blue.css",
+      "PackagePath": "staticwebassets/css/themes/theme-feeling-blue.css"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/css/themes/theme-flattop.css",
+      "PackagePath": "staticwebassets/css/themes/theme-flattop.css"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/css/themes/theme-material.css",
+      "PackagePath": "staticwebassets/css/themes/theme-material.css"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/css/themes/theme-monokai.css",
+      "PackagePath": "staticwebassets/css/themes/theme-monokai.css"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/css/themes/theme-muted.css",
+      "PackagePath": "staticwebassets/css/themes/theme-muted.css"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/css/themes/theme-newspaper.css",
+      "PackagePath": "staticwebassets/css/themes/theme-newspaper.css"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/css/themes/theme-outline.css",
+      "PackagePath": "staticwebassets/css/themes/theme-outline.css"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/android-icon-144x144.png",
+      "PackagePath": "staticwebassets/help/images/android-icon-144x144.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/android-icon-192x192.png",
+      "PackagePath": "staticwebassets/help/images/android-icon-192x192.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/android-icon-36x36.png",
+      "PackagePath": "staticwebassets/help/images/android-icon-36x36.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/android-icon-48x48.png",
+      "PackagePath": "staticwebassets/help/images/android-icon-48x48.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/android-icon-72x72.png",
+      "PackagePath": "staticwebassets/help/images/android-icon-72x72.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/android-icon-96x96.png",
+      "PackagePath": "staticwebassets/help/images/android-icon-96x96.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/apple-icon-114x114.png",
+      "PackagePath": "staticwebassets/help/images/apple-icon-114x114.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/apple-icon-120x120.png",
+      "PackagePath": "staticwebassets/help/images/apple-icon-120x120.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/apple-icon-144x144.png",
+      "PackagePath": "staticwebassets/help/images/apple-icon-144x144.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/apple-icon-152x152.png",
+      "PackagePath": "staticwebassets/help/images/apple-icon-152x152.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/apple-icon-180x180.png",
+      "PackagePath": "staticwebassets/help/images/apple-icon-180x180.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/apple-icon-57x57.png",
+      "PackagePath": "staticwebassets/help/images/apple-icon-57x57.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/apple-icon-60x60.png",
+      "PackagePath": "staticwebassets/help/images/apple-icon-60x60.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/apple-icon-72x72.png",
+      "PackagePath": "staticwebassets/help/images/apple-icon-72x72.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/apple-icon-76x76.png",
+      "PackagePath": "staticwebassets/help/images/apple-icon-76x76.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/apple-icon-precomposed.png",
+      "PackagePath": "staticwebassets/help/images/apple-icon-precomposed.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/apple-icon.png",
+      "PackagePath": "staticwebassets/help/images/apple-icon.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/browserconfig.xml",
+      "PackagePath": "staticwebassets/help/images/browserconfig.xml"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/favicon-16x16.png",
+      "PackagePath": "staticwebassets/help/images/favicon-16x16.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/favicon-32x32.png",
+      "PackagePath": "staticwebassets/help/images/favicon-32x32.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/favicon-96x96.png",
+      "PackagePath": "staticwebassets/help/images/favicon-96x96.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/favicon.ico",
+      "PackagePath": "staticwebassets/help/images/favicon.ico"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/logo_small.png",
+      "PackagePath": "staticwebassets/help/images/logo_small.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/manifest.json",
+      "PackagePath": "staticwebassets/help/images/manifest.json"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/ms-icon-144x144.png",
+      "PackagePath": "staticwebassets/help/images/ms-icon-144x144.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/ms-icon-150x150.png",
+      "PackagePath": "staticwebassets/help/images/ms-icon-150x150.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/ms-icon-310x310.png",
+      "PackagePath": "staticwebassets/help/images/ms-icon-310x310.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/help/images/ms-icon-70x70.png",
+      "PackagePath": "staticwebassets/help/images/ms-icon-70x70.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/images/lactafarma-swagger-description.png",
+      "PackagePath": "staticwebassets/images/lactafarma-swagger-description.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/images/lactafarma-swagger-entities.png",
+      "PackagePath": "staticwebassets/images/lactafarma-swagger-entities.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/images/lactafarma-swagger-header.png",
+      "PackagePath": "staticwebassets/images/lactafarma-swagger-header.png"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/js/custom-swagger-ui.js",
+      "PackagePath": "staticwebassets/js/custom-swagger-ui.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/_app/custom-swagger-ui.js",
+      "PackagePath": "staticwebassets/lib/_app/custom-swagger-ui.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation-unobtrusive/.bower.json",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/.bower.json"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation-unobtrusive/bower.json",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/bower.json"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/.bower.json",
+      "PackagePath": "staticwebassets/lib/jquery-validation/.bower.json"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/CONTRIBUTING.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/CONTRIBUTING.md"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/Gruntfile.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/Gruntfile.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/README.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/README.md"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/bower.json",
+      "PackagePath": "staticwebassets/lib/jquery-validation/bower.json"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/build/release.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/build/release.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/changelog.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/changelog.md"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/package.json",
+      "PackagePath": "staticwebassets/lib/jquery-validation/package.json"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/accept.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/accept.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/additional.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/additional.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/alphanumeric.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/alphanumeric.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/bankaccountNL.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/bankaccountNL.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/bankorgiroaccountNL.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/bankorgiroaccountNL.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/bic.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/bic.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/cifES.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/cifES.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/cpfBR.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/cpfBR.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/creditcard.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/creditcard.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/creditcardtypes.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/creditcardtypes.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/currency.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/currency.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/dateFA.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/dateFA.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/dateITA.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/dateITA.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/dateNL.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/dateNL.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/extension.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/extension.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/giroaccountNL.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/giroaccountNL.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/iban.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/iban.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/integer.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/integer.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/ipv4.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/ipv4.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/ipv6.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/ipv6.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/lettersonly.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/lettersonly.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/letterswithbasicpunc.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/letterswithbasicpunc.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/mobileNL.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/mobileNL.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/mobileUK.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/mobileUK.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/nieES.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/nieES.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/nifES.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/nifES.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/notEqualTo.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/notEqualTo.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/nowhitespace.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/nowhitespace.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/pattern.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/pattern.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/phoneNL.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/phoneNL.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/phoneUK.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/phoneUK.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/phoneUS.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/phoneUS.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/phonesUK.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/phonesUK.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/postalCodeCA.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/postalCodeCA.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/postalcodeBR.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/postalcodeBR.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/postalcodeIT.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/postalcodeIT.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/postalcodeNL.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/postalcodeNL.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/postcodeUK.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/postcodeUK.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/require_from_group.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/require_from_group.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/skip_or_fill_minimum.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/skip_or_fill_minimum.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/statesUS.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/statesUS.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/strippedminlength.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/strippedminlength.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/time.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/time.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/time12h.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/time12h.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/url2.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/url2.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/vinUS.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/vinUS.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/zipcodeUS.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/zipcodeUS.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/additional/ziprange.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/additional/ziprange.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/ajax.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/ajax.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/core.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/core.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_ar.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_ar.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_az.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_az.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_bg.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_bg.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_bn_BD.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_bn_BD.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_ca.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_ca.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_cs.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_cs.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_da.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_da.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_de.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_de.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_el.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_el.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_es.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_es.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_es_AR.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_es_AR.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_es_PE.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_es_PE.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_et.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_et.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_eu.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_eu.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_fa.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_fa.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_fi.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_fi.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_fr.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_fr.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_ge.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_ge.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_gl.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_gl.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_he.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_he.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_hr.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_hr.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_hu.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_hu.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_hy_AM.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_hy_AM.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_id.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_id.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_is.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_is.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_it.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_it.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_ja.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_ja.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_ka.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_ka.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_kk.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_kk.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_ko.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_ko.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_lt.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_lt.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_lv.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_lv.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_mk.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_mk.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_my.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_my.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_nl.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_nl.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_no.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_no.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_pl.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_pl.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_pt_BR.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_pt_BR.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_pt_PT.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_pt_PT.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_ro.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_ro.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_ru.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_ru.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_si.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_si.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_sk.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_sk.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_sl.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_sl.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_sr.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_sr.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_sr_lat.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_sr_lat.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_sv.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_sv.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_th.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_th.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_tj.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_tj.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_tr.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_tr.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_uk.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_uk.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_ur.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_ur.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_vi.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_vi.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_zh.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_zh.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/messages_zh_TW.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/messages_zh_TW.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/methods_de.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/methods_de.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/methods_es_CL.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/methods_es_CL.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/methods_fi.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/methods_fi.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/methods_nl.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/methods_nl.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/src/localization/methods_pt.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/src/localization/methods_pt.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery-validation/validation.jquery.json",
+      "PackagePath": "staticwebassets/lib/jquery-validation/validation.jquery.json"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/.bower.json",
+      "PackagePath": "staticwebassets/lib/jquery/.bower.json"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/MIT-LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/MIT-LICENSE.txt"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/bower.json",
+      "PackagePath": "staticwebassets/lib/jquery/bower.json"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/ajax.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/ajax.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/ajax/jsonp.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/ajax/jsonp.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/ajax/load.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/ajax/load.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/ajax/parseJSON.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/ajax/parseJSON.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/ajax/parseXML.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/ajax/parseXML.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/ajax/script.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/ajax/script.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/ajax/var/nonce.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/ajax/var/nonce.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/ajax/var/rquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/ajax/var/rquery.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/ajax/xhr.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/ajax/xhr.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/attributes.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/attributes.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/attributes/attr.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/attributes/attr.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/attributes/classes.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/attributes/classes.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/attributes/prop.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/attributes/prop.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/attributes/support.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/attributes/support.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/attributes/val.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/attributes/val.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/callbacks.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/callbacks.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/core.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/core.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/core/access.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/core/access.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/core/init.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/core/init.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/core/parseHTML.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/core/parseHTML.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/core/ready.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/core/ready.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/core/var/rsingleTag.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/core/var/rsingleTag.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/css.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/css.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/css/addGetHookIf.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/css/addGetHookIf.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/css/curCSS.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/css/curCSS.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/css/defaultDisplay.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/css/defaultDisplay.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/css/hiddenVisibleSelectors.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/css/hiddenVisibleSelectors.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/css/support.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/css/support.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/css/swap.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/css/swap.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/css/var/cssExpand.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/css/var/cssExpand.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/css/var/getStyles.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/css/var/getStyles.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/css/var/isHidden.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/css/var/isHidden.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/css/var/rmargin.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/css/var/rmargin.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/css/var/rnumnonpx.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/css/var/rnumnonpx.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/data.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/data.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/data/Data.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/data/Data.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/data/accepts.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/data/accepts.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/data/var/data_priv.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/data/var/data_priv.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/data/var/data_user.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/data/var/data_user.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/deferred.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/deferred.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/deprecated.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/deprecated.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/dimensions.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/dimensions.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/effects.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/effects.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/effects/Tween.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/effects/Tween.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/effects/animatedSelector.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/effects/animatedSelector.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/event.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/event.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/event/ajax.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/event/ajax.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/event/alias.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/event/alias.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/event/support.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/event/support.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/exports/amd.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/exports/amd.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/exports/global.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/exports/global.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/intro.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/intro.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/jquery.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/manipulation.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/manipulation.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/manipulation/_evalUrl.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/manipulation/_evalUrl.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/manipulation/support.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/manipulation/support.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/manipulation/var/rcheckableType.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/manipulation/var/rcheckableType.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/offset.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/offset.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/outro.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/outro.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/queue.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/queue.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/queue/delay.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/queue/delay.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/selector-native.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/selector-native.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/selector-sizzle.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/selector-sizzle.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/selector.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/selector.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/serialize.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/serialize.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/sizzle/dist/sizzle.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/sizzle/dist/sizzle.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/sizzle/dist/sizzle.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/sizzle/dist/sizzle.min.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/sizzle/dist/sizzle.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/src/sizzle/dist/sizzle.min.map"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/traversing.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/traversing.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/traversing/findFilter.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/traversing/findFilter.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/traversing/var/rneedsContext.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/traversing/var/rneedsContext.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/var/arr.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/var/arr.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/var/class2type.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/var/class2type.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/var/concat.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/var/concat.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/var/hasOwn.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/var/hasOwn.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/var/indexOf.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/var/indexOf.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/var/pnum.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/var/pnum.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/var/push.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/var/push.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/var/rnotwhite.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/var/rnotwhite.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/var/slice.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/var/slice.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/var/strundefined.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/var/strundefined.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/var/support.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/var/support.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/var/toString.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/var/toString.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/jquery/src/wrap.js",
+      "PackagePath": "staticwebassets/lib/jquery/src/wrap.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/underscore/.bower.json",
+      "PackagePath": "staticwebassets/lib/underscore/.bower.json"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/underscore/LICENSE",
+      "PackagePath": "staticwebassets/lib/underscore"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/underscore/README.md",
+      "PackagePath": "staticwebassets/lib/underscore/README.md"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/underscore/bower.json",
+      "PackagePath": "staticwebassets/lib/underscore/bower.json"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/underscore/underscore-min.js",
+      "PackagePath": "staticwebassets/lib/underscore/underscore-min.js"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/underscore/underscore-min.map",
+      "PackagePath": "staticwebassets/lib/underscore/underscore-min.map"
+    },
+    {
+      "Id": "/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/src/LactafarmaAPI/wwwroot/lib/underscore/underscore.js",
+      "PackagePath": "staticwebassets/lib/underscore/underscore.js"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.LactafarmaAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.LactafarmaAPI.props",
+      "PackagePath": "build\\LactafarmaAPI.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.LactafarmaAPI.props",
+      "PackagePath": "buildMultiTargeting\\LactafarmaAPI.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.LactafarmaAPI.props",
+      "PackagePath": "buildTransitive\\LactafarmaAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

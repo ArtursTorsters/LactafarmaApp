@@ -1,0 +1,755 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LactafarmaAPI</name>
+    </assembly>
+    <members>
+        <member name="T:LactafarmaAPI.Controllers.Api.AlertsController">
+            <summary>
+            Alerts Controller
+            </summary>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.AlertsController.#ctor(LactafarmaAPI.Services.Interfaces.ILactafarmaService,LactafarmaAPI.Services.Interfaces.IMailService,Microsoft.Extensions.Configuration.IConfigurationRoot,Microsoft.Extensions.Logging.ILogger{LactafarmaAPI.Controllers.Api.AlertsController},Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Identity.UserManager{LactafarmaAPI.Data.Entities.User})">
+            <summary>
+            Alerts handler constructor
+            </summary>
+            <param name="lactafarmaService"></param>
+            <param name="mailService"></param>
+            <param name="config"></param>
+            <param name="logger"></param>
+            <param name="cache"></param>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.AlertsController.GetAlertsByProduct(System.Int32)">
+            <summary>
+            Get alerts by specified Product in User context
+            </summary>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.AlertsController.GetLastAlerts">
+            <summary>
+            Get alerts by specified Product in User context
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.AlertsController.GetAlert(System.Int32)">
+            <summary>
+            Get alert by specified Id
+            </summary>
+            <param name="alertId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LactafarmaAPI.Controllers.Api.AliasesController">
+            <summary>
+            Alerts handler class
+            </summary>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.AliasesController.#ctor(LactafarmaAPI.Services.Interfaces.ILactafarmaService,LactafarmaAPI.Services.Interfaces.IMailService,Microsoft.Extensions.Configuration.IConfigurationRoot,Microsoft.Extensions.Logging.ILogger{LactafarmaAPI.Controllers.Api.AliasesController},Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Identity.UserManager{LactafarmaAPI.Data.Entities.User})">
+            <summary>
+            Aliases handler constructor
+            </summary>
+            <param name="lactafarmaService"></param>
+            <param name="mailService"></param>
+            <param name="config"></param>
+            <param name="logger"></param>
+            <param name="cache"></param>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.AliasesController.GetAliasesByName(System.String)">
+            <summary>
+            Get first 3 coincidences on aliases collection
+            </summary>
+            <param name="startsWith"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.AliasesController.GetAliasesByProduct(System.Int32)">
+            <summary>
+            Get aliases by specified Product in User context
+            </summary>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.AliasesController.GetAlias(System.Int32)">
+            <summary>
+            Get detailed information about alias requested
+            </summary>
+            <param name="aliasId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LactafarmaAPI.Controllers.Api.Base.BaseController">
+            <summary>
+            Base handler class
+            </summary>
+        </member>
+        <member name="F:LactafarmaAPI.Controllers.Api.Base.BaseController.Config">
+            <summary>
+            ConfigurationRoot container
+            </summary>
+        </member>
+        <member name="F:LactafarmaAPI.Controllers.Api.Base.BaseController.LactafarmaService">
+            <summary>
+            LactafarmaService 
+            </summary>
+        </member>
+        <member name="F:LactafarmaAPI.Controllers.Api.Base.BaseController.MailService">
+            <summary>
+            MailService
+            </summary>
+        </member>
+        <member name="F:LactafarmaAPI.Controllers.Api.Base.BaseController._userManager">
+            <summary>
+            UserManager for ClaimsPrincipal
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.Controllers.Api.Base.BaseController.Cache">
+            <summary>
+            Cache container
+            </summary>
+        </member>
+        <member name="T:LactafarmaAPI.Controllers.Api.Base.BaseController.EntityType">
+            <summary>
+            EntityType for storing data in Cache container
+            </summary>
+        </member>
+        <member name="F:LactafarmaAPI.Controllers.Api.Base.BaseController.EntityType.Alert">
+            <summary>
+            Alert entity type
+            </summary>
+        </member>
+        <member name="F:LactafarmaAPI.Controllers.Api.Base.BaseController.EntityType.Alias">
+            <summary>
+            Alias entity type
+            </summary>
+        </member>
+        <member name="F:LactafarmaAPI.Controllers.Api.Base.BaseController.EntityType.Product">
+            <summary>
+            Product entity type
+            </summary>
+        </member>
+        <member name="F:LactafarmaAPI.Controllers.Api.Base.BaseController.EntityType.Brand">
+            <summary>
+            Brand entity type
+            </summary>
+        </member>
+        <member name="F:LactafarmaAPI.Controllers.Api.Base.BaseController.EntityType.Group">
+            <summary>
+            Group entity type
+            </summary>
+        </member>
+        <member name="F:LactafarmaAPI.Controllers.Api.Base.BaseController.EntityType.User">
+            <summary>
+            User entity type
+            </summary>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.Base.BaseController.#ctor(LactafarmaAPI.Services.Interfaces.ILactafarmaService,LactafarmaAPI.Services.Interfaces.IMailService,Microsoft.Extensions.Configuration.IConfigurationRoot,Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Identity.UserManager{LactafarmaAPI.Data.Entities.User})">
+            <summary>
+            Base handler constructor
+            </summary>
+            <param name="lactafarmaService"></param>
+            <param name="mailService"></param>
+            <param name="config"></param>
+            <param name="cache"></param>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.Base.BaseController.CacheInitialize``1(System.Collections.Generic.IEnumerable{``0},LactafarmaAPI.Controllers.Api.Base.BaseController.EntityType)">
+            <summary>
+            Storing information on Cache container by type specified by input parameters
+            </summary>
+            <typeparam name="TModel"></typeparam>
+            <param name="items"></param>
+            <param name="type"></param>
+        </member>
+        <member name="T:LactafarmaAPI.Controllers.Api.BrandsController">
+            <summary>
+            Brands handler class
+            </summary>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.BrandsController.#ctor(LactafarmaAPI.Services.Interfaces.ILactafarmaService,LactafarmaAPI.Services.Interfaces.IMailService,Microsoft.Extensions.Configuration.IConfigurationRoot,Microsoft.Extensions.Logging.ILogger{LactafarmaAPI.Controllers.Api.BrandsController},Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Identity.UserManager{LactafarmaAPI.Data.Entities.User})">
+            <summary>
+            Brands handler constructor
+            </summary>
+            <param name="lactafarmaService"></param>
+            <param name="mailService"></param>
+            <param name="config"></param>
+            <param name="logger"></param>
+            <param name="cache"></param>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.BrandsController.GetBrandsByName(System.String)">
+            <summary>
+            Get first 3 coincidences on brands collection
+            </summary>
+            <param name="startsWith"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.BrandsController.GetBrandsByProduct(System.Int32)">
+            <summary>
+            Get brands by specified Product in User context
+            </summary>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.BrandsController.GetBrand(System.Int32)">
+            <summary>
+            Get detailed information about brand requested
+            </summary>
+            <param name="brandId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LactafarmaAPI.Controllers.Api.CacheController">
+            <summary>
+            Cache handler class
+            </summary>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.CacheController.#ctor(LactafarmaAPI.Services.Interfaces.ILactafarmaService,LactafarmaAPI.Services.Interfaces.IMailService,Microsoft.Extensions.Configuration.IConfigurationRoot,Microsoft.Extensions.Logging.ILogger{LactafarmaAPI.Controllers.Api.CacheController},Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Identity.UserManager{LactafarmaAPI.Data.Entities.User})">
+            <summary>
+            Cache handler constructor
+            </summary>
+            <param name="lactafarmaService"></param>
+            <param name="mailService"></param>
+            <param name="config"></param>
+            <param name="logger"></param>
+            <param name="cache"></param>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.CacheController.LoadCaches">
+            <summary>
+            Load all objects for caching just on Id/Name fields
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.CacheController.ClearCaches">
+            <summary>
+            Clear all objects from Memory
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.CacheController.ClearCachesAsync">
+            <summary>
+            Clear set of objects stored on IMemoryCache
+            </summary>
+        </member>
+        <member name="T:LactafarmaAPI.Controllers.Api.ErrorController">
+            <summary>
+            Errors handler class
+            </summary>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.ErrorController.#ctor(Microsoft.Extensions.Logging.ILogger{LactafarmaAPI.Controllers.Api.ErrorController})">
+            <summary>
+            Errors handler constructor
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.ErrorController.TraceError">
+            <summary>
+            Handling errors (Not Found requests)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LactafarmaAPI.Controllers.Api.FavoritesController">
+            <summary>
+            Favorites handler class
+            </summary>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.FavoritesController.#ctor(LactafarmaAPI.Services.Interfaces.ILactafarmaService,LactafarmaAPI.Services.Interfaces.IMailService,Microsoft.Extensions.Configuration.IConfigurationRoot,Microsoft.Extensions.Logging.ILogger{LactafarmaAPI.Controllers.Api.FavoritesController},Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Identity.UserManager{LactafarmaAPI.Data.Entities.User})">
+            <summary>
+            Favorites handler constructor
+            </summary>
+            <param name="lactafarmaService"></param>
+            <param name="mailService"></param>
+            <param name="config"></param>
+            <param name="logger"></param>
+            <param name="cache"></param>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.FavoritesController.GetFavoritesByUser">
+            <summary>
+            Get list of favorites by provided User
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.FavoritesController.GetFavorite(System.Int32)">
+            <summary>
+            Get specific favorite by id
+            </summary>
+            <param name="favoriteId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LactafarmaAPI.Controllers.Api.GroupsController">
+            <summary>
+            Groups handler class
+            </summary>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.GroupsController.#ctor(LactafarmaAPI.Services.Interfaces.ILactafarmaService,LactafarmaAPI.Services.Interfaces.IMailService,Microsoft.Extensions.Configuration.IConfigurationRoot,Microsoft.Extensions.Logging.ILogger{LactafarmaAPI.Controllers.Api.GroupsController},Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Identity.UserManager{LactafarmaAPI.Data.Entities.User})">
+            <summary>
+            Groups handler constructor
+            </summary>
+            <param name="lactafarmaService"></param>
+            <param name="mailService"></param>
+            <param name="config"></param>
+            <param name="logger"></param>
+            <param name="cache"></param>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.GroupsController.GetGroupsByName(System.String)">
+            <summary>
+            Get first 3 coincidences on groups collection
+            </summary>
+            <param name="startsWith"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.GroupsController.GetGroupsByProduct(System.Int32)">
+            <summary>
+            Get groups by specified Product in User context
+            </summary>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.GroupsController.GetGroup(System.Int32)">
+            <summary>
+            Get detailed information about group requested
+            </summary>
+            <param name="groupId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LactafarmaAPI.Controllers.Api.LogController">
+            <summary>
+            Logs handler class
+            </summary>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.LogController.#ctor(LactafarmaAPI.Services.Interfaces.ILactafarmaService,LactafarmaAPI.Services.Interfaces.IMailService,Microsoft.Extensions.Configuration.IConfigurationRoot,Microsoft.Extensions.Logging.ILogger{LactafarmaAPI.Controllers.Api.LogController},Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Identity.UserManager{LactafarmaAPI.Data.Entities.User})">
+            <summary>
+            Logs handler constructor
+            </summary>
+            <param name="lactafarmaService"></param>
+            <param name="mailService"></param>
+            <param name="config"></param>
+            <param name="logger"></param>
+            <param name="cache"></param>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.LogController.GetLevels">
+            <summary>
+            Get all different log levels currently available
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.LogController.GetErrorLogs">
+            <summary>
+            Get logs with Error level specified on last 7 days
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.LogController.GetWarnLogs">
+            <summary>
+            Get logs with Warn level specified on last 7 days
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.LogController.GetFatalLogs">
+            <summary>
+            Get logs with Fatal level specified on last 7 days
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.LogController.GetLogs">
+            <summary>
+            Get logs with Any level specified on last 7 days
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LactafarmaAPI.Controllers.Api.ProductsController">
+            <summary>
+            Products handler class
+            </summary>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.ProductsController.#ctor(LactafarmaAPI.Services.Interfaces.ILactafarmaService,LactafarmaAPI.Services.Interfaces.IMailService,Microsoft.Extensions.Configuration.IConfigurationRoot,Microsoft.Extensions.Logging.ILogger{LactafarmaAPI.Controllers.Api.ProductsController},Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Identity.UserManager{LactafarmaAPI.Data.Entities.User})">
+            <summary>
+            Products handler constructor
+            </summary>
+            <param name="lactafarmaService"></param>
+            <param name="mailService"></param>
+            <param name="config"></param>
+            <param name="logger"></param>
+            <param name="cache"></param>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.ProductsController.GetProductsByName(System.String)">
+            <summary>
+            Get first 7 coincidences on Products collection
+            </summary>
+            <param name="startsWith"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.ProductsController.GetProductsByGroup(System.Int32)">
+            <summary>
+            Get list of products by provided group
+            </summary>
+            <param name="groupId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.ProductsController.GetProductsByBrand(System.Int32)">
+            <summary>
+            Get list of products by provided brand
+            </summary>
+            <param name="brandId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.ProductsController.GetAlternativesByProduct(System.Int32)">
+            <summary>
+            Get list of alternatives by provided Product
+            </summary>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.ProductsController.GetProductByAlias(System.Int32)">
+            <summary>
+            Get list of products by provided alias
+            </summary>
+            <param name="aliasId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Api.ProductsController.GetProduct(System.Int32)">
+            <summary>
+            Get detailed information about Product requested
+            </summary>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LactafarmaAPI.Controllers.Web.AccountController">
+            <summary>
+            Account handler constructor
+            </summary>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{LactafarmaAPI.Data.Entities.User},Microsoft.AspNetCore.Identity.SignInManager{LactafarmaAPI.Data.Entities.User},LactafarmaAPI.Services.Interfaces.IMailService,Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+            <summary>
+            Account handler constructor
+            </summary>
+            <param name="userManager"></param>
+            <param name="signInManager"></param>
+            <param name="emailSender"></param>
+            <param name="loggerFactory"></param>
+            <param name="cache"></param>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AccountController.Register">
+            <summary>
+            Registration page load
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AccountController.Register(LactafarmaAPI.ViewModels.RegisterViewModel)">
+            <summary>
+            Start Registration workflow with requested information
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AccountController.ConfirmEmail(System.String,System.String)">
+            <summary>
+            Confirm Email
+            </summary>
+            <param name="userId"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AccountController.ForgotPassword">
+            <summary>
+            Forgot Password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AccountController.ForgotPassword(LactafarmaAPI.ViewModels.ForgotPasswordViewModel)">
+            <summary>
+            Forgot Password
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AccountController.ForgotPasswordConfirmation">
+            <summary>
+            Forgot Password Confirmation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AccountController.ResetPassword(System.String)">
+            <summary>
+            Reset Password
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AccountController.ResetPassword(LactafarmaAPI.ViewModels.ResetPasswordViewModel)">
+            <summary>
+            Reset Password
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AccountController.ResetPasswordConfirmation">
+            <summary>
+            Reset password confirmation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AccountController.SendCode(System.String,System.Boolean)">
+            <summary>
+            Send Code
+            </summary>
+            <param name="returnUrl"></param>
+            <param name="rememberMe"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AccountController.SendCode(LactafarmaAPI.ViewModels.SendCodeViewModel)">
+            <summary>
+            Send Code
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AccountController.VerifyCode(System.String,System.Boolean,System.String)">
+            <summary>
+            Verify Code
+            </summary>
+            <param name="provider"></param>
+            <param name="rememberMe"></param>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AccountController.VerifyCode(LactafarmaAPI.ViewModels.VerifyCodeViewModel)">
+            <summary>
+            Verify code
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LactafarmaAPI.Controllers.Web.AuthController">
+            <summary>
+            Auth handler class
+            </summary>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AuthController.#ctor(Microsoft.AspNetCore.Identity.SignInManager{LactafarmaAPI.Data.Entities.User},Microsoft.Extensions.Logging.ILogger{LactafarmaAPI.Controllers.Web.AuthController},Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Identity.UserManager{LactafarmaAPI.Data.Entities.User})">
+            <summary>
+            Auth handler constructor
+            </summary>
+            <param name="signInManager"></param>
+            <param name="logger"></param>
+            <param name="cache"></param>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AuthController.Login">
+            <summary>
+            Login page load
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AuthController.Login(LactafarmaAPI.ViewModels.LoginViewModel)">
+            <summary>
+            Try to login with information provided by user
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LactafarmaAPI.Controllers.Web.AuthController.Logout">
+            <summary>
+            Try to logout when user was previously loggedin
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LactafarmaAPI.Program">
+            <summary>
+            Program handler class
+            </summary>
+        </member>
+        <member name="M:LactafarmaAPI.Program.Main(System.String[])">
+            <summary>
+            Main handler constructor
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="T:LactafarmaAPI.Startup">
+            <summary>
+            Startup class
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.Startup.Configuration">
+            <summary>
+            IConfiguration (updated from IConfigurationRoot)
+            </summary>
+        </member>
+        <member name="M:LactafarmaAPI.Startup.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Startup constructor
+            </summary>
+            <param name="env"></param>
+        </member>
+        <member name="M:LactafarmaAPI.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:LactafarmaAPI.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+        <member name="T:LactafarmaAPI.ViewModels.ForgotPasswordViewModel">
+            <summary>
+            Forgot Password
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.ForgotPasswordViewModel.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="T:LactafarmaAPI.ViewModels.LoginViewModel">
+            <summary>
+            Login class for users accesing to LactafarmaApi
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.LoginViewModel.UserName">
+            <summary>
+            Login UserName
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.LoginViewModel.Password">
+            <summary>
+            Login Password
+            </summary>
+        </member>
+        <member name="T:LactafarmaAPI.ViewModels.RegisterViewModel">
+            <summary>
+            Register ViewModel
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.RegisterViewModel.Email">
+            <summary>
+            Register Email
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.RegisterViewModel.Password">
+            <summary>
+            Register Password
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.RegisterViewModel.ConfirmPassword">
+            <summary>
+            Register Confirm Password
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.RegisterViewModel.LanguageId">
+            <summary>
+            Register Language property
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.RegisterViewModel.Languages">
+            <summary>
+            List of available languages
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.RegisterViewModel.Error">
+            <summary>
+            List of Errors concatenated
+            </summary>
+        </member>
+        <member name="T:LactafarmaAPI.ViewModels.Language">
+            <summary>
+            Language class
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.Language.Id">
+            <summary>
+            Language identifier
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.Language.Name">
+            <summary>
+            Language Name
+            </summary>
+        </member>
+        <member name="T:LactafarmaAPI.ViewModels.ResetPasswordViewModel">
+            <summary>
+            Reset Password
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.ResetPasswordViewModel.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.ResetPasswordViewModel.Password">
+            <summary>
+            Password
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.ResetPasswordViewModel.ConfirmPassword">
+            <summary>
+            Confirm Password
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.ResetPasswordViewModel.Code">
+            <summary>
+            Code
+            </summary>
+        </member>
+        <member name="T:LactafarmaAPI.ViewModels.SendCodeViewModel">
+            <summary>
+            Send Code
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.SendCodeViewModel.SelectedProvider">
+            <summary>
+            Selected Provider
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.SendCodeViewModel.Providers">
+            <summary>
+            Providers
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.SendCodeViewModel.ReturnUrl">
+            <summary>
+            ReturnUrl
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.SendCodeViewModel.RememberMe">
+            <summary>
+            RememberMe
+            </summary>
+        </member>
+        <member name="T:LactafarmaAPI.ViewModels.VerifyCodeViewModel">
+            <summary>
+            VerifyCode
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.VerifyCodeViewModel.Provider">
+            <summary>
+            Provider
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.VerifyCodeViewModel.Code">
+            <summary>
+            Code
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.VerifyCodeViewModel.ReturnUrl">
+            <summary>
+            ReturnUrl
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.VerifyCodeViewModel.RememberBrowser">
+            <summary>
+            RememberBrowser
+            </summary>
+        </member>
+        <member name="P:LactafarmaAPI.ViewModels.VerifyCodeViewModel.RememberMe">
+            <summary>
+            RememberMe
+            </summary>
+        </member>
+    </members>
+</doc>

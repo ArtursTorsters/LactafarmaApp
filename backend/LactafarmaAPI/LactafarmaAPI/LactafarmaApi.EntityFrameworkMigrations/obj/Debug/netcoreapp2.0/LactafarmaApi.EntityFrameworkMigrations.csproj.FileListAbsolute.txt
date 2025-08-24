@@ -1,0 +1,15 @@
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/bin/Debug/netcoreapp2.0/config.json
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/bin/Debug/netcoreapp2.0/LactafarmaApi.EntityFrameworkMigrations.deps.json
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/bin/Debug/netcoreapp2.0/LactafarmaApi.EntityFrameworkMigrations.runtimeconfig.json
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/bin/Debug/netcoreapp2.0/LactafarmaApi.EntityFrameworkMigrations.runtimeconfig.dev.json
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/bin/Debug/netcoreapp2.0/LactafarmaApi.EntityFrameworkMigrations.dll
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/bin/Debug/netcoreapp2.0/LactafarmaApi.EntityFrameworkMigrations.pdb
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/obj/Debug/netcoreapp2.0/LactafarmaApi.EntityFrameworkMigrations.csproj.AssemblyReference.cache
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/obj/Debug/netcoreapp2.0/LactafarmaApi.EntityFrameworkMigrations.GeneratedMSBuildEditorConfig.editorconfig
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/obj/Debug/netcoreapp2.0/LactafarmaApi.EntityFrameworkMigrations.AssemblyInfoInputs.cache
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/obj/Debug/netcoreapp2.0/LactafarmaApi.EntityFrameworkMigrations.AssemblyInfo.cs
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/obj/Debug/netcoreapp2.0/LactafarmaApi.EntityFrameworkMigrations.csproj.CoreCompileInputs.cache
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/obj/Debug/netcoreapp2.0/LactafarmaApi.EntityFrameworkMigrations.sourcelink.json
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/obj/Debug/netcoreapp2.0/LactafarmaApi.EntityFrameworkMigrations.dll
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/obj/Debug/netcoreapp2.0/LactafarmaApi.EntityFrameworkMigrations.pdb
+/Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/obj/Debug/netcoreapp2.0/LactafarmaApi.EntityFrameworkMigrations.genruntimeconfig.cache

@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = LactafarmaApi.EntityFrameworkMigrations
+build_property.ProjectDir = /Users/arturs/Desktop/code/LactafarmaApp/lactafarma/LactafarmaAPI/LactafarmaAPI/LactafarmaApi.EntityFrameworkMigrations/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
