@@ -1,24 +1,19 @@
-# Add these lines to your main .gitignore file
-cat >> .gitignore << 'EOF'
+
 
 # .NET Build Artifacts
-**/bin/
-**/obj/
-**/*.user
-**/*.suo
-**/*.userosscache
-**/*.sln.docstates
-**/packages/
-**/.vs/
-**/appsettings.Development.json
-**/.vscode/
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+packages/
+.vs/
 
 # NuGet
-**/project.assets.json
-**/project.nuget.cache
-**/nuget.exe
+project.assets.json
+project.nuget.cache
 
 # Logs
-**/logs/
-**/*.log
-EOF
+logs/
+*.log
