@@ -1,8 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <AssemblyName>LactafarmaAPI.Domain</AssemblyName>
-    <PackageId>LactafarmaAPI.Domain</PackageId>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-  </PropertyGroup>
-</Project>
