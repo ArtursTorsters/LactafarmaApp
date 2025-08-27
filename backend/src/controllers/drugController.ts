@@ -1,4 +1,3 @@
-// src/controllers/drugController.ts
 import { Request, Response } from 'express';
 import { ELactanciaScraper } from '../scraper/ELactanciaScraper';
 
@@ -16,47 +15,15 @@ export class DrugController {
     this.scraper = new ELactanciaScraper();
     this.cache = new Map();
     this.CACHE_TTL = 1000 * 60 * 60; // 1 hour cache
-
-    console.log('🎮 DrugController initialized');
   }
 
-  private getCacheKey(type: string, query: string): string {
-    return `${type}:${query.toLowerCase().trim()}`;
-  }
-
-  private getCachedData(cacheKey: string): any | null {
-    const cached = this.cache.get(cacheKey);
-
-    if (cached && Date.now() - cached.timestamp < this.CACHE_TTL) {
-      console.log(`💾 Cache HIT for: ${cacheKey}`);
-      return cached.data;
-    }
-
-    if (cached) {
-      console.log(`🗑️ Cache EXPIRED for: ${cacheKey}`);
-      this.cache.delete(cacheKey);
-    }
-
-    console.log(`❌ Cache MISS for: ${cacheKey}`);
-    return null;
-  }
-
-  private setCachedData(cacheKey: string, data: any): void {
-    this.cache.set(cacheKey, {
-      data,
-      timestamp: Date.now()
-    });
-    console.log(`💾 Cached data for: ${cacheKey}`);
-  }
-
-  // GET /api/drugs/search/:query
+  // Search for drug suggestions
   public async searchDrugs(req: Request, res: Response): Promise<void> {
     const startTime = Date.now();
 
     try {
       const { query } = req.params;
 
-      // Validation
       if (!query || typeof query !== 'string') {
         res.status(400).json({
           success: false,
@@ -84,9 +51,6 @@ export class DrugController {
         return;
       }
 
-      console.log(`🔍 Search request: "${query}" from ${req.ip}`);
-
-      // Check cache first
       const cacheKey = this.getCacheKey('search', query);
       const cachedResult = this.getCachedData(cacheKey);
 
@@ -103,10 +67,7 @@ export class DrugController {
         return;
       }
 
-      // Perform actual search
       const suggestions = await this.scraper.searchDrugs(query);
-
-      // Cache the results
       this.setCachedData(cacheKey, suggestions);
 
       const responseTime = Date.now() - startTime;
@@ -120,30 +81,27 @@ export class DrugController {
         responseTime: `${responseTime}ms`
       });
 
-      console.log(`✅ Search completed: ${suggestions.length} results in ${responseTime}ms`);
-
     } catch (error) {
       const responseTime = Date.now() - startTime;
-      console.error('❌ Search error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
 
       res.status(500).json({
         success: false,
         error: 'Search operation failed',
-        message: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error',
+        message: process.env.NODE_ENV === 'development' ? errorMessage : 'Internal server error',
         code: 'SEARCH_FAILED',
         responseTime: `${responseTime}ms`
       });
     }
   }
 
-  // GET /api/drugs/details/:name
+  // Get detailed information about a drug
   public async getDrugDetails(req: Request, res: Response): Promise<void> {
     const startTime = Date.now();
 
     try {
       const { name } = req.params;
 
-      // Validation
       if (!name || typeof name !== 'string') {
         res.status(400).json({
           success: false,
@@ -162,9 +120,6 @@ export class DrugController {
         return;
       }
 
-      console.log(`📋 Details request: "${name}" from ${req.ip}`);
-
-      // Check cache first
       const cacheKey = this.getCacheKey('details', name);
       const cachedResult = this.getCachedData(cacheKey);
 
@@ -180,7 +135,6 @@ export class DrugController {
         return;
       }
 
-      // Get drug details
       const details = await this.scraper.getDrugDetails(name);
 
       if (!details) {
@@ -195,7 +149,6 @@ export class DrugController {
         return;
       }
 
-      // Cache the results
       this.setCachedData(cacheKey, details);
 
       const responseTime = Date.now() - startTime;
@@ -208,30 +161,27 @@ export class DrugController {
         responseTime: `${responseTime}ms`
       });
 
-      console.log(`✅ Details completed for "${details.name}" in ${responseTime}ms`);
-
     } catch (error) {
       const responseTime = Date.now() - startTime;
-      console.error('❌ Details error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
 
       res.status(500).json({
         success: false,
         error: 'Failed to retrieve drug details',
-        message: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error',
+        message: process.env.NODE_ENV === 'development' ? errorMessage : 'Internal server error',
         code: 'DETAILS_FAILED',
         responseTime: `${responseTime}ms`
       });
     }
   }
 
-  // POST /api/drugs/batch-search
+  // Search multiple drugs in a batch
   public async batchSearch(req: Request, res: Response): Promise<void> {
     const startTime = Date.now();
 
     try {
       const { queries } = req.body;
 
-      // Validation
       if (!Array.isArray(queries)) {
         res.status(400).json({
           success: false,
@@ -259,7 +209,6 @@ export class DrugController {
         return;
       }
 
-      // Validate each query
       const invalidQueries = queries.filter(q =>
         !q || typeof q !== 'string' || q.length < 2
       );
@@ -273,9 +222,6 @@ export class DrugController {
         return;
       }
 
-      console.log(`📦 Batch search request: ${queries.length} queries from ${req.ip}`);
-
-      // Perform batch search
       const results = await this.scraper.searchMultipleDrugs(queries);
 
       const responseTime = Date.now() - startTime;
@@ -290,23 +236,21 @@ export class DrugController {
         responseTime: `${responseTime}ms`
       });
 
-      console.log(`✅ Batch search completed: ${totalResults} total results in ${responseTime}ms`);
-
     } catch (error) {
       const responseTime = Date.now() - startTime;
-      console.error('❌ Batch search error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
 
       res.status(500).json({
         success: false,
         error: 'Batch search operation failed',
-        message: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error',
+        message: process.env.NODE_ENV === 'development' ? errorMessage : 'Internal server error',
         code: 'BATCH_SEARCH_FAILED',
         responseTime: `${responseTime}ms`
       });
     }
   }
 
-  // GET /api/drugs/health
+  // Health check for the scraper service
   public async healthCheck(req: Request, res: Response): Promise<void> {
     try {
       const isHealthy = await this.scraper.isHealthy();
@@ -325,25 +269,49 @@ export class DrugController {
       });
 
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+
       res.status(500).json({
         success: false,
         status: 'error',
-        error: error.message,
+        error: errorMessage,
         timestamp: new Date().toISOString()
       });
     }
   }
 
-  // Cleanup method
+  // Clean up resources
   public async cleanup(): Promise<void> {
-    console.log('🧹 Cleaning up DrugController...');
-
     try {
       await this.scraper.close();
       this.cache.clear();
-      console.log('✅ Cleanup completed');
     } catch (error) {
-      console.error('❌ Cleanup error:', error);
+      // Silent cleanup
     }
+  }
+
+  private getCacheKey(type: string, query: string): string {
+    return `${type}:${query.toLowerCase().trim()}`;
+  }
+
+  private getCachedData(cacheKey: string): any | null {
+    const cached = this.cache.get(cacheKey);
+
+    if (cached && Date.now() - cached.timestamp < this.CACHE_TTL) {
+      return cached.data;
+    }
+
+    if (cached) {
+      this.cache.delete(cacheKey);
+    }
+
+    return null;
+  }
+
+  private setCachedData(cacheKey: string, data: any): void {
+    this.cache.set(cacheKey, {
+      data,
+      timestamp: Date.now()
+    });
   }
 }
