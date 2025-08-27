@@ -11,13 +11,19 @@
   "dependencies": {
     "@react-native-community/netinfo": "^6.0.6",
     "axios": "^1.11.0",
+    "cors": "^2.8.5",
     "expo": "~53.0.20",
     "expo-status-bar": "~2.2.3",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "puppeteer": "^24.17.0",
     "react": "19.0.0",
     "react-native": "0.79.5"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@types/express": "^5.0.3",
+    "@types/puppeteer": "^5.4.7",
     "@types/react": "~19.0.10",
     "@types/react-native-sqlite-storage": "^6.0.5",
     "typescript": "~5.8.3"

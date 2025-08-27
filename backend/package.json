@@ -1,0 +1,41 @@
+# package.json
+{
+  "name": "drug-scraper-backend",
+  "version": "1.0.0",
+  "description": "Backend API for scraping drug information from e-lactancia.org",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "nodemon --exec ts-node src/server.ts",
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "lint": "eslint src/**/*.ts",
+    "test": "echo \"No tests specified\" && exit 0",
+    "postinstall": "npm run build"
+  },
+  "keywords": ["drug", "scraper", "e-lactancia", "api", "puppeteer"],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "puppeteer": "^21.5.0",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.9.0",
+    "@types/cors": "^2.8.17",
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.1",
+    "nodemon": "^3.0.1",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.54.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}
