@@ -1,388 +1,167 @@
-// // DrugSearchService.ts - React Native service
-// export interface DrugSuggestion {
-//   name: string;
-//   url?: string;
-//   category?: string;
-// }
+// src/services/DrugSearchService.ts
+import Constants from 'expo-constants';
 
-// export interface DrugDetails {
-//   name: string;
-//   riskLevel?: string;
-//   riskDescription?: string;
-//   alternatives?: string[];
-//   lastUpdate?: string;
-//   description?: string;
-// }
+export interface DrugSuggestion {
+  name: string;
+  url?: string;
+  category?: string;
+}
 
-// export class DrugSearchService {
-//   private baseURL: string;
+export interface DrugDetails {
+  name: string;
+  riskLevel?: string;
+  riskDescription?: string;
+  alternatives?: string[];
+  lastUpdate?: string;
+  description?: string;
+}
 
-//   constructor(baseURL: string = 'https://your-backend-server.com') {
-//     this.baseURL = baseURL;
-//   }
+export interface SearchResponse {
+  success: boolean;
+  query: string;
+  suggestions: DrugSuggestion[];
+  count: number;
+  cached?: boolean;
+  responseTime?: string;
+}
 
-//   async searchDrugs(query: string): Promise<DrugSuggestion[]> {
-//     try {
-//       const response = await fetch(`${this.baseURL}/api/drugs/search/${encodeURIComponent(query)}`, {
-//         method: 'GET',
-//         headers: {
-//           'Accept': 'application/json',
-//           'Content-Type': 'application/json',
-//         },
-//         timeout: 15000, // 15 second timeout
-//       });
+export interface DetailsResponse {
+  success: boolean;
+  drugName: string;
+  details: DrugDetails;
+  cached?: boolean;
+  responseTime?: string;
+}
 
-//       if (!response.ok) {
-//         throw new Error(`HTTP error! status: ${response.status}`);
-//       }
+export class DrugSearchService {
+  private baseURL: string;
+  private timeout: number;
 
-//       const data = await response.json();
+  constructor(baseURL?: string) {
+    // Use your local IP address
+    this.baseURL = baseURL ||
+      Constants.expoConfig?.extra?.API_BASE_URL ||
+      (__DEV__
+        ? 'http://192.168.8.38:3000' // Your IP
+        : 'https://your-production-backend.com');
+    this.timeout = 15000; // 15 seconds
+  }
 
-//       if (data.success) {
-//         return data.suggestions;
-//       } else {
-//         throw new Error(data.error || 'Search failed');
-//       }
-//     } catch (error) {
-//       console.error('Drug search failed:', error);
-//       throw error;
-//     }
-//   }
+  private async makeRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), this.timeout);
 
-//   async getDrugDetails(drugName: string): Promise<DrugDetails | null> {
-//     try {
-//       const response = await fetch(`${this.baseURL}/api/drugs/details/${encodeURIComponent(drugName)}`, {
-//         method: 'GET',
-//         headers: {
-//           'Accept': 'application/json',
-//           'Content-Type': 'application/json',
-//         },
-//         timeout: 20000, // 20 second timeout for details
-//       });
+    try {
+      const response = await fetch(`${this.baseURL}${endpoint}`, {
+        ...options,
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          ...options.headers,
+        },
+        signal: controller.signal,
+      });
 
-//       if (!response.ok) {
-//         if (response.status === 404) {
-//           return null; // Drug not found
-//         }
-//         throw new Error(`HTTP error! status: ${response.status}`);
-//       }
+      clearTimeout(timeoutId);
 
-//       const data = await response.json();
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || `HTTP ${response.status}: ${response.statusText}`);
+      }
 
-//       if (data.success) {
-//         return data.details;
-//       } else {
-//         throw new Error(data.error || 'Failed to get drug details');
-//       }
-//     } catch (error) {
-//       console.error('Get drug details failed:', error);
-//       throw error;
-//     }
-//   }
-// }
+      return await response.json();
+    } catch (error) {
+      clearTimeout(timeoutId);
+      if (error.name === 'AbortError') {
+        throw new Error('Request timeout');
+      }
+      throw error;
+    }
+  }
 
-// // React Native Component Example
-// import React, { useState, useEffect, useMemo } from 'react';
-// import {
-//   View,
-//   Text,
-//   TextInput,
-//   FlatList,
-//   TouchableOpacity,
-//   StyleSheet,
-//   ActivityIndicator,
-//   Alert,
-// } from 'react-native';
+  // Search for drug suggestions
+  async searchDrugs(query: string): Promise<DrugSuggestion[]> {
+    if (!query || query.length < 2) {
+      return [];
+    }
 
-// const DrugSearchComponent: React.FC = () => {
-//   const [searchQuery, setSearchQuery] = useState('');
-//   const [suggestions, setSuggestions] = useState<DrugSuggestion[]>([]);
-//   const [selectedDrug, setSelectedDrug] = useState<DrugDetails | null>(null);
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [isLoadingDetails, setIsLoadingDetails] = useState(false);
+    try {
+      const response = await this.makeRequest<SearchResponse>(
+        `/api/drugs/search/${encodeURIComponent(query)}`
+      );
 
-//   const drugService = useMemo(() => new DrugSearchService(), []);
+      return response.suggestions;
+    } catch (error) {
+      console.error('Drug search failed:', error);
+      throw new Error(`Search failed: ${error.message}`);
+    }
+  }
 
-//   // Debounced search function
-//   useEffect(() => {
-//     const delayedSearch = setTimeout(async () => {
-//       if (searchQuery.trim().length >= 2) {
-//         await handleSearch(searchQuery.trim());
-//       } else {
-//         setSuggestions([]);
-//       }
-//     }, 500); // 500ms delay
+  // Get detailed drug information
+  async getDrugDetails(drugName: string): Promise<DrugDetails | null> {
+    if (!drugName) {
+      throw new Error('Drug name is required');
+    }
 
-//     return () => clearTimeout(delayedSearch);
-//   }, [searchQuery]);
+    try {
+      const response = await this.makeRequest<DetailsResponse>(
+        `/api/drugs/details/${encodeURIComponent(drugName)}`
+      );
 
-//   const handleSearch = async (query: string) => {
-//     setIsLoading(true);
-//     try {
-//       const results = await drugService.searchDrugs(query);
-//       setSuggestions(results);
-//     } catch (error) {
-//       console.error('Search error:', error);
-//       Alert.alert('Search Error', 'Failed to search for drugs. Please try again.');
-//       setSuggestions([]);
-//     } finally {
-//       setIsLoading(false);
-//     }
-//   };
+      return response.details;
+    } catch (error) {
+      if (error.message.includes('404')) {
+        return null; // Drug not found
+      }
+      console.error('Get drug details failed:', error);
+      throw new Error(`Failed to get details: ${error.message}`);
+    }
+  }
 
-//   const handleSelectDrug = async (suggestion: DrugSuggestion) => {
-//     setIsLoadingDetails(true);
-//     setSelectedDrug(null);
+  // Search multiple drugs at once
+  async batchSearch(queries: string[]): Promise<{ [key: string]: DrugSuggestion[] }> {
+    if (!Array.isArray(queries) || queries.length === 0) {
+      return {};
+    }
 
-//     try {
-//       const details = await drugService.getDrugDetails(suggestion.name);
-//       setSelectedDrug(details);
-//     } catch (error) {
-//       console.error('Details error:', error);
-//       Alert.alert('Error', 'Failed to get drug details. Please try again.');
-//     } finally {
-//       setIsLoadingDetails(false);
-//     }
-//   };
+    if (queries.length > 10) {
+      throw new Error('Maximum 10 queries allowed per batch');
+    }
 
-//   const renderSuggestion = ({ item }: { item: DrugSuggestion }) => (
-//     <TouchableOpacity
-//       style={styles.suggestionItem}
-//       onPress={() => handleSelectDrug(item)}
-//     >
-//       <Text style={styles.suggestionText}>{item.name}</Text>
-//       {item.category && (
-//         <Text style={styles.categoryText}>{item.category}</Text>
-//       )}
-//     </TouchableOpacity>
-//   );
+    try {
+      const response = await this.makeRequest<{
+        success: boolean;
+        results: { [key: string]: DrugSuggestion[] };
+      }>('/api/drugs/batch-search', {
+        method: 'POST',
+        body: JSON.stringify({ queries }),
+      });
 
-//   const renderDrugDetails = () => {
-//     if (isLoadingDetails) {
-//       return (
-//         <View style={styles.loadingContainer}>
-//           <ActivityIndicator size="large" color="#0066cc" />
-//           <Text>Loading drug details...</Text>
-//         </View>
-//       );
-//     }
+      return response.results;
+    } catch (error) {
+      console.error('Batch search failed:', error);
+      throw new Error(`Batch search failed: ${error.message}`);
+    }
+  }
 
-//     if (!selectedDrug) return null;
+  // Health check method
+  async checkHealth(): Promise<boolean> {
+    try {
+      await this.makeRequest('/health');
+      return true;
+    } catch {
+      return false;
+    }
+  }
 
-//     return (
-//       <View style={styles.detailsContainer}>
-//         <Text style={styles.drugName}>{selectedDrug.name}</Text>
+  // Update base URL (useful for switching environments)
+  updateBaseURL(newBaseURL: string) {
+    this.baseURL = newBaseURL;
+  }
+}
 
-//         {selectedDrug.riskLevel && (
-//           <View style={styles.riskContainer}>
-//             <Text style={styles.riskLabel}>Risk Level:</Text>
-//             <Text style={[styles.riskLevel, getRiskLevelStyle(selectedDrug.riskLevel)]}>
-//               {selectedDrug.riskLevel}
-//             </Text>
-//           </View>
-//         )}
+// Singleton instance
+export const drugSearchService = new DrugSearchService();
 
-//         {selectedDrug.description && (
-//           <View style={styles.section}>
-//             <Text style={styles.sectionTitle}>Description:</Text>
-//             <Text style={styles.description}>{selectedDrug.description}</Text>
-//           </View>
-//         )}
-
-//         {selectedDrug.alternatives && selectedDrug.alternatives.length > 0 && (
-//           <View style={styles.section}>
-//             <Text style={styles.sectionTitle}>Alternatives:</Text>
-//             {selectedDrug.alternatives.map((alt, index) => (
-//               <Text key={index} style={styles.alternative}>• {alt}</Text>
-//             ))}
-//           </View>
-//         )}
-
-//         {selectedDrug.lastUpdate && (
-//           <Text style={styles.lastUpdate}>Last updated: {selectedDrug.lastUpdate}</Text>
-//         )}
-//       </View>
-//     );
-//   };
-
-//   const getRiskLevelStyle = (riskLevel: string) => {
-//     const level = riskLevel.toLowerCase();
-//     if (level.includes('safe') || level.includes('green')) return styles.riskSafe;
-//     if (level.includes('caution') || level.includes('yellow')) return styles.riskCaution;
-//     if (level.includes('danger') || level.includes('red')) return styles.riskDanger;
-//     return styles.riskUnknown;
-//   };
-
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.title}>Drug Safety Search</Text>
-
-//       <TextInput
-//         style={styles.searchInput}
-//         placeholder="Type drug name (e.g., aspirin, ibuprofen)"
-//         value={searchQuery}
-//         onChangeText={setSearchQuery}
-//         autoCapitalize="none"
-//         autoCorrect={false}
-//       />
-
-//       {isLoading && (
-//         <View style={styles.loadingContainer}>
-//           <ActivityIndicator size="small" color="#0066cc" />
-//           <Text>Searching...</Text>
-//         </View>
-//       )}
-
-//       {suggestions.length > 0 && (
-//         <View style={styles.suggestionsContainer}>
-//           <Text style={styles.suggestionsTitle}>Suggestions:</Text>
-//           <FlatList
-//             data={suggestions}
-//             keyExtractor={(item, index) => `${item.name}-${index}`}
-//             renderItem={renderSuggestion}
-//             style={styles.suggestionsList}
-//             keyboardShouldPersistTaps="handled"
-//           />
-//         </View>
-//       )}
-
-//       {renderDrugDetails()}
-//     </View>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     padding: 16,
-//     backgroundColor: '#f5f5f5',
-//   },
-//   title: {
-//     fontSize: 24,
-//     fontWeight: 'bold',
-//     textAlign: 'center',
-//     marginBottom: 20,
-//     color: '#333',
-//   },
-//   searchInput: {
-//     backgroundColor: 'white',
-//     padding: 12,
-//     borderRadius: 8,
-//     fontSize: 16,
-//     borderWidth: 1,
-//     borderColor: '#ddd',
-//     marginBottom: 10,
-//   },
-//   loadingContainer: {
-//     flexDirection: 'row',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     padding: 10,
-//   },
-//   suggestionsContainer: {
-//     backgroundColor: 'white',
-//     borderRadius: 8,
-//     padding: 10,
-//     marginBottom: 20,
-//     maxHeight: 200,
-//   },
-//   suggestionsTitle: {
-//     fontSize: 16,
-//     fontWeight: 'bold',
-//     marginBottom: 10,
-//     color: '#333',
-//   },
-//   suggestionsList: {
-//     flexGrow: 0,
-//   },
-//   suggestionItem: {
-//     padding: 10,
-//     borderBottomWidth: 1,
-//     borderBottomColor: '#eee',
-//   },
-//   suggestionText: {
-//     fontSize: 16,
-//     color: '#333',
-//   },
-//   categoryText: {
-//     fontSize: 12,
-//     color: '#666',
-//     fontStyle: 'italic',
-//   },
-//   detailsContainer: {
-//     backgroundColor: 'white',
-//     borderRadius: 8,
-//     padding: 16,
-//     marginTop: 10,
-//   },
-//   drugName: {
-//     fontSize: 20,
-//     fontWeight: 'bold',
-//     marginBottom: 15,
-//     color: '#333',
-//     textAlign: 'center',
-//   },
-//   riskContainer: {
-//     flexDirection: 'row',
-//     alignItems: 'center',
-//     marginBottom: 15,
-//     justifyContent: 'center',
-//   },
-//   riskLabel: {
-//     fontSize: 16,
-//     fontWeight: 'bold',
-//     marginRight: 10,
-//     color: '#333',
-//   },
-//   riskLevel: {
-//     fontSize: 16,
-//     fontWeight: 'bold',
-//     paddingHorizontal: 10,
-//     paddingVertical: 4,
-//     borderRadius: 4,
-//   },
-//   riskSafe: {
-//     backgroundColor: '#4CAF50',
-//     color: 'white',
-//   },
-//   riskCaution: {
-//     backgroundColor: '#FF9800',
-//     color: 'white',
-//   },
-//   riskDanger: {
-//     backgroundColor: '#F44336',
-//     color: 'white',
-//   },
-//   riskUnknown: {
-//     backgroundColor: '#9E9E9E',
-//     color: 'white',
-//   },
-//   section: {
-//     marginBottom: 15,
-//   },
-//   sectionTitle: {
-//     fontSize: 16,
-//     fontWeight: 'bold',
-//     marginBottom: 5,
-//     color: '#333',
-//   },
-//   description: {
-//     fontSize: 14,
-//     color: '#666',
-//     lineHeight: 20,
-//   },
-//   alternative: {
-//     fontSize: 14,
-//     color: '#666',
-//     marginBottom: 2,
-//   },
-//   lastUpdate: {
-//     fontSize: 12,
-//     color: '#999',
-//     fontStyle: 'italic',
-//     textAlign: 'center',
-//     marginTop: 10,
-//   },
-// });
-
-// export default DrugSearchComponent;
+// Default export
+export default drugSearchService;

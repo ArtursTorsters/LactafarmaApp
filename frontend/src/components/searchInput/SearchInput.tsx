@@ -1,140 +1,122 @@
+// src/components/DrugSearchComponent.tsx
+
 import React, { useState } from 'react';
 import {
   View,
   TextInput,
-  TouchableOpacity,
+  Text,
+  FlatList,
   StyleSheet,
-  ActivityIndicator
+  TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { colors, typography, spacing } from '../../styles/styles';
+import drugSearchService, { DrugSuggestion } from '../../services/DrugSearchService';
 
-interface SearchInputProps {
-  placeholder?: string;
-  onSearch: (query: string) => void;
-  loading?: boolean;
-  value?: string;
-  onChangeText?: (text: string) => void;
-}
+export const DrugSearchComponent = () => {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState<DrugSuggestion[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-export const SearchInput: React.FC<SearchInputProps> = ({
-  placeholder = "Search medications...",
-  onSearch,
-  loading = false,
-  value: controlledValue,
-  onChangeText,
-}) => {
-  const [internalValue, setInternalValue] = useState('');
-  const value = controlledValue !== undefined ? controlledValue : internalValue;
+  const handleSearch = async (text: string) => {
+    setQuery(text);
+    setError(null);
 
-  const handleChangeText = (text: string) => {
-    if (onChangeText) {
-      onChangeText(text);
-    } else {
-      setInternalValue(text);
+    if (text.length < 2) {
+      setResults([]);
+      return;
     }
-  };
 
-  const handleSearch = () => {
-    if (value.trim()) {
-      onSearch(value.trim());
+    setLoading(true);
+    try {
+      const suggestions = await drugSearchService.searchDrugs(text);
+      setResults(suggestions);
+    } catch (err: any) {
+      setError(err?.message || 'Search failed');
+    } finally {
+      setLoading(false);
     }
-  };
-
-  const handleClear = () => {
-    handleChangeText('');
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <Ionicons
-          name="search"
-          size={20}
-          color={colors.gray400}
-          style={styles.searchIcon}
-        />
+      <Text style={styles.label}>Search for a drug:</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Type at least 2 letters..."
+        value={query}
+        onChangeText={handleSearch}
+      />
 
-        <TextInput
-          style={styles.input}
-          placeholder={placeholder}
-          placeholderTextColor={colors.gray400}
-          value={value}
-          onChangeText={handleChangeText}
-          onSubmitEditing={handleSearch}
-          returnKeyType="search"
-          autoCorrect={false}
-          autoCapitalize="none"
-          accessibilityLabel="Search for medications"
-          accessibilityHint="Enter medication name to search"
-        />
+      {loading && <ActivityIndicator style={{ marginTop: 10 }} size="small" color="#007AFF" />}
 
-        {value.length > 0 && (
-          <TouchableOpacity
-            onPress={handleClear}
-            style={styles.clearButton}
-            accessibilityLabel="Clear search"
-            accessibilityRole="button"
-          >
-            <Ionicons name="close-circle" size={20} color={colors.gray400} />
+      {error && <Text style={styles.error}>{error}</Text>}
+
+      <FlatList
+        data={results}
+        keyExtractor={(item, index) => `${item.name}-${index}`}
+        renderItem={({ item }) => (
+          <TouchableOpacity style={styles.resultItem}>
+            <Text style={styles.resultText}>{item.name}</Text>
+            {item.category && <Text style={styles.category}>{item.category}</Text>}
           </TouchableOpacity>
         )}
-
-        <TouchableOpacity
-          onPress={handleSearch}
-          style={styles.searchButton}
-          disabled={loading || !value.trim()}
-          accessibilityLabel="Search"
-          accessibilityRole="button"
-        >
-          {loading ? (
-            <ActivityIndicator size="small" color={colors.white} />
-          ) : (
-            <Ionicons name="search" size={20} color={colors.white} />
-          )}
-        </TouchableOpacity>
-      </View>
+        ListEmptyComponent={
+          !loading && query.length >= 2 ? (
+            <Text style={styles.noResults}>No results found</Text>
+          ) : null
+        }
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: spacing.md,
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.white,
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: colors.gray200,
-    paddingHorizontal: spacing.md,
-    shadowColor: colors.black,
-    shadowOffset: { width: 0, height: 2 },
+    margin: 20,
+    padding: 15,
+    backgroundColor: '#ffffff',
+    borderRadius: 8,
+    shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
   },
-  searchIcon: {
-    marginRight: spacing.sm,
+  label: {
+    fontSize: 16,
+    marginBottom: 8,
+    fontWeight: '600',
+    color: '#333',
   },
   input: {
-    flex: 1,
-    fontSize: typography.fontSizes.base,
-    color: colors.gray800,
-    paddingVertical: spacing.md,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 6,
+    padding: 10,
+    fontSize: 16,
+    backgroundColor: '#fafafa',
   },
-  clearButton: {
-    padding: spacing.xs,
-    marginRight: spacing.sm,
+  error: {
+    color: 'red',
+    marginTop: 8,
   },
-  searchButton: {
-    backgroundColor: colors.primary,
-    borderRadius: 8,
-    padding: spacing.sm,
-    justifyContent: 'center',
-    alignItems: 'center',
-    minWidth: 40,
+  resultItem: {
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  resultText: {
+    fontSize: 16,
+    color: '#333',
+  },
+  category: {
+    fontSize: 12,
+    color: '#666',
+  },
+  noResults: {
+    marginTop: 10,
+    fontSize: 14,
+    color: '#999',
+    textAlign: 'center',
   },
 });

@@ -112,7 +112,6 @@ app.use((error: any, req: Request, res: Response, next: NextFunction) => {
 
 // Start server
 const server = app.listen(PORT, () => {
-  console.log(`Drug Scraper API running on port ${PORT}`);
 });
 
 // Graceful shutdown
