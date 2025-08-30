@@ -24,23 +24,8 @@ export const MedicalDisclaimer: React.FC<MedicalDisclaimerProps> = ({ style }) =
         Always consult your doctor before making medication decisions during breastfeeding.
       </Text>
 
-      <View style={styles.attribution}>
-        <Text style={styles.attributionTitle}>Data Sources:</Text>
-        <Text style={styles.attributionText}>
-          • Medical data from e-lactancia.org (CC BY-NC-SA 4.0)
-        </Text>
-        <Text style={styles.attributionText}>
-          • API by gomnet/LactafarmaApi
-        </Text>
-        <Text
-          style={[styles.attributionText, styles.link]}
-          onPress={openELactancia}
-          accessibilityRole="button"
-          accessibilityLabel="Visit e-lactancia.org website"
-        >
-          → Visit e-lactancia.org
-        </Text>
-      </View>
+
+
     </View>
   );
 };

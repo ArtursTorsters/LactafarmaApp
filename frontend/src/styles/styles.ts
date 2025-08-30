@@ -1,3 +1,6 @@
+
+import { StyleSheet } from 'react-native';
+
 export const colors = {
   // Primary colors
   primary: '#2E86AB',
@@ -43,7 +46,6 @@ export const colors = {
   },
 } as const;
 
-
 export const spacing = {
   xs: 4,
   sm: 8,
@@ -77,3 +79,274 @@ export const typography = {
     relaxed: 1.75,
   },
 } as const;
+
+// Global StyleSheet for reuse across components
+export const globalStyles = StyleSheet.create({
+  // Container styles
+  medicalContainer: {
+    flex: 1,
+    backgroundColor: colors.medical.background,
+  },
+
+  safeArea: {
+    flex: 1,
+    backgroundColor: colors.medical.background,
+  },
+
+  contentContainer: {
+    flex: 1,
+    padding: spacing.md,
+  },
+
+  centeredContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.medical.background,
+  },
+
+  // Card styles
+  card: {
+    backgroundColor: colors.medical.card,
+    borderRadius: 12,
+    padding: spacing.lg,
+    marginBottom: spacing.md,
+    shadowColor: colors.black,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    borderWidth: 1,
+    borderColor: colors.medical.border,
+  },
+
+  cardHeader: {
+    borderBottomWidth: 1,
+    borderBottomColor: colors.medical.border,
+    paddingBottom: spacing.md,
+    marginBottom: spacing.md,
+  },
+
+  // Text styles
+  title: {
+    fontSize: typography.fontSizes['2xl'],
+    fontWeight: typography.fontWeights.bold,
+    color: colors.medical.text,
+    marginBottom: spacing.md,
+  },
+
+  subtitle: {
+    fontSize: typography.fontSizes.lg,
+    fontWeight: typography.fontWeights.semibold,
+    color: colors.medical.text,
+    marginBottom: spacing.sm,
+  },
+
+  bodyText: {
+    fontSize: typography.fontSizes.base,
+    color: colors.medical.text,
+    lineHeight: typography.fontSizes.base * typography.lineHeights.normal,
+  },
+    link: {
+  fontSize: typography.fontSizes.base,
+    color: colors.medical.accent,
+    lineHeight: typography.fontSizes.base * typography.lineHeights.normal,
+    },
+  lightText: {
+    fontSize: typography.fontSizes.base,
+    color: colors.medical.textLight,
+    lineHeight: typography.fontSizes.base * typography.lineHeights.normal,
+  },
+
+  captionText: {
+    fontSize: typography.fontSizes.sm,
+    color: colors.medical.textLight,
+    lineHeight: typography.fontSizes.sm * typography.lineHeights.normal,
+  },
+
+  // Button styles
+  primaryButton: {
+    backgroundColor: colors.primary,
+    borderRadius: 8,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: colors.black,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
+  },
+
+  primaryButtonText: {
+    color: colors.white,
+    fontSize: typography.fontSizes.base,
+    fontWeight: typography.fontWeights.semibold,
+  },
+
+  secondaryButton: {
+    backgroundColor: colors.medical.card,
+    borderWidth: 2,
+    borderColor: colors.primary,
+    borderRadius: 8,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  secondaryButtonText: {
+    color: colors.primary,
+    fontSize: typography.fontSizes.base,
+    fontWeight: typography.fontWeights.semibold,
+  },
+
+  // Input styles
+  inputContainer: {
+    backgroundColor: colors.medical.card,
+    borderRadius: 8,
+    borderWidth: 2,
+    borderColor: colors.medical.border,
+    paddingHorizontal: spacing.md,
+    marginBottom: spacing.md,
+  },
+
+  input: {
+    fontSize: typography.fontSizes.base,
+    color: colors.medical.text,
+    paddingVertical: spacing.md,
+  },
+
+  inputFocused: {
+    borderColor: colors.medical.accent,
+  },
+
+  // Risk level badges
+  riskBadgeVeryLow: {
+    backgroundColor: colors.riskVeryLow,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    borderRadius: 6,
+  },
+
+  riskBadgeLow: {
+    backgroundColor: colors.riskLow,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    borderRadius: 6,
+  },
+
+  riskBadgeModerate: {
+    backgroundColor: colors.riskModerate,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    borderRadius: 6,
+  },
+
+  riskBadgeHigh: {
+    backgroundColor: colors.riskHigh,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    borderRadius: 6,
+  },
+
+  riskBadgeVeryHigh: {
+    backgroundColor: colors.riskVeryHigh,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    borderRadius: 6,
+  },
+
+  riskBadgeUnknown: {
+    backgroundColor: colors.riskUnknown,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    borderRadius: 6,
+  },
+
+  riskBadgeText: {
+    color: colors.white,
+    fontSize: typography.fontSizes.sm,
+    fontWeight: typography.fontWeights.semibold,
+  },
+
+  // Status styles
+  successContainer: {
+    backgroundColor: colors.success,
+    borderRadius: 8,
+    padding: spacing.md,
+    marginBottom: spacing.md,
+  },
+
+  warningContainer: {
+    backgroundColor: colors.warning,
+    borderRadius: 8,
+    padding: spacing.md,
+    marginBottom: spacing.md,
+  },
+
+  errorContainer: {
+    backgroundColor: colors.error,
+    borderRadius: 8,
+    padding: spacing.md,
+    marginBottom: spacing.md,
+  },
+
+  statusText: {
+    color: colors.white,
+    fontSize: typography.fontSizes.base,
+    fontWeight: typography.fontWeights.medium,
+  },
+
+  // Layout utilities
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  spaceBetween: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+
+  centered: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  // Spacing utilities
+  marginBottom: {
+    marginBottom: spacing.md,
+  },
+
+  marginTop: {
+    marginTop: spacing.md,
+  },
+
+  paddingHorizontal: {
+    paddingHorizontal: spacing.md,
+  },
+
+  paddingVertical: {
+    paddingVertical: spacing.md,
+  },
+
+  // Shadow utilities
+  shadow: {
+    shadowColor: colors.black,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+
+  shadowLarge: {
+    shadowColor: colors.black,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 8,
+  },
+});

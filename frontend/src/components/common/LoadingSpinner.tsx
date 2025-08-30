@@ -10,7 +10,7 @@ interface LoadingSpinnerProps {
 
 export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
   message = "Loading...",
-  size = "large",
+  size = "small",
   color = colors.primary,
 }) => {
   return (
@@ -25,15 +25,15 @@ export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: spacing.lg,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.md,
   },
   message: {
-    marginTop: spacing.md,
-    fontSize: typography.fontSizes.base,
-    color: colors.gray600,
+    marginTop: spacing.xs,
+    fontSize: typography.fontSizes.sm,
+    color: colors.gray500,
     textAlign: 'center',
   },
 });

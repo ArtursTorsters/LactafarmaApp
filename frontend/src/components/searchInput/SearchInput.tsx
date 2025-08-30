@@ -1,5 +1,3 @@
-// src/components/DrugSearchComponent.tsx
-
 import React, { useState } from 'react';
 import {
   View,
@@ -8,9 +6,10 @@ import {
   FlatList,
   StyleSheet,
   TouchableOpacity,
-  ActivityIndicator,
 } from 'react-native';
-import drugSearchService, { DrugSuggestion } from '../../services/DrugSearchService';
+import drugSearchService, { DrugSuggestion } from '../../services/DrugSearchService'
+import {LoadingSpinner} from '../common/LoadingSpinner'
+
 
 export const DrugSearchComponent = () => {
   const [query, setQuery] = useState('');
@@ -24,9 +23,8 @@ export const DrugSearchComponent = () => {
 
     if (text.length < 2) {
       setResults([]);
-      return;
+      return
     }
-
     setLoading(true);
     try {
       const suggestions = await drugSearchService.searchDrugs(text);
@@ -48,7 +46,7 @@ export const DrugSearchComponent = () => {
         onChangeText={handleSearch}
       />
 
-      {loading && <ActivityIndicator style={{ marginTop: 10 }} size="small" color="#007AFF" />}
+      {loading && <LoadingSpinner/>}
 
       {error && <Text style={styles.error}>{error}</Text>}
 
