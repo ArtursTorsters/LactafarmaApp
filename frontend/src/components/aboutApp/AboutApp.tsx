@@ -15,23 +15,18 @@ export const AboutApp: React.FC<AboutAppProps> = ({ style }) => {
 
   return (
     <View style={[globalStyles.medicalContainer, style]}>
-      <View style={globalStyles.cardHeader}>
-        <Ionicons name="information-circle" size={24} color={colors.info} />
+      <View style={globalStyles.medicalContainer}>
         <Text style={globalStyles.title}>About LactaFarma</Text>
-      </View>
-
       <Text style={globalStyles.bodyText}>
         LactaFarma helps breastfeeding mothers quickly find reliable information
         about medication safety during lactation. Our app provides instant
         access to comprehensive drug compatibility data.
       </Text>
-
-      <View style={globalStyles.medicalContainer}>
         <Text style={globalStyles.title}>Licensing & Usage</Text>
         <Text style={globalStyles.bodyText}>
-          The medication data provided is sourced from{" "}
+          The medication data provided is sourced from:      {" "}
           <Text style={globalStyles.link} onPress={openELactancia}>
-            e-lactancia.org
+            → e-lactancia.org
           </Text>{" "}
           (APILAM). Their content is published under the Creative Commons
           Attribution-NonCommercial-ShareAlike 4.0 International License (CC

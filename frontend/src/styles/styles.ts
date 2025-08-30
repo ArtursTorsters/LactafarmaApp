@@ -86,6 +86,8 @@ export const globalStyles = StyleSheet.create({
   medicalContainer: {
     flex: 1,
     backgroundColor: colors.medical.background,
+    paddingHorizontal: 10,
+      marginTop: spacing.xs,
   },
 
   safeArea: {
@@ -132,7 +134,8 @@ export const globalStyles = StyleSheet.create({
     fontSize: typography.fontSizes['2xl'],
     fontWeight: typography.fontWeights.bold,
     color: colors.medical.text,
-    marginBottom: spacing.md,
+    marginBottom: spacing.sm,
+    marginTop: spacing.md,
   },
 
   subtitle: {
