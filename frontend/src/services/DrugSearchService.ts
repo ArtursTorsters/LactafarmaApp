@@ -1,5 +1,5 @@
-// src/services/DrugSearchService.ts
 import Constants from 'expo-constants';
+import { DrugDetails } from '../../../backend/src/scraper/ELactanciaScraper';
 
 export interface DrugSuggestion {
   name: string;
@@ -7,14 +7,14 @@ export interface DrugSuggestion {
   category?: string;
 }
 
-export interface DrugDetails {
-  name: string;
-  riskLevel?: string;
-  riskDescription?: string;
-  alternatives?: string[];
-  lastUpdate?: string;
-  description?: string;
-}
+// export interface DrugDetails {
+//   name: string;
+//   riskLevel?: string;
+//   riskDescription?: string;
+//   alternatives?: string[];
+//   lastUpdate?: string;
+//   description?: string;
+// }
 
 export interface SearchResponse {
   success: boolean;

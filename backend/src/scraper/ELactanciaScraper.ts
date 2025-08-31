@@ -1,4 +1,3 @@
-// src/scraper/ELactanciaScraper.ts
 
 export interface DrugSuggestion {
   name: string;

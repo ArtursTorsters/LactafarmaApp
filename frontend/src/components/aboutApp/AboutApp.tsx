@@ -1,7 +1,5 @@
 import React from "react";
 import { View, Text, StyleSheet, Linking } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { colors } from "../../styles/styles";
 import { globalStyles } from '../../styles/styles'
 
 interface AboutAppProps {
@@ -19,9 +17,9 @@ export const AboutApp: React.FC<AboutAppProps> = ({ style }) => {
   return (
     <View style={[globalStyles.medicalContainer, style]}>
       <View style={globalStyles.medicalContainer}>
-        <Text style={globalStyles.title}>About LactaFarma</Text>
+        <Text style={globalStyles.title}>About LactaMed</Text>
       <Text style={globalStyles.bodyText}>
-        LactaFarma helps breastfeeding mothers quickly find reliable information
+        LactaMed helps breastfeeding mothers quickly find reliable information
         about medication safety during lactation. Our app provides instant
         access to comprehensive drug compatibility data.
       </Text>

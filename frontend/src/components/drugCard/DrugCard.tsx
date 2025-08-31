@@ -3,14 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { colors, typography, spacing } from '../../styles/styles'
 import { RISK_LEVELS } from '../../utils/constants';
-import type { Drug, RiskLevel } from '../../types/index';
-
-interface DrugCardProps {
-  drug: Drug;
-  onPress: (drug: Drug) => void;
-  onFavorite?: (drug: Drug) => void;
-  isFavorite?: boolean;
-}
+import type { Drug, RiskLevel, DrugCardProps } from '../../types/index';
 
 export const DrugCard: React.FC<DrugCardProps> = ({
   drug,
@@ -18,7 +11,7 @@ export const DrugCard: React.FC<DrugCardProps> = ({
   onFavorite,
   isFavorite = false,
 }) => {
-  const riskLevelInfo = RISK_LEVELS[drug.riskLevel] || RISK_LEVELS.unknown;
+  const riskLevelInfo = RISK_LEVELS[drug.riskLevel]
 
   return (
     <TouchableOpacity

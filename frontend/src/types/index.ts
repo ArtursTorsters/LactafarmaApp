@@ -8,12 +8,18 @@ export interface Drug {
   category?: string;
   lastUpdated?: string;
 }
-
+export type RiskLevel = 'very-low' | 'low' | 'moderate' | 'high' | 'very-high' | 'unknown';
 export interface DrugGroup {
   id: string;
   name: string;
   description?: string;
   drugCount?: number;
+}
+export interface DrugCardProps {
+  drug: Drug;
+  onPress: (drug: Drug) => void;
+  onFavorite?: (drug: Drug) => void;
+  isFavorite?: boolean;
 }
 
 export interface DrugBrand {
@@ -24,22 +30,26 @@ export interface DrugBrand {
   drugId: string;
 }
 
-export interface DrugDetail extends Drug {
+// export interface DrugDetails {
+//   name: string;
+//   riskLevel?: string;
+//   riskDescription?: string;
+//   alternatives?: string[];
+//   lastUpdate?: string;
+//   description?: string;
+// }
+
+export interface DrugDetails extends Drug {
   brands?: DrugBrand[];
   warnings?: string[];
   recommendations?: string[];
   references?: string[];
   alternativeMedications?: Drug[];
+  lastUpdate?: string;
+  description?: string;
+  riskDescription?: string;
+
 }
-
-export type RiskLevel =
-  | "very_low"
-  | "low"
-  | "moderate"
-  | "high"
-  | "very_high"
-  | "unknown";
-
 export interface ApiResponse<T> {
   data?: T;
   success?: boolean;

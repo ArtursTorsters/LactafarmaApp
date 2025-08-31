@@ -1,18 +1,14 @@
 export const API_CONFIG = {
-  BASE_URL: 'https://api.fda.gov', // Remove the full path
+  BASE_URL: 'https://api.fda.gov',
   TIMEOUT: 10000,
   MAX_RETRIES: 3,
 } as const;
 
-
-
-
-
 export const RISK_LEVELS = {
-  very_low: { color: '#28a745', label: 'Very Low Risk' },
-  low: { color: '#6f42c1', label: 'Low Risk' },
-  moderate: { color: '#ffc107', label: 'Moderate Risk' },
-  high: { color: '#fd7e14', label: 'High Risk' },
-  very_high: { color: '#dc3545', label: 'Very High Risk' },
-  unknown: { color: '#6c757d', label: 'Unknown Risk' },
-} as const;
+  'very-low': { label: 'Very Low Risk', color: '#28a745' },
+  'low': { label: 'Low Risk', color: '#6f42c1' },
+  'moderate': { label: 'Moderate Risk', color: '#ffc107' },
+  'high': { label: 'High Risk', color: '#fd7e14' },
+  'very-high': { label: 'Very High Risk', color: '#dc3545' },
+  'unknown': { label: 'Unknown Risk', color: '#6c757d' },
+};

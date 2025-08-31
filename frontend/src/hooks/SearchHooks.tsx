@@ -1,13 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
 import drugSearchService, { DrugSuggestion } from '../services/DrugSearchService';
+import type { Drug, RiskLevel, DrugCardProps, DrugDetail } from '../../src/types/index';
+
+
 
 export const useSearchHooks = () => {
-    const [query, setQuery] = useState('');
-    const [results, setResults] = useState<DrugSuggestion[]>([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
-    const [showResults, setShowResults] = useState(false);
-    const searchTimeoutRef = useRef<NodeJS.Timeout>();
+ const [query, setQuery] = useState('');
+  const [results, setResults] = useState<DrugSuggestion[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [showResults, setShowResults] = useState(false);
+  const [selectedDrug, setSelectedDrug] = useState<DrugDetail | null>(null);
+  const [loadingDetails, setLoadingDetails] = useState(false);
+  const searchTimeoutRef = useRef<NodeJS.Timeout>();
 
     useEffect(() => {
         if (searchTimeoutRef.current) {
@@ -55,7 +60,31 @@ export const useSearchHooks = () => {
         if (results.length > 0) {
             setShowResults(true);
         }
-    };
+    }
+
+
+      const handleDrugSelect = async (suggestion: DrugSuggestion) => {
+    setShowResults(false);
+    setLoadingDetails(true);
+    setError(null);
+
+    try {
+      const details = await drugSearchService.getDrugDetails(suggestion.name);
+      if (details) {
+        setSelectedDrug(details);
+      } else {
+        setError('Drug details not found');
+      }
+    } catch (err: any) {
+      setError(err?.message || 'Failed to get drug details');
+    } finally {
+      setLoadingDetails(false);
+    }
+  };
+
+  const clearSelectedDrug = () => {
+    setSelectedDrug(null);
+  };
 
     return {
         query,
@@ -64,7 +93,11 @@ export const useSearchHooks = () => {
         loading,
         error,
         showResults,
+        selectedDrug,
+        loadingDetails,
         handleBlur,
         handleFocus,
+        handleDrugSelect,
+        clearSelectedDrug
     };
 };
