@@ -13,14 +13,13 @@
     "axios": "^1.11.0",
     "cors": "^2.8.5",
     "expo": "~53.0.20",
+    "expo-constants": "~17.1.7",
     "expo-status-bar": "~2.2.3",
     "express": "^5.1.0",
     "helmet": "^8.1.0",
     "puppeteer": "^24.17.0",
     "react": "19.0.0",
-    "react-native": "0.79.5",
-    "expo-constants": "~17.1.7",
-    "expo-dev-client": "~5.2.4"
+    "react-native": "0.79.5"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
