@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "LactafarmaApp",
-    "slug": "LactafarmaApp",
+    "name": "LactaMed",
+    "slug": "LactaMed",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/adaptive-icon.png",
@@ -14,7 +14,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.LactafarmaApp"
+      "bundleIdentifier": "com.anonymous.LactaMed"
     },
     "android": {
       "adaptiveIcon": {
