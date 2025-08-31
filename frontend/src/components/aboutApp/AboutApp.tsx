@@ -10,8 +10,11 @@ interface AboutAppProps {
 
 export const AboutApp: React.FC<AboutAppProps> = ({ style }) => {
   const openELactancia = () => {
-    Linking.openURL("https://www.e-lactancia.org");
-  };
+    Linking.openURL("https://www.e-lactancia.org")
+  }
+   const openLegal = () => {
+    Linking.openURL("https://www.e-lactancia.org/aviso_legal/")
+  }
 
   return (
     <View style={[globalStyles.medicalContainer, style]}>
@@ -39,11 +42,10 @@ export const AboutApp: React.FC<AboutAppProps> = ({ style }) => {
         </Text>
         <Text
           style={[globalStyles.bodyText, globalStyles.link]}
-          onPress={() =>
-            Linking.openURL("https://www.e-lactancia.org/aviso_legal/")
-          }
+          onPress={openLegal}
           accessibilityRole="button"
           accessibilityLabel="Read the legal notice on e-lactancia.org"
+
         >
           → View e-lactancia.org Legal Notice
         </Text>

@@ -89,6 +89,11 @@ export const globalStyles = StyleSheet.create({
     paddingHorizontal: 10,
       marginTop: spacing.xs,
   },
+  warningContainer: {
+    backgroundColor: colors.info,
+    padding: spacing.md,
+    // marginBottom: spacing.md,
+  },
 
   safeArea: {
     flex: 1,
@@ -150,11 +155,10 @@ export const globalStyles = StyleSheet.create({
     color: colors.medical.text,
     lineHeight: typography.fontSizes.base * typography.lineHeights.normal,
   },
-    link: {
-  fontSize: typography.fontSizes.base,
-    color: colors.medical.accent,
-    lineHeight: typography.fontSizes.base * typography.lineHeights.normal,
-    },
+  link: {
+    color: colors.primary,
+    textDecorationLine: 'underline',
+  },
   lightText: {
     fontSize: typography.fontSizes.base,
     color: colors.medical.textLight,
@@ -214,13 +218,6 @@ export const globalStyles = StyleSheet.create({
     paddingHorizontal: spacing.md,
     marginBottom: spacing.md,
   },
-
-  input: {
-    fontSize: typography.fontSizes.base,
-    color: colors.medical.text,
-    paddingVertical: spacing.md,
-  },
-
   inputFocused: {
     borderColor: colors.medical.accent,
   },
@@ -282,18 +279,49 @@ export const globalStyles = StyleSheet.create({
     marginBottom: spacing.md,
   },
 
-  warningContainer: {
-    backgroundColor: colors.warning,
-    borderRadius: 8,
-    padding: spacing.md,
-    marginBottom: spacing.md,
-  },
+
 
   errorContainer: {
     backgroundColor: colors.error,
     borderRadius: 8,
     padding: spacing.md,
     marginBottom: spacing.md,
+  },
+    label: {
+    fontSize: 16,
+    marginBottom: 8,
+    fontWeight: '600',
+    color: '#333',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 6,
+    padding: 10,
+    fontSize: 16,
+    backgroundColor: '#fafafa',
+  },
+  errorText: {
+    color: colors.error,
+  },
+    resultItem: {
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  resultText: {
+    fontSize: 16,
+    color: '#333',
+  },
+  category: {
+    fontSize: 12,
+    color: '#666',
+  },
+  noResults: {
+    marginTop: 10,
+    fontSize: 14,
+    color: '#999',
+    textAlign: 'center',
   },
 
   statusText: {
