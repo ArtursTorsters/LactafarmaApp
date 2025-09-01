@@ -1,37 +1,5 @@
 import Constants from 'expo-constants';
-import { DrugDetails } from '../../../backend/src/scraper/ELactanciaScraper';
-
-export interface DrugSuggestion {
-  name: string;
-  url?: string;
-  category?: string;
-}
-
-// export interface DrugDetails {
-//   name: string;
-//   riskLevel?: string;
-//   riskDescription?: string;
-//   alternatives?: string[];
-//   lastUpdate?: string;
-//   description?: string;
-// }
-
-export interface SearchResponse {
-  success: boolean;
-  query: string;
-  suggestions: DrugSuggestion[];
-  count: number;
-  cached?: boolean;
-  responseTime?: string;
-}
-
-export interface DetailsResponse {
-  success: boolean;
-  drugName: string;
-  details: DrugDetails;
-  cached?: boolean;
-  responseTime?: string;
-}
+import { DrugDetails, DrugSuggestion, SearchResponse, DetailsResponse } from '../types/index';
 
 export class DrugSearchService {
   private baseURL: string;
@@ -70,7 +38,7 @@ export class DrugSearchService {
       }
 
       return await response.json();
-    } catch (error) {
+    } catch (error: any) {
       clearTimeout(timeoutId);
       if (error.name === 'AbortError') {
         throw new Error('Request timeout');
@@ -91,7 +59,7 @@ export class DrugSearchService {
       );
 
       return response.suggestions;
-    } catch (error) {
+    } catch (error: any) {
       console.error('Drug search failed:', error);
       throw new Error(`Search failed: ${error.message}`);
     }
@@ -109,7 +77,7 @@ export class DrugSearchService {
       );
 
       return response.details;
-    } catch (error) {
+    } catch (error: any) {
       if (error.message.includes('404')) {
         return null; // Drug not found
       }
@@ -138,7 +106,7 @@ export class DrugSearchService {
       });
 
       return response.results;
-    } catch (error) {
+    } catch (error: any) {
       console.error('Batch search failed:', error);
       throw new Error(`Batch search failed: ${error.message}`);
     }
@@ -160,8 +128,5 @@ export class DrugSearchService {
   }
 }
 
-// Singleton instance
 export const drugSearchService = new DrugSearchService();
-
-// Default export
 export default drugSearchService;

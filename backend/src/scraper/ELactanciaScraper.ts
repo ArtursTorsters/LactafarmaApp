@@ -1,18 +1,4 @@
-
-export interface DrugSuggestion {
-  name: string;
-  url?: string;
-  category?: string;
-}
-
-export interface DrugDetails {
-  name: string;
-  riskLevel?: string;
-  riskDescription?: string;
-  alternatives?: string[];
-  lastUpdate?: string;
-  description?: string;
-}
+import { DrugSuggestion, DrugDetails } from '../types/index';
 
 export class ELactanciaScraper {
 
@@ -115,8 +101,13 @@ export class ELactanciaScraper {
 
       const html = await response.text();
 
+      // Extract ID from URL or generate from name
+      const urlMatch = detailUrl.match(/\/breastfeeding\/(\d+)\//);
+      const extractedId = urlMatch ? urlMatch[1] : bestMatch.name.toLowerCase().replace(/\s+/g, '-');
+
       const drugDetails: DrugDetails = {
         name: bestMatch.name,
+        id: extractedId,
         riskLevel: this.extractFromHTML(html, [
           /<div[^>]*class="[^"]*risk[^"]*"[^>]*>([^<]+)/i,
           /<span[^>]*class="[^"]*level[^"]*"[^>]*>([^<]+)/i,
@@ -134,7 +125,8 @@ export class ELactanciaScraper {
         lastUpdate: this.extractFromHTML(html, [
           /<span[^>]*class="[^"]*last-update[^"]*"[^>]*>([^<]+)/i,
           /<div[^>]*class="[^"]*updated[^"]*"[^>]*>([^<]+)/i
-        ])
+        ]),
+        alternatives: this.extractAlternatives(html)
       };
 
       return drugDetails;
@@ -188,6 +180,24 @@ export class ELactanciaScraper {
       }
     }
     return undefined;
+  }
+
+  private extractAlternatives(html: string): string[] {
+    const patterns = [
+      /<div[^>]*class="[^"]*alternatives[^"]*"[^>]*>(.*?)<\/div>/si,
+      /<ul[^>]*class="[^"]*alternatives[^"]*"[^>]*>(.*?)<\/ul>/si
+    ];
+
+    for (const pattern of patterns) {
+      const match = html.match(pattern);
+      if (match && match[1]) {
+        const listItems = match[1].match(/<li[^>]*>([^<]+)<\/li>/gi) || [];
+        return listItems.map(item =>
+          item.replace(/<\/?[^>]+(>|$)/g, "").trim()
+        ).filter(alt => alt.length > 0);
+      }
+    }
+    return [];
   }
 
   private removeDuplicates(suggestions: DrugSuggestion[]): DrugSuggestion[] {

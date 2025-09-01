@@ -1,3 +1,20 @@
+export type RiskLevel = 'very-low' | 'low' | 'moderate' | 'high' | 'very-high' | 'unknown';
+export interface DrugSuggestion {
+  name: string;
+  url?: string;
+  category?: string;
+}
+
+export interface DrugDetails {
+  name: string;
+  riskLevel?: string;
+  riskDescription?: string;
+  alternatives?: string[];
+  lastUpdate?: string;
+  description?: string;
+  id?: string;
+}
+
 export interface Drug {
   id: string;
   name: string;
@@ -8,18 +25,15 @@ export interface Drug {
   category?: string;
   lastUpdated?: string;
 }
-export type RiskLevel = 'very-low' | 'low' | 'moderate' | 'high' | 'very-high' | 'unknown';
-export interface DrugGroup {
+
+// Extended drug details (combining DrugDetails with UI Drug)
+export interface ExtendedDrugDetails extends DrugDetails {
+  brands?: DrugBrand[];
+  warnings?: string[];
+  recommendations?: string[];
+  references?: string[];
+  alternativeMedications?: Drug[];
   id: string;
-  name: string;
-  description?: string;
-  drugCount?: number;
-}
-export interface DrugCardProps {
-  drug: Drug;
-  onPress: (drug: Drug) => void;
-  onFavorite?: (drug: Drug) => void;
-  isFavorite?: boolean;
 }
 
 export interface DrugBrand {
@@ -30,26 +44,38 @@ export interface DrugBrand {
   drugId: string;
 }
 
-// export interface DrugDetails {
-//   name: string;
-//   riskLevel?: string;
-//   riskDescription?: string;
-//   alternatives?: string[];
-//   lastUpdate?: string;
-//   description?: string;
-// }
-
-export interface DrugDetails extends Drug {
-  brands?: DrugBrand[];
-  warnings?: string[];
-  recommendations?: string[];
-  references?: string[];
-  alternativeMedications?: Drug[];
-  lastUpdate?: string;
+export interface DrugGroup {
+  id: string;
+  name: string;
   description?: string;
-  riskDescription?: string;
-
+  drugCount?: number;
 }
+
+export interface DrugCardProps {
+  drug: Drug;
+  onPress: (drug: Drug) => void;
+  onFavorite?: (drug: Drug) => void;
+  isFavorite?: boolean;
+}
+
+// API Response interfaces
+export interface SearchResponse {
+  success: boolean;
+  query: string;
+  suggestions: DrugSuggestion[];
+  count: number;
+  cached?: boolean;
+  responseTime?: string;
+}
+
+export interface DetailsResponse {
+  success: boolean;
+  drugName: string;
+  details: DrugDetails;
+  cached?: boolean;
+  responseTime?: string;
+}
+
 export interface ApiResponse<T> {
   data?: T;
   success?: boolean;
@@ -63,3 +89,29 @@ export interface SearchFilters {
   limit?: number;
   offset?: number;
 }
+
+// Utility functions for type conversion
+export const convertDetailsToUIDrug = (details: DrugDetails): Drug => {
+  return {
+    id: details.id || details.name,
+    name: details.name,
+    description: details.description,
+    riskLevel: mapRiskLevelString(details.riskLevel),
+    category: undefined,
+    lastUpdated: details.lastUpdate,
+  };
+};
+
+export const mapRiskLevelString = (riskLevel?: string): RiskLevel => {
+  if (!riskLevel) return 'unknown';
+
+  const normalized = riskLevel.toLowerCase();
+
+  if (normalized.includes('very low') || normalized.includes('very-low')) return 'very-low';
+  if (normalized.includes('low')) return 'low';
+  if (normalized.includes('moderate') || normalized.includes('medium')) return 'moderate';
+  if (normalized.includes('high') && !normalized.includes('very')) return 'high';
+  if (normalized.includes('very high') || normalized.includes('very-high')) return 'very-high';
+
+  return 'unknown';
+};

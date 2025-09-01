@@ -1,3 +1,4 @@
+// SearchInput.tsx
 import React from 'react';
 import {
   View,
@@ -22,6 +23,7 @@ export const DrugSearchComponent = () => {
     error,
     showResults,
     selectedDrug,
+    selectedDrugForUI,
     loadingDetails,
     handleBlur,
     handleFocus,
@@ -41,8 +43,8 @@ export const DrugSearchComponent = () => {
         onFocus={handleFocus}
       />
 
-      {loading && <LoadingSpinner/>}
-      {loadingDetails && <LoadingSpinner/>}
+      {loading && <LoadingSpinner />}
+      {loadingDetails && <LoadingSpinner />}
       {error && <Text style={globalStyles.errorText}>{error}</Text>}
 
       {showResults && (
@@ -83,18 +85,38 @@ export const DrugSearchComponent = () => {
             </TouchableOpacity>
           </View>
 
-          {selectedDrug && (
+          {selectedDrugForUI && (
             <DrugCard
-              drug={{
-                id: selectedDrug.name,
-                name: selectedDrug.name,
-                description: selectedDrug.description,
-                // riskLevel: selectedDrug.riskLevel,
-                riskLevel: 'high',
-                category: selectedDrug.category,
-              }}
+              drug={selectedDrugForUI}
               onPress={() => {}}
             />
+          )}
+
+          {/* Display additional details from DrugDetails */}
+          {selectedDrug && (
+            <View style={{ padding: 16 }}>
+              {selectedDrug.riskDescription && (
+                <View style={{ marginBottom: 16 }}>
+                  <Text style={globalStyles.title}>Risk Information</Text>
+                  <Text style={globalStyles.bodyText}>{selectedDrug.riskDescription}</Text>
+                </View>
+              )}
+
+              {selectedDrug.alternatives && selectedDrug.alternatives.length > 0 && (
+                <View style={{ marginBottom: 16 }}>
+                  <Text style={globalStyles.title}>Alternatives</Text>
+                  {selectedDrug.alternatives.map((alt: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined, index: React.Key | null | undefined) => (
+                    <Text key={index} style={globalStyles.bodyText}>• {alt}</Text>
+                  ))}
+                </View>
+              )}
+
+              {selectedDrug.lastUpdate && (
+                <Text style={globalStyles.captionText}>
+                  Last updated: {selectedDrug.lastUpdate}
+                </Text>
+              )}
+            </View>
           )}
         </View>
       </Modal>

@@ -90,3 +90,5 @@ ios/**/*.xcodeproj/xcuserdata
 # Temporary files
 tmp/
 temp/
+
+DrugSearchService.ts
