@@ -1,10 +1,15 @@
+// src/types/index.ts - Fixed with modal props
+
 export type RiskLevel = 'very-low' | 'low' | 'moderate' | 'high' | 'very-high' | 'unknown';
+
+// Core drug suggestion interface (used by search results)
 export interface DrugSuggestion {
   name: string;
   url?: string;
   category?: string;
 }
 
+// Detailed drug information (from scraper/API)
 export interface DrugDetails {
   name: string;
   riskLevel?: string;
@@ -15,6 +20,7 @@ export interface DrugDetails {
   id?: string;
 }
 
+// UI Drug interface (for components)
 export interface Drug {
   id: string;
   name: string;
@@ -33,6 +39,7 @@ export interface ExtendedDrugDetails extends DrugDetails {
   recommendations?: string[];
   references?: string[];
   alternativeMedications?: Drug[];
+  // Override id to make it required
   id: string;
 }
 
@@ -90,6 +97,16 @@ export interface SearchFilters {
   offset?: number;
 }
 
+// MISSING INTERFACE - This is what was causing the error!
+export interface DrugDetailsModalProps {
+  visible: boolean;
+  selectedDrug: DrugDetails | null;
+  selectedDrugForUI: Drug | null;
+  loadingDetails: boolean;
+  error: string | null;
+  onClose: () => void;
+}
+
 // Utility functions for type conversion
 export const convertDetailsToUIDrug = (details: DrugDetails): Drug => {
   return {
@@ -97,7 +114,7 @@ export const convertDetailsToUIDrug = (details: DrugDetails): Drug => {
     name: details.name,
     description: details.description,
     riskLevel: mapRiskLevelString(details.riskLevel),
-    category: undefined,
+    category: undefined, // Not available in DrugDetails
     lastUpdated: details.lastUpdate,
   };
 };

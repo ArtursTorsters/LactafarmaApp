@@ -53,11 +53,11 @@ export const useSearchHooks = () => {
     }
   };
 
-  const handleBlur = () => {
-    setTimeout(() => {
-      setShowResults(false);
-    }, 200);
-  };
+  // const handleBlur = () => {
+  //   setTimeout(() => {
+  //     setShowResults(false);
+  //   }, 200);
+  // };
 
   const handleFocus = () => {
     if (results.length > 0) {
@@ -106,7 +106,7 @@ export const useSearchHooks = () => {
     selectedDrug,
     selectedDrugForUI: getSelectedDrugForUI(),
     loadingDetails,
-    handleBlur,
+    // handleBlur,
     handleFocus,
     handleDrugSelect,
     clearSelectedDrug,

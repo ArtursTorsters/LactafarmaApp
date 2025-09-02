@@ -21,9 +21,6 @@ export const MedicalDisclaimer: React.FC<MedicalDisclaimerProps> = ({ style }) =
         This information does not substitute the advice of a healthcare professional.
         Always consult your doctor before making medication decisions during breastfeeding.
       </Text>
-
-
-
     </View>
   );
 };

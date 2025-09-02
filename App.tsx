@@ -24,11 +24,12 @@ export default function App() {
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         >
           {loading && <LoadingSpinner />}
+                <MedicalDisclaimer/>
+
           <AboutApp />
           <DrugSearchComponent />
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
-      <MedicalDisclaimer/>
     </SafeAreaView>
   );
 }

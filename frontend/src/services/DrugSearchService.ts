@@ -50,7 +50,7 @@ export class DrugSearchService {
   // Search for drug suggestions
   async searchDrugs(query: string): Promise<DrugSuggestion[]> {
     if (!query || query.length < 2) {
-      return [];
+      return []
     }
 
     try {

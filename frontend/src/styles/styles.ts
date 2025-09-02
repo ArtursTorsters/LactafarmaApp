@@ -88,10 +88,12 @@ export const globalStyles = StyleSheet.create({
     backgroundColor: colors.medical.background,
     paddingHorizontal: 10,
       marginTop: spacing.xs,
+      zIndex: 10,
   },
   warningContainer: {
     backgroundColor: colors.info,
     padding: spacing.md,
+    zIndex: -1,
     // marginBottom: spacing.md,
   },
 
