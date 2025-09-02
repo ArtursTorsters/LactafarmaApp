@@ -47,7 +47,7 @@ export const useSearchHooks = () => {
       setResults(suggestions);
       setShowResults(true);
     } catch (err: any) {
-      setError(err?.message || 'Search failed');
+      setError(err?.message || 'Search failed')
     } finally {
       setLoading(false);
     }
