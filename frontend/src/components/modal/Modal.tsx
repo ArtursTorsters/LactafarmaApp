@@ -14,7 +14,6 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
   error,
   onClose,
 }) => {
-
   return (
     <Modal
       visible={visible}
@@ -22,32 +21,15 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
       presentationStyle="pageSheet"
       onRequestClose={onClose}
     >
-      <View style={{ flex: 1, backgroundColor: "#F8FAFC" }}>
+      <View style={globalStyles.modalContainer}>
         {/* Header */}
-        <View
-          style={[
-            globalStyles.row,
-            {
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: 16,
-              borderBottomWidth: 1,
-              borderBottomColor: "#E2E8F0",
-              backgroundColor: "#FFFFFF",
-            },
-          ]}
-        >
+        <View style={[globalStyles.row, globalStyles.modalHeader]}>
           <Text style={globalStyles.title}>Drug Information</Text>
           <TouchableOpacity
             onPress={() => {
-              console.log("🔴 Closing modal");
               onClose();
             }}
-            style={{
-              padding: 8,
-              borderRadius: 8,
-              backgroundColor: "#F1F5F9",
-            }}
+            style={globalStyles.modalCloseButton}
           >
             <Ionicons name="close" size={24} color="#666" />
           </TouchableOpacity>
@@ -55,23 +37,9 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
 
         {/* Loading State */}
         {loadingDetails && (
-          <View
-            style={{
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <View style={globalStyles.modalLoadingContainer}>
             <LoadingSpinner />
-            <Text
-              style={[
-                globalStyles.bodyText,
-                {
-                  marginTop: 16,
-                  color: "#64748B",
-                },
-              ]}
-            >
+            <Text style={[globalStyles.bodyText, globalStyles.modalLoadingText]}>
               Loading drug details...
             </Text>
           </View>
@@ -79,50 +47,19 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
 
         {/* Error State */}
         {!loadingDetails && error && !selectedDrug && (
-          <View
-            style={{
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center",
-              padding: 16,
-            }}
-          >
+          <View style={globalStyles.modalErrorContainer}>
             <Ionicons name="alert-circle-outline" size={48} color="#EF4444" />
-            <Text
-              style={[
-                globalStyles.title,
-                {
-                  color: "#EF4444",
-                  marginTop: 16,
-                  marginBottom: 8,
-                  textAlign: "center",
-                },
-              ]}
-            >
+            <Text style={[globalStyles.title, globalStyles.modalErrorTitle]}>
               Unable to Load Drug Details
             </Text>
-            <Text
-              style={[
-                globalStyles.bodyText,
-                {
-                  textAlign: "center",
-                  marginBottom: 24,
-                  color: "#64748B",
-                },
-              ]}
-            >
+            <Text style={[globalStyles.bodyText, globalStyles.modalErrorText]}>
               {error}
             </Text>
             <TouchableOpacity
-              style={{
-                paddingHorizontal: 24,
-                paddingVertical: 12,
-                backgroundColor: "#3B82F6",
-                borderRadius: 8,
-              }}
+              style={globalStyles.modalErrorButton}
               onPress={onClose}
             >
-              <Text style={{ color: "white", fontWeight: "600" }}>Close</Text>
+              <Text style={globalStyles.modalErrorButtonText}>Close</Text>
             </TouchableOpacity>
           </View>
         )}
@@ -130,68 +67,29 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
         {/* Content */}
         {!loadingDetails && selectedDrug && (
           <ScrollView
-            style={{ flex: 1 }}
-            contentContainerStyle={{ padding: 16 }}
+            style={globalStyles.modalScrollView}
+            contentContainerStyle={globalStyles.modalScrollContent}
             showsVerticalScrollIndicator={false}
           >
             {/* Drug Card */}
             {selectedDrugForUI && (
-              <View style={{ marginBottom: 24 }}>
+              <View style={globalStyles.modalDrugCardContainer}>
                 <DrugCard drug={selectedDrugForUI} onPress={() => {}} />
               </View>
             )}
 
             {/* Basic Drug Info */}
-            <View
-              style={{
-                marginBottom: 24,
-                backgroundColor: "#FFFFFF",
-                padding: 16,
-                borderRadius: 12,
-                shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 1,
-                },
-                shadowOpacity: 0.1,
-                shadowRadius: 3,
-                elevation: 2,
-              }}
-            >
-              <Text
-                style={[
-                  globalStyles.title,
-                  {
-                    marginBottom: 16,
-                    color: "#1E293B",
-                  },
-                ]}
-              >
+            <View style={globalStyles.modalBasicInfoCard}>
+              <Text style={[globalStyles.title, globalStyles.modalDrugTitle]}>
                 {selectedDrug.name}
               </Text>
 
               {selectedDrug.riskLevel && (
-                <View style={{ marginBottom: 16 }}>
-                  <Text
-                    style={[
-                      globalStyles.captionText,
-                      {
-                        fontWeight: "600",
-                        marginBottom: 4,
-                        color: "#475569",
-                      },
-                    ]}
-                  >
+                <View style={globalStyles.modalRiskLevelContainer}>
+                  <Text style={[globalStyles.captionText, globalStyles.modalRiskLevelLabel]}>
                     Risk Level:
                   </Text>
-                  <Text
-                    style={[
-                      globalStyles.bodyText,
-                      {
-                        color: "#1E293B",
-                      },
-                    ]}
-                  >
+                  <Text style={[globalStyles.bodyText, globalStyles.modalRiskLevelText]}>
                     {selectedDrug.riskLevel}
                   </Text>
                 </View>
@@ -199,27 +97,10 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
 
               {selectedDrug.description && (
                 <View>
-                  <Text
-                    style={[
-                      globalStyles.captionText,
-                      {
-                        fontWeight: "600",
-                        marginBottom: 4,
-                        color: "#475569",
-                      },
-                    ]}
-                  >
+                  <Text style={[globalStyles.captionText, globalStyles.modalDescriptionLabel]}>
                     Description:
                   </Text>
-                  <Text
-                    style={[
-                      globalStyles.bodyText,
-                      {
-                        lineHeight: 22,
-                        color: "#374151",
-                      },
-                    ]}
-                  >
+                  <Text style={[globalStyles.bodyText, globalStyles.modalDescriptionText]}>
                     {selectedDrug.description}
                   </Text>
                 </View>
@@ -228,149 +109,47 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
 
             {/* Risk Information */}
             {selectedDrug.riskDescription && (
-              <View
-                style={{
-                  marginBottom: 24,
-                  backgroundColor: "#FEF3C7",
-                  padding: 16,
-                  borderRadius: 12,
-                  borderLeftWidth: 4,
-                  borderLeftColor: "#F59E0B",
-                }}
-              >
-                <View
-                  style={{
-                    flexDirection: "row",
-                    alignItems: "center",
-                    marginBottom: 12,
-                  }}
-                >
+              <View style={globalStyles.modalRiskInfoCard}>
+                <View style={globalStyles.modalRiskInfoHeader}>
                   <Ionicons name="warning-outline" size={20} color="#D97706" />
-                  <Text
-                    style={[
-                      globalStyles.title,
-                      {
-                        marginLeft: 8,
-                        color: "#92400E",
-                        fontSize: 16,
-                      },
-                    ]}
-                  >
+                  <Text style={[globalStyles.title, globalStyles.modalRiskInfoTitle]}>
                     Risk Information
                   </Text>
                 </View>
-                <Text
-                  style={[
-                    globalStyles.bodyText,
-                    {
-                      lineHeight: 22,
-                      color: "#78350F",
-                    },
-                  ]}
-                >
+                <Text style={[globalStyles.bodyText, globalStyles.modalRiskInfoText]}>
                   {selectedDrug.riskDescription}
                 </Text>
               </View>
             )}
 
             {/* Alternatives */}
-            {selectedDrug.alternatives &&
-              selectedDrug.alternatives.length > 0 && (
-                <View
-                  style={{
-                    marginBottom: 24,
-                    backgroundColor: "#FFFFFF",
-                    padding: 16,
-                    borderRadius: 12,
-                    shadowColor: "#000",
-                    shadowOffset: {
-                      width: 0,
-                      height: 1,
-                    },
-                    shadowOpacity: 0.1,
-                    shadowRadius: 3,
-                    elevation: 2,
-                  }}
-                >
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      marginBottom: 12,
-                    }}
-                  >
-                    <Ionicons
-                      name="swap-horizontal-outline"
-                      size={20}
-                      color="#059669"
-                    />
-                    <Text
-                      style={[
-                        globalStyles.title,
-                        {
-                          marginLeft: 8,
-                          color: "#047857",
-                          fontSize: 16,
-                        },
-                      ]}
-                    >
-                      Alternatives
+            {selectedDrug.alternatives && selectedDrug.alternatives.length > 0 && (
+              <View style={globalStyles.modalAlternativesCard}>
+                <View style={globalStyles.modalAlternativesHeader}>
+                  <Ionicons
+                    name="swap-horizontal-outline"
+                    size={20}
+                    color="#059669"
+                  />
+                  <Text style={[globalStyles.title, globalStyles.modalAlternativesTitle]}>
+                    Alternatives
+                  </Text>
+                </View>
+                {selectedDrug.alternatives.map((alt, index) => (
+                  <View key={index} style={globalStyles.modalAlternativeItem}>
+                    <View style={globalStyles.modalAlternativeBullet} />
+                    <Text style={[globalStyles.bodyText, globalStyles.modalAlternativeText]}>
+                      {alt}
                     </Text>
                   </View>
-                  {selectedDrug.alternatives.map((alt, index) => (
-                    <View
-                      key={index}
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        marginBottom: 8,
-                      }}
-                    >
-                      <View
-                        style={{
-                          width: 6,
-                          height: 6,
-                          borderRadius: 3,
-                          backgroundColor: "#10B981",
-                          marginRight: 12,
-                        }}
-                      />
-                      <Text
-                        style={[
-                          globalStyles.bodyText,
-                          {
-                            flex: 1,
-                            color: "#374151",
-                          },
-                        ]}
-                      >
-                        {alt}
-                      </Text>
-                    </View>
-                  ))}
-                </View>
-              )}
+                ))}
+              </View>
+            )}
 
             {/* Last Update */}
             {selectedDrug.lastUpdate && (
-              <View
-                style={{
-                  alignItems: "center",
-                  paddingVertical: 16,
-                  borderTopWidth: 1,
-                  borderTopColor: "#E5E7EB",
-                  marginTop: 8,
-                }}
-              >
-                <Text
-                  style={[
-                    globalStyles.captionText,
-                    {
-                      fontStyle: "italic",
-                      color: "#9CA3AF",
-                    },
-                  ]}
-                >
+              <View style={globalStyles.modalLastUpdateContainer}>
+                <Text style={[globalStyles.captionText, globalStyles.modalLastUpdateText]}>
                   Last updated: {selectedDrug.lastUpdate}
                 </Text>
               </View>

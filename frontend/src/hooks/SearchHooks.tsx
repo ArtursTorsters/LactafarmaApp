@@ -72,8 +72,6 @@ export const useSearchHooks = () => {
 
     try {
       const details = await drugSearchService.getDrugDetails(suggestion.name);
-      console.log(details);
-
       if (details) {
         setSelectedDrug(details);
       } else {

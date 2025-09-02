@@ -97,7 +97,7 @@ export interface SearchFilters {
   offset?: number;
 }
 
-// MISSING INTERFACE - This is what was causing the error!
+// modal interface
 export interface DrugDetailsModalProps {
   visible: boolean;
   selectedDrug: DrugDetails | null;

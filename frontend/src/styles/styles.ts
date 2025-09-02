@@ -1,4 +1,3 @@
-
 import { StyleSheet } from 'react-native';
 
 export const colors = {
@@ -87,14 +86,13 @@ export const globalStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.medical.background,
     paddingHorizontal: 10,
-      marginTop: spacing.xs,
-      zIndex: 10,
+    marginTop: spacing.xs,
+    zIndex: 10,
   },
   warningContainer: {
     backgroundColor: colors.info,
     padding: spacing.md,
     zIndex: -1,
-    // marginBottom: spacing.md,
   },
 
   safeArea: {
@@ -112,6 +110,331 @@ export const globalStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.medical.background,
+  },
+
+  // Search Component Styles
+  searchHeader: {
+    backgroundColor: 'white',
+    paddingBottom: 8,
+    zIndex: 10,
+  },
+
+  searchLoadingContainer: {
+    alignItems: 'center',
+    paddingVertical: 20,
+  },
+
+  searchErrorContainer: {
+    backgroundColor: '#FEF2F2',
+    padding: 16,
+    borderRadius: 8,
+    marginTop: 8,
+    borderLeftWidth: 4,
+    borderLeftColor: '#EF4444',
+  },
+
+  searchResultsContainer: {
+    flex: 1,
+    marginTop: 8,
+  },
+
+  searchResultItem: {
+    backgroundColor: '#FFFFFF',
+    padding: 16,
+    marginVertical: 4,
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
+    minHeight: 60,
+  },
+
+  searchResultItemText: {
+    fontWeight: '600',
+    color: '#1F2937',
+    marginBottom: 4,
+  },
+
+  searchResultItemCategory: {
+    color: '#6B7280',
+    fontSize: 12,
+    fontStyle: 'italic',
+  },
+
+  searchEmptyStateContainer: {
+    alignItems: 'center',
+    paddingVertical: 32,
+    flex: 1,
+    justifyContent: 'center',
+  },
+
+  searchEmptyStateText: {
+    color: '#6B7280',
+    textAlign: 'center',
+  },
+
+  searchEmptyStateSubtext: {
+    color: '#9CA3AF',
+    textAlign: 'center',
+    marginTop: 4,
+  },
+
+  searchFullScreenEmpty: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 32,
+  },
+
+  searchFullScreenEmptyText: {
+    color: '#9CA3AF',
+    textAlign: 'center',
+    fontSize: 16,
+    lineHeight: 24,
+  },
+
+  // Loading Details Overlay
+  loadingDetailsOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 999,
+  },
+
+  loadingDetailsContent: {
+    backgroundColor: '#FFFFFF',
+    padding: 24,
+    borderRadius: 12,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 8,
+  },
+
+  loadingDetailsText: {
+    marginTop: 12,
+    color: '#374151',
+  },
+
+  // Modal Styles
+  modalContainer: {
+    flex: 1,
+    backgroundColor: '#F8FAFC',
+  },
+
+  modalHeader: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E2E8F0',
+    backgroundColor: '#FFFFFF',
+  },
+
+  modalCloseButton: {
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: '#F1F5F9',
+  },
+
+  modalLoadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  modalLoadingText: {
+    marginTop: 16,
+    color: '#64748B',
+  },
+
+  modalErrorContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 16,
+  },
+
+  modalErrorTitle: {
+    color: '#EF4444',
+    marginTop: 16,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+
+  modalErrorText: {
+    textAlign: 'center',
+    marginBottom: 24,
+    color: '#64748B',
+  },
+
+  modalErrorButton: {
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    backgroundColor: '#3B82F6',
+    borderRadius: 8,
+  },
+
+  modalErrorButtonText: {
+    color: 'white',
+    fontWeight: '600',
+  },
+
+  modalScrollView: {
+    flex: 1,
+  },
+
+  modalScrollContent: {
+    padding: 16,
+  },
+
+  modalDrugCardContainer: {
+    marginBottom: 24,
+  },
+
+  modalBasicInfoCard: {
+    marginBottom: 24,
+    backgroundColor: '#FFFFFF',
+    padding: 16,
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 2,
+  },
+
+  modalDrugTitle: {
+    marginBottom: 16,
+    color: '#1E293B',
+  },
+
+  modalRiskLevelContainer: {
+    marginBottom: 16,
+  },
+
+  modalRiskLevelLabel: {
+    fontWeight: '600',
+    marginBottom: 4,
+    color: '#475569',
+  },
+
+  modalRiskLevelText: {
+    color: '#1E293B',
+  },
+
+  modalDescriptionLabel: {
+    fontWeight: '600',
+    marginBottom: 4,
+    color: '#475569',
+  },
+
+  modalDescriptionText: {
+    lineHeight: 22,
+    color: '#374151',
+  },
+
+  modalRiskInfoCard: {
+    marginBottom: 24,
+    backgroundColor: '#FEF3C7',
+    padding: 16,
+    borderRadius: 12,
+    borderLeftWidth: 4,
+    borderLeftColor: '#F59E0B',
+  },
+
+  modalRiskInfoHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+
+  modalRiskInfoTitle: {
+    marginLeft: 8,
+    color: '#92400E',
+    fontSize: 16,
+  },
+
+  modalRiskInfoText: {
+    lineHeight: 22,
+    color: '#78350F',
+  },
+
+  modalAlternativesCard: {
+    marginBottom: 24,
+    backgroundColor: '#FFFFFF',
+    padding: 16,
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 2,
+  },
+
+  modalAlternativesHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+
+  modalAlternativesTitle: {
+    marginLeft: 8,
+    color: '#047857',
+    fontSize: 16,
+  },
+
+  modalAlternativeItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+
+  modalAlternativeBullet: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: '#10B981',
+    marginRight: 12,
+  },
+
+  modalAlternativeText: {
+    flex: 1,
+    color: '#374151',
+  },
+
+  modalLastUpdateContainer: {
+    alignItems: 'center',
+    paddingVertical: 16,
+    borderTopWidth: 1,
+    borderTopColor: '#E5E7EB',
+    marginTop: 8,
+  },
+
+  modalLastUpdateText: {
+    fontStyle: 'italic',
+    color: '#9CA3AF',
   },
 
   // Card styles
@@ -157,10 +480,12 @@ export const globalStyles = StyleSheet.create({
     color: colors.medical.text,
     lineHeight: typography.fontSizes.base * typography.lineHeights.normal,
   },
+
   link: {
     color: colors.primary,
     textDecorationLine: 'underline',
   },
+
   lightText: {
     fontSize: typography.fontSizes.base,
     color: colors.medical.textLight,
@@ -220,8 +545,52 @@ export const globalStyles = StyleSheet.create({
     paddingHorizontal: spacing.md,
     marginBottom: spacing.md,
   },
+
   inputFocused: {
     borderColor: colors.medical.accent,
+  },
+
+  input: {
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 6,
+    padding: 10,
+    fontSize: 16,
+    backgroundColor: '#fafafa',
+  },
+
+  label: {
+    fontSize: 16,
+    marginBottom: 8,
+    fontWeight: '600',
+    color: '#333',
+  },
+
+  resultItem: {
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+
+  resultText: {
+    fontSize: 16,
+    color: '#333',
+  },
+
+  category: {
+    fontSize: 12,
+    color: '#666',
+  },
+
+  noResults: {
+    marginTop: 10,
+    fontSize: 14,
+    color: '#999',
+    textAlign: 'center',
+  },
+
+  errorText: {
+    color: colors.error,
   },
 
   // Risk level badges
@@ -281,49 +650,11 @@ export const globalStyles = StyleSheet.create({
     marginBottom: spacing.md,
   },
 
-
-
   errorContainer: {
     backgroundColor: colors.error,
     borderRadius: 8,
     padding: spacing.md,
     marginBottom: spacing.md,
-  },
-    label: {
-    fontSize: 16,
-    marginBottom: 8,
-    fontWeight: '600',
-    color: '#333',
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 6,
-    padding: 10,
-    fontSize: 16,
-    backgroundColor: '#fafafa',
-  },
-  errorText: {
-    color: colors.error,
-  },
-    resultItem: {
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
-  },
-  resultText: {
-    fontSize: 16,
-    color: '#333',
-  },
-  category: {
-    fontSize: 12,
-    color: '#666',
-  },
-  noResults: {
-    marginTop: 10,
-    fontSize: 14,
-    color: '#999',
-    textAlign: 'center',
   },
 
   statusText: {
@@ -347,6 +678,15 @@ export const globalStyles = StyleSheet.create({
   centered: {
     justifyContent: 'center',
     alignItems: 'center',
+  },
+
+  // List utilities
+  flatListContainer: {
+    flex: 1,
+  },
+
+  flatListContent: {
+    flexGrow: 1,
   },
 
   // Spacing utilities

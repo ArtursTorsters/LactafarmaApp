@@ -22,28 +22,15 @@ export const DrugSearchComponent = () => {
     selectedDrug,
     selectedDrugForUI,
     loadingDetails,
-    // handleBlur,
     handleFocus,
     handleDrugSelect,
     clearSelectedDrug,
   } = useSearchHooks();
 
-  console.log('🔍 Search Component State:', {
-    query,
-    resultsCount: results.length,
-    showResults,
-    loading,
-    error,
-  });
-
   return (
     <View style={[globalStyles.medicalContainer, { flex: 1 }]}>
-      {/* Fixed Header Section */}
-      <View style={{
-        backgroundColor: 'white',
-        paddingBottom: 8,
-        zIndex: 10,
-      }}>
+      {/* Header Section */}
+      <View style={globalStyles.searchHeader}>
         <Text style={globalStyles.captionText}>Search for a medication</Text>
 
         <TextInput
@@ -52,7 +39,6 @@ export const DrugSearchComponent = () => {
           placeholderTextColor="#9CA3AF"
           value={query}
           onChangeText={setQuery}
-          // onBlur={handleBlur}
           onFocus={handleFocus}
           autoCapitalize="none"
           autoCorrect={false}
@@ -60,78 +46,38 @@ export const DrugSearchComponent = () => {
 
         {/* Loading State */}
         {loading && (
-          <View style={{
-            alignItems: 'center',
-            paddingVertical: 20
-          }}>
+          <View style={globalStyles.searchLoadingContainer}>
             <LoadingSpinner />
           </View>
         )}
 
         {/* Search Error */}
         {error && !loading && (
-          <View style={{
-            backgroundColor: '#FEF2F2',
-            padding: 16,
-            borderRadius: 8,
-            marginTop: 8,
-            borderLeftWidth: 4,
-            borderLeftColor: '#EF4444'
-          }}>
-            <Text style={[globalStyles.errorText, {
-              color: '#DC2626'
-            }]}>
+          <View style={globalStyles.searchErrorContainer}>
+            <Text style={[globalStyles.errorText, { color: '#DC2626' }]}>
               {error}
             </Text>
           </View>
         )}
       </View>
 
-      {/* Full Height Results Section */}
+      {/* Results Section */}
       {showResults && !loading && (
-        <View style={{
-          flex: 1, // Takes remaining space
-          marginTop: 8,
-        }}>
+        <View style={globalStyles.searchResultsContainer}>
           <FlatList
             data={results}
             keyExtractor={(item, index) => `${item.name}-${index}`}
             renderItem={({ item }) => (
               <TouchableOpacity
-                style={[globalStyles.resultItem, {
-                  backgroundColor: '#FFFFFF',
-                  padding: 16,
-                  marginVertical: 4,
-                  borderRadius: 8,
-                  shadowColor: '#000',
-                  shadowOffset: {
-                    width: 0,
-                    height: 1,
-                  },
-                  shadowOpacity: 0.1,
-                  shadowRadius: 2,
-                  elevation: 2,
-                  minHeight: 60, // Reasonable minimum height per item
-                }]}
-                onPress={() => {
-                  console.log('🔥 Item clicked:', item.name);
-                  handleDrugSelect(item);
-                }}
+                style={globalStyles.searchResultItem}
+                onPress={() => handleDrugSelect(item)}
                 activeOpacity={0.7}
               >
-                <Text style={[globalStyles.bodyText, {
-                  fontWeight: '600',
-                  color: '#1F2937',
-                  marginBottom: 4
-                }]}>
+                <Text style={[globalStyles.bodyText, globalStyles.searchResultItemText]}>
                   {item.name}
                 </Text>
                 {item.category && (
-                  <Text style={[globalStyles.category, {
-                    color: '#6B7280',
-                    fontSize: 12,
-                    fontStyle: 'italic'
-                  }]}>
+                  <Text style={[globalStyles.category, globalStyles.searchResultItemCategory]}>
                     {item.category}
                   </Text>
                 )}
@@ -139,54 +85,28 @@ export const DrugSearchComponent = () => {
             )}
             ListEmptyComponent={
               query.length >= 2 ? (
-                <View style={{
-                  alignItems: 'center',
-                  paddingVertical: 32,
-                  flex: 1,
-                  justifyContent: 'center'
-                }}>
-                  <Text style={[globalStyles.bodyText, {
-                    color: '#6B7280',
-                    textAlign: 'center'
-                  }]}>
+                <View style={globalStyles.searchEmptyStateContainer}>
+                  <Text style={[globalStyles.bodyText, globalStyles.searchEmptyStateText]}>
                     No medications found for "{query}"
                   </Text>
-                  <Text style={[globalStyles.captionText, {
-                    color: '#9CA3AF',
-                    textAlign: 'center',
-                    marginTop: 4
-                  }]}>
+                  <Text style={[globalStyles.captionText, globalStyles.searchEmptyStateSubtext]}>
                     Try a different search term
                   </Text>
                 </View>
               ) : null
             }
-            style={{
-              flex: 1, // Takes full available height
-            }}
-            contentContainerStyle={{
-              flexGrow: 1, // Allows content to grow and fill space
-            }}
+            style={globalStyles.flatListContainer}
+            contentContainerStyle={globalStyles.flatListContent}
             showsVerticalScrollIndicator={true}
             bounces={true}
           />
         </View>
       )}
 
-      {/* Full Screen Empty State (when no search is active) */}
+      {/* Full Screen Empty State */}
       {!showResults && !loading && query.length === 0 && (
-        <View style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          paddingHorizontal: 32,
-        }}>
-          <Text style={[globalStyles.bodyText, {
-            color: '#9CA3AF',
-            textAlign: 'center',
-            fontSize: 16,
-            lineHeight: 24,
-          }]}>
+        <View style={globalStyles.searchFullScreenEmpty}>
+          <Text style={[globalStyles.bodyText, globalStyles.searchFullScreenEmptyText]}>
             Start typing to search for medications and their breastfeeding compatibility
           </Text>
         </View>
@@ -194,38 +114,9 @@ export const DrugSearchComponent = () => {
 
       {/* Loading Details Overlay */}
       {loadingDetails && (
-        <View style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.3)',
-          justifyContent: 'center',
-          alignItems: 'center',
-          zIndex: 999
-        }}>
-          <View style={{
-            backgroundColor: '#FFFFFF',
-            padding: 24,
-            borderRadius: 12,
-            alignItems: 'center',
-            shadowColor: '#000',
-            shadowOffset: {
-              width: 0,
-              height: 4,
-            },
-            shadowOpacity: 0.3,
-            shadowRadius: 8,
-            elevation: 8,
-          }}>
+        <View style={globalStyles.loadingDetailsOverlay}>
+          <View style={globalStyles.loadingDetailsContent}>
             <LoadingSpinner />
-            <Text style={[globalStyles.bodyText, {
-              marginTop: 12,
-              color: '#374151'
-            }]}>
-              Loading details...
-            </Text>
           </View>
         </View>
       )}
