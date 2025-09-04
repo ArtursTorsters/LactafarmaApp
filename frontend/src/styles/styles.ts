@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-
+// import { colors, spacing, typography } from './styles';
 export const colors = {
   // Primary colors
   primary: '#2E86AB',
@@ -89,9 +89,18 @@ export const globalStyles = StyleSheet.create({
     marginTop: spacing.xs,
     zIndex: 10,
   },
+  searchContainer: {
+     flex: 1,
+    backgroundColor: colors.medical.background,
+    paddingHorizontal: 20,
+    marginTop: spacing['2xl'],
+    zIndex: 10,
+  },
   warningContainer: {
-    backgroundColor: colors.info,
-    padding: spacing.md,
+    // backgroundColor: colors.info,
+    // padding: spacing.md,
+        marginTop: spacing.xl,
+
     zIndex: -1,
   },
 
@@ -114,7 +123,6 @@ export const globalStyles = StyleSheet.create({
 
   // Search Component Styles
   searchHeader: {
-    backgroundColor: 'white',
     paddingBottom: 8,
     zIndex: 10,
   },
@@ -200,7 +208,8 @@ export const globalStyles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 32,
+    // paddingHorizontal: 32,
+    // width: 100,
   },
 
   searchFullScreenEmptyText: {
@@ -339,9 +348,11 @@ export const globalStyles = StyleSheet.create({
     color: '#1E293B',
   },
 
-  modalRiskLevelContainer: {
-    marginBottom: 16,
-  },
+  // modalRiskLevelContainer: {
+  //   marginTop: 16,
+
+
+  // },
 
   modalRiskLevelLabel: {
     fontWeight: '600',
@@ -356,7 +367,9 @@ export const globalStyles = StyleSheet.create({
   modalDescriptionLabel: {
     fontWeight: '600',
     marginBottom: 4,
-    color: '#475569',
+    color: '#000000ff',
+    fontSize: 16,
+
   },
 
   modalDescriptionText: {
@@ -365,12 +378,12 @@ export const globalStyles = StyleSheet.create({
   },
 
   modalRiskInfoCard: {
-    marginBottom: 24,
-    backgroundColor: '#FEF3C7',
-    padding: 16,
-    borderRadius: 12,
-    borderLeftWidth: 4,
-    borderLeftColor: '#F59E0B',
+    // marginBottom: 24,
+    // backgroundColor: '#FEF3C7',
+    // padding: 16,
+    // borderRadius: 12,
+    // borderLeftWidth: 4,
+    // borderLeftColor: '#F59E0B',
   },
 
   modalRiskInfoHeader: {
@@ -387,7 +400,7 @@ export const globalStyles = StyleSheet.create({
 
   modalRiskInfoText: {
     lineHeight: 22,
-    color: '#78350F',
+    // color: '#78350F',
   },
 
   modalAlternativesCard: {
@@ -488,7 +501,7 @@ export const globalStyles = StyleSheet.create({
   },
 
   bodyText: {
-    fontSize: typography.fontSizes.base,
+     fontSize: typography.fontSizes.base,
     color: colors.medical.text,
     lineHeight: typography.fontSizes.base * typography.lineHeights.normal,
   },
@@ -733,5 +746,256 @@ export const globalStyles = StyleSheet.create({
     shadowOpacity: 0.15,
     shadowRadius: 8,
     elevation: 8,
+  },
+});
+
+
+
+
+export const modalStyles = StyleSheet.create({
+  // Modal Container
+  container: {
+    flex: 1,
+    backgroundColor: '#F8FAFC',
+  },
+
+  // Header
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E2E8F0',
+    backgroundColor: '#FFFFFF',
+  },
+
+  headerTitle: {
+    fontSize: typography.fontSizes['2xl'],
+    fontWeight: typography.fontWeights.bold,
+    color: colors.medical.text,
+  },
+
+  closeButton: {
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: '#F1F5F9',
+  },
+
+  // Loading State
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  loadingText: {
+    marginTop: 16,
+    fontSize: typography.fontSizes.base,
+    color: '#64748B',
+  },
+
+  // Error State
+  errorContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 16,
+  },
+
+  errorTitle: {
+    fontSize: typography.fontSizes.xl,
+    fontWeight: typography.fontWeights.bold,
+    color: '#EF4444',
+    marginTop: 16,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+
+  errorText: {
+    fontSize: typography.fontSizes.base,
+    textAlign: 'center',
+    marginBottom: 24,
+    color: '#64748B',
+  },
+
+  errorButton: {
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    backgroundColor: '#3B82F6',
+    borderRadius: 8,
+  },
+
+  errorButtonText: {
+    color: 'white',
+    fontWeight: '600',
+    fontSize: typography.fontSizes.base,
+  },
+
+  // Scroll Content
+  scrollView: {
+    flex: 1,
+  },
+
+  scrollContent: {
+    padding: 16,
+  },
+
+  // Drug Header Card
+  drugHeaderCard: {
+    backgroundColor: colors.white,
+    borderRadius: 12,
+    padding: spacing.lg,
+    marginBottom: spacing.lg,
+    shadowColor: colors.black,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+
+  drugName: {
+    fontSize: typography.fontSizes['3xl'],
+    fontWeight: typography.fontWeights.bold,
+    color: colors.gray800,
+    marginBottom: spacing.sm,
+  },
+
+  // Risk Badge
+  riskBadgeContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: spacing.md,
+  },
+
+  riskBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: 20,
+    marginRight: spacing.sm,
+  },
+
+  riskDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    marginRight: spacing.sm,
+  },
+
+  riskText: {
+    fontSize: typography.fontSizes.base,
+    fontWeight: typography.fontWeights.bold,
+  },
+
+  category: {
+    fontSize: typography.fontSizes.sm,
+    color: colors.gray500,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+
+  // Risk Description
+  riskDescriptionContainer: {
+    backgroundColor: '#FEF3C7',
+    padding: spacing.md,
+    borderRadius: 12,
+    borderLeftWidth: 4,
+    borderLeftColor: '#F59E0B',
+    marginBottom: spacing.lg,
+  },
+
+  riskDescriptionText: {
+    fontSize: typography.fontSizes.base,
+    lineHeight: 22,
+    color: '#78350F',
+  },
+
+  // Description Card
+  descriptionCard: {
+    backgroundColor: colors.white,
+    padding: spacing.lg,
+    borderRadius: 12,
+    marginBottom: spacing.lg,
+    shadowColor: colors.black,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 2,
+  },
+
+  sectionLabel: {
+    fontSize: typography.fontSizes.lg,
+    fontWeight: typography.fontWeights.semibold,
+    color: colors.gray800,
+    marginBottom: spacing.sm,
+  },
+
+  descriptionText: {
+    fontSize: typography.fontSizes.base,
+    lineHeight: 24,
+    color: colors.gray700,
+  },
+
+  // Alternatives Card
+  alternativesCard: {
+    backgroundColor: colors.white,
+    padding: spacing.lg,
+    borderRadius: 12,
+    marginBottom: spacing.lg,
+    shadowColor: colors.black,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 2,
+  },
+
+  alternativesHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: spacing.md,
+  },
+
+  alternativesTitle: {
+    fontSize: typography.fontSizes.lg,
+    fontWeight: typography.fontWeights.semibold,
+    marginLeft: spacing.sm,
+    color: '#047857',
+  },
+
+  alternativeItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: spacing.sm,
+  },
+
+  alternativeBullet: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: '#10B981',
+    marginRight: spacing.md,
+  },
+
+  alternativeText: {
+    flex: 1,
+    fontSize: typography.fontSizes.base,
+    color: colors.gray700,
+  },
+
+  // Last Update
+  lastUpdateContainer: {
+    alignItems: 'center',
+    paddingVertical: spacing.lg,
+    borderTopWidth: 1,
+    borderTopColor: '#E5E7EB',
+    marginTop: spacing.sm,
+  },
+
+  lastUpdateText: {
+    fontSize: typography.fontSizes.sm,
+    fontStyle: 'italic',
+    color: '#9CA3AF',
   },
 });

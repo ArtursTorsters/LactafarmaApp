@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     color: colors.gray700,
     lineHeight: typography.lineHeights.relaxed * typography.fontSizes.sm,
     marginBottom: spacing.md,
+
   },
   attribution: {
     paddingTop: spacing.sm,

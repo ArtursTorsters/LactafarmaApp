@@ -11,6 +11,7 @@ import { DrugDetailsModal } from '../modal/Modal';
 import { useSearchHooks } from '../../hooks/SearchHooks';
 import { globalStyles } from '../../styles/styles';
 import { Ionicons } from "@expo/vector-icons";
+import { MedicalDisclaimer } from '../medicalDisclaimer/MedicalDisclaimer';
 
 export const DrugSearchComponent = () => {
   const {
@@ -36,7 +37,7 @@ export const DrugSearchComponent = () => {
 
   return (
     <View style={[
-      globalStyles.medicalContainer,
+      globalStyles.searchContainer,
       { flex: 1 },
       isSearchActive && {
         position: 'absolute',
@@ -45,7 +46,6 @@ export const DrugSearchComponent = () => {
         right: 0,
         bottom: 0,
         zIndex: 1000,
-        backgroundColor: 'rgba(248, 250, 252, 0.98)'
       }
     ]}>
       <View style={[
@@ -155,17 +155,15 @@ export const DrugSearchComponent = () => {
           <Text style={[globalStyles.bodyText, globalStyles.searchFullScreenEmptyText]}>
             Start typing to search for medications and their breastfeeding compatibility
           </Text>
+                    <MedicalDisclaimer/>
+
         </View>
       )}
 
-      {/* Loading Details Overlay */}
       {loadingDetails && (
         <View style={globalStyles.loadingDetailsOverlay}>
           <View style={globalStyles.loadingDetailsContent}>
             <LoadingSpinner />
-            <Text style={[globalStyles.bodyText, globalStyles.loadingDetailsText]}>
-              Loading details...
-            </Text>
           </View>
         </View>
       )}

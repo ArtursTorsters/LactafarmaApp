@@ -34,7 +34,7 @@ export const AboutApp: React.FC<AboutAppProps> = ({ style }) => {
           BY-NC-SA 4.0).
         </Text>
         <Text style={globalStyles.bodyText}>
-          LactaFarma uses this data in a non-commercial way, with proper
+          LactaMed uses this data in a non-commercial way, with proper
           attribution, and any derivative information is distributed under the
           same license terms.
         </Text>

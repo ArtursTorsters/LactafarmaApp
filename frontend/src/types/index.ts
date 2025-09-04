@@ -63,6 +63,7 @@ export interface DrugCardProps {
   onPress: (drug: Drug) => void;
   onFavorite?: (drug: Drug) => void;
   isFavorite?: boolean;
+  selectedDrug: DrugDetails | null;
 }
 
 // API Response interfaces

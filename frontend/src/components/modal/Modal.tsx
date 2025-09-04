@@ -1,10 +1,11 @@
+// components/modals/DrugDetailsModal.tsx
 import React from "react";
 import { View, Text, TouchableOpacity, Modal, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { LoadingSpinner } from "../common/LoadingSpinner";
-import { DrugCard } from "../drugCard/DrugCard";
-import { globalStyles } from "../../styles/styles";
-import { DrugDetailsModalProps } from "../../types";
+import { modalStyles } from "../../styles/styles";
+import { RISK_LEVELS } from "../../utils/constants";
+import { DrugDetailsModalProps, RiskLevel } from "../../types";
 
 export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
   visible,
@@ -14,6 +15,9 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
   error,
   onClose,
 }) => {
+  // Get risk level info for styling
+  const riskLevelInfo = selectedDrugForUI ? RISK_LEVELS[selectedDrugForUI.riskLevel] : RISK_LEVELS.unknown;
+
   return (
     <Modal
       visible={visible}
@@ -21,45 +25,31 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
       presentationStyle="pageSheet"
       onRequestClose={onClose}
     >
-      <View style={globalStyles.modalContainer}>
+      <View style={modalStyles.container}>
         {/* Header */}
-        <View style={[globalStyles.row, globalStyles.modalHeader]}>
-          <Text style={globalStyles.title}>Drug Information</Text>
-          <TouchableOpacity
-            onPress={() => {
-              onClose();
-            }}
-            style={globalStyles.modalCloseButton}
-          >
+        <View style={modalStyles.header}>
+          <Text style={modalStyles.headerTitle}>Drug Information</Text>
+          <TouchableOpacity onPress={onClose} style={modalStyles.closeButton}>
             <Ionicons name="close" size={24} color="#666" />
           </TouchableOpacity>
         </View>
 
         {/* Loading State */}
         {loadingDetails && (
-          <View style={globalStyles.modalLoadingContainer}>
+          <View style={modalStyles.loadingContainer}>
             <LoadingSpinner />
-            <Text style={[globalStyles.bodyText, globalStyles.modalLoadingText]}>
-              Loading drug details...
-            </Text>
+            <Text style={modalStyles.loadingText}>Loading drug details...</Text>
           </View>
         )}
 
         {/* Error State */}
         {!loadingDetails && error && !selectedDrug && (
-          <View style={globalStyles.modalErrorContainer}>
+          <View style={modalStyles.errorContainer}>
             <Ionicons name="alert-circle-outline" size={48} color="#EF4444" />
-            <Text style={[globalStyles.title, globalStyles.modalErrorTitle]}>
-              Unable to Load Drug Details
-            </Text>
-            <Text style={[globalStyles.bodyText, globalStyles.modalErrorText]}>
-              {error}
-            </Text>
-            <TouchableOpacity
-              style={globalStyles.modalErrorButton}
-              onPress={onClose}
-            >
-              <Text style={globalStyles.modalErrorButtonText}>Close</Text>
+            <Text style={modalStyles.errorTitle}>Unable to Load Drug Details</Text>
+            <Text style={modalStyles.errorText}>{error}</Text>
+            <TouchableOpacity style={modalStyles.errorButton} onPress={onClose}>
+              <Text style={modalStyles.errorButtonText}>Close</Text>
             </TouchableOpacity>
           </View>
         )}
@@ -67,80 +57,81 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
         {/* Content */}
         {!loadingDetails && selectedDrug && (
           <ScrollView
-            style={globalStyles.modalScrollView}
-            contentContainerStyle={globalStyles.modalScrollContent}
+            style={modalStyles.scrollView}
+            contentContainerStyle={modalStyles.scrollContent}
             showsVerticalScrollIndicator={false}
           >
-            {/* Drug Card */}
-            {selectedDrugForUI && (
-              <View style={globalStyles.modalDrugCardContainer}>
-                <DrugCard drug={selectedDrugForUI} onPress={() => {}} />
-              </View>
-            )}
+            {/* Drug Header Card */}
+            <View style={modalStyles.drugHeaderCard}>
+              {/* Drug Name */}
+              <Text style={modalStyles.drugName}>{selectedDrug.name}</Text>
 
-            {/* Basic Drug Info */}
-            <View style={globalStyles.modalBasicInfoCard}>
-              <Text style={[globalStyles.title, globalStyles.modalDrugTitle]}>
-                {selectedDrug.name}
-              </Text>
-
-              {selectedDrug.riskLevel && (
-                <View style={globalStyles.modalRiskLevelContainer}>
-                  <Text style={[globalStyles.captionText, globalStyles.modalRiskLevelLabel]}>
-                    Risk Level:
-                  </Text>
-                  <Text style={[globalStyles.bodyText, globalStyles.modalRiskLevelText]}>
-                    {selectedDrug.riskLevel}
+              {/* Risk Badge and Category */}
+              <View style={modalStyles.riskBadgeContainer}>
+                <View
+                  style={[
+                    modalStyles.riskBadge,
+                    { backgroundColor: riskLevelInfo.color + '20' }
+                  ]}
+                >
+                  <View
+                    style={[
+                      modalStyles.riskDot,
+                      { backgroundColor: riskLevelInfo.color }
+                    ]}
+                  />
+                  <Text
+                    style={[
+                      modalStyles.riskText,
+                      { color: riskLevelInfo.color }
+                    ]}
+                  >
+                    {riskLevelInfo.label}
                   </Text>
                 </View>
-              )}
 
-              {selectedDrug.description && (
-                <View>
-                  <Text style={[globalStyles.captionText, globalStyles.modalDescriptionLabel]}>
-                    Description:
+                {selectedDrugForUI?.category && (
+                  <Text style={modalStyles.category}>
+                    {selectedDrugForUI.category}
                   </Text>
-                  <Text style={[globalStyles.bodyText, globalStyles.modalDescriptionText]}>
-                    {selectedDrug.description}
+                )}
+              </View>
+
+              {/* Risk Description */}
+              {selectedDrug.riskDescription && (
+                <View style={modalStyles.riskDescriptionContainer}>
+                  <Text style={modalStyles.riskDescriptionText}>
+                    {selectedDrug.riskDescription}
                   </Text>
                 </View>
               )}
             </View>
 
-            {/* Risk Information */}
-            {selectedDrug.riskDescription && (
-              <View style={globalStyles.modalRiskInfoCard}>
-                <View style={globalStyles.modalRiskInfoHeader}>
-                  <Ionicons name="warning-outline" size={20} color="#D97706" />
-                  <Text style={[globalStyles.title, globalStyles.modalRiskInfoTitle]}>
-                    Risk Information
-                  </Text>
-                </View>
-                <Text style={[globalStyles.bodyText, globalStyles.modalRiskInfoText]}>
-                  {selectedDrug.riskDescription}
+            {/* Description Section */}
+            {selectedDrug.description && (
+              <View style={modalStyles.descriptionCard}>
+                <Text style={modalStyles.sectionLabel}>Description</Text>
+                <Text style={modalStyles.descriptionText}>
+                  {selectedDrug.description}
                 </Text>
               </View>
             )}
 
-            {/* Alternatives */}
+            {/* Alternatives Section */}
             {selectedDrug.alternatives && selectedDrug.alternatives.length > 0 && (
-              <View style={globalStyles.modalAlternativesCard}>
-                <View style={globalStyles.modalAlternativesHeader}>
+              <View style={modalStyles.alternativesCard}>
+                <View style={modalStyles.alternativesHeader}>
                   <Ionicons
                     name="swap-horizontal-outline"
                     size={20}
                     color="#059669"
                   />
-                  <Text style={[globalStyles.title, globalStyles.modalAlternativesTitle]}>
-                    Alternatives
-                  </Text>
+                  <Text style={modalStyles.alternativesTitle}>Alternatives</Text>
                 </View>
                 {selectedDrug.alternatives.map((alt, index) => (
-                  <View key={index} style={globalStyles.modalAlternativeItem}>
-                    <View style={globalStyles.modalAlternativeBullet} />
-                    <Text style={[globalStyles.bodyText, globalStyles.modalAlternativeText]}>
-                      {alt}
-                    </Text>
+                  <View key={index} style={modalStyles.alternativeItem}>
+                    <View style={modalStyles.alternativeBullet} />
+                    <Text style={modalStyles.alternativeText}>{alt}</Text>
                   </View>
                 ))}
               </View>
@@ -148,8 +139,8 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
 
             {/* Last Update */}
             {selectedDrug.lastUpdate && (
-              <View style={globalStyles.modalLastUpdateContainer}>
-                <Text style={[globalStyles.captionText, globalStyles.modalLastUpdateText]}>
+              <View style={modalStyles.lastUpdateContainer}>
+                <Text style={modalStyles.lastUpdateText}>
                   Last updated: {selectedDrug.lastUpdate}
                 </Text>
               </View>

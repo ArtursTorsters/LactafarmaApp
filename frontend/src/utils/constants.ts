@@ -6,7 +6,7 @@ export const API_CONFIG = {
 
 export const RISK_LEVELS = {
   'very-low': { label: 'Very Low Risk', color: '#28a745' },
-  'low': { label: 'Low Risk', color: '#6f42c1' },
+  'low': { label: 'Low Risk', color: '#db9e27' },
   'moderate': { label: 'Moderate Risk', color: '#ffc107' },
   'high': { label: 'High Risk', color: '#fd7e14' },
   'very-high': { label: 'Very High Risk', color: '#dc3545' },
