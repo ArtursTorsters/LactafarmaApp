@@ -24,8 +24,7 @@ export default function App() {
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         >
           {loading && <LoadingSpinner />}
-                <MedicalDisclaimer/>
-
+          <MedicalDisclaimer/>
           <AboutApp />
           <DrugSearchComponent />
         </KeyboardAvoidingView>

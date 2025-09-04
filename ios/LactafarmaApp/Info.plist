@@ -46,9 +46,33 @@
     <key>NSAppTransportSecurity</key>
     <dict>
       <key>NSAllowsArbitraryLoads</key>
-      <false/>
+      <true/>
       <key>NSAllowsLocalNetworking</key>
       <true/>
+      <key>NSExceptionDomains</key>
+      <dict>
+        <key>192.168.8.46</key>
+        <dict>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+          <key>NSExceptionMinimumTLSVersion</key>
+          <string>1.0</string>
+        </dict>
+        <key>192.168.8.38</key>
+        <dict>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+          <key>NSExceptionMinimumTLSVersion</key>
+          <string>1.0</string>
+        </dict>
+        <key>localhost</key>
+        <dict>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+          <key>NSExceptionMinimumTLSVersion</key>
+          <string>1.0</string>
+        </dict>
+      </dict>
     </dict>
     <key>UILaunchStoryboardName</key>
     <string>SplashScreen</string>

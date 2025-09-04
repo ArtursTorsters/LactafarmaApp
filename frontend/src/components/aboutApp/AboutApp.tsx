@@ -20,7 +20,7 @@ export const AboutApp: React.FC<AboutAppProps> = ({ style }) => {
         <Text style={globalStyles.title}>About LactaMed</Text>
       <Text style={globalStyles.bodyText}>
         LactaMed helps breastfeeding mothers quickly find reliable information
-        about medication safety during lactation. Our app provides instant
+        about medication safety during lactation. LactaMed provides instant
         access to comprehensive drug compatibility data.
       </Text>
         <Text style={globalStyles.title}>Licensing & Usage</Text>

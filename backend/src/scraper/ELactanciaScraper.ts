@@ -158,9 +158,9 @@ export class ELactanciaScraper {
         `/breastfeeding/${slug}/product/`,
         `/breastfeeding/${slug}/tradename/`,
         `/breastfeeding/${slug}/writing/`,
-        `/breastfeeding/${drugName.toLowerCase()}/product/`,
-        `/breastfeeding/${drugName.toLowerCase()}/tradename/`,
-        `/breastfeeding/${drugName.toLowerCase()}/writing/`
+        `/breastfeeding/${this.createSlug(drugName)}/product/`,
+        `/breastfeeding/${this.createSlug(drugName)}/tradename/`,
+        `/breastfeeding/${this.createSlug(drugName)}/writing/`
       ];
 
       for (const pattern of alternativePatterns) {

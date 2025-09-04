@@ -5,6 +5,7 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import { LoadingSpinner } from '../common/LoadingSpinner';
 import { DrugDetailsModal } from '../modal/Modal';
@@ -25,12 +26,16 @@ export const DrugSearchComponent = () => {
     handleFocus,
     handleDrugSelect,
     clearSelectedDrug,
+    clearSearch,
   } = useSearchHooks();
 
+  // Determine if we should show fullscreen search
+  const isSearchActive = query.length > 0 || showResults;
+
   return (
-    <View style={[globalStyles.medicalContainer, { flex: 1 }]}>
+    <View style={[globalStyles.medicalContainer, { flex: 1 }, isSearchActive && { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 1000, backgroundColor: 'rgba(248, 250, 252, 0.98)' }]}>
       {/* Header Section */}
-      <View style={globalStyles.searchHeader}>
+      <View style={[globalStyles.searchHeader, isSearchActive && globalStyles.searchHeaderFullscreen]}>
         <Text style={globalStyles.captionText}>Search for a medication</Text>
 
         <TextInput

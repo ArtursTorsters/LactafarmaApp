@@ -88,6 +88,13 @@ export const useSearchHooks = () => {
     setSelectedDrug(null);
   };
 
+  const clearSearch = () => {
+    setQuery('');
+    setResults([]);
+    setShowResults(false);
+    setError(null);
+  };
+
   // Helper function to convert selectedDrug to UI Drug format
   const getSelectedDrugForUI = (): Drug | null => {
     if (!selectedDrug) return null;
@@ -108,5 +115,6 @@ export const useSearchHooks = () => {
     handleFocus,
     handleDrugSelect,
     clearSelectedDrug,
+    clearSearch,
   };
 };

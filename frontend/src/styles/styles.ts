@@ -119,6 +119,18 @@ export const globalStyles = StyleSheet.create({
     zIndex: 10,
   },
 
+  searchHeaderFullscreen: {
+    backgroundColor: 'white',
+    paddingBottom: 8,
+    zIndex: 10,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    paddingHorizontal: 10,
+    paddingTop: 10,
+  },
+
   searchLoadingContainer: {
     alignItems: 'center',
     paddingVertical: 20,

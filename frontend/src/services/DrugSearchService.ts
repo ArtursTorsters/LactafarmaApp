@@ -6,11 +6,10 @@ export class DrugSearchService {
   private timeout: number;
 
   constructor(baseURL?: string) {
-    // Use your local IP address
     this.baseURL = baseURL ||
       Constants.expoConfig?.extra?.API_BASE_URL ||
       (__DEV__
-        ? 'http://192.168.8.38:3000' // Your IP
+        ? 'http://192.168.8.46:3000'
         : 'https://your-production-backend.com');
     this.timeout = 15000; // 15 seconds
   }

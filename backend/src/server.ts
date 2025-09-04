@@ -7,7 +7,7 @@ import drugRoutes from './routes/drugRoutes';
 dotenv.config();
 
 const app: Application = express();
-const PORT = process.env.PORT || 3000;
+const PORT = parseInt(process.env.PORT || '3000', 10);
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 app.set('trust proxy', true);
@@ -33,8 +33,10 @@ const corsOptions = {
     const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || [
       'http://localhost:3000',
       'http://localhost:8081',
-      'http://192.168.1.100:8081',
-      'exp://192.168.1.100:8081'
+      'http://192.168.8.46:8081',
+      'exp://192.168.8.46:8081',
+      'http://192.168.8.38:8081',
+      'exp://192.168.8.38:8081'
     ];
 
     if (NODE_ENV === 'development') {
@@ -111,7 +113,11 @@ app.use((error: any, req: Request, res: Response, next: NextFunction) => {
 });
 
 // Start server
-const server = app.listen(PORT, () => {
+const server = app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Drug Scraper API server running on http://0.0.0.0:${PORT}`);
+  console.log(`📋 Health check: http://localhost:${PORT}/health`);
+  console.log(`🔍 Search endpoint: http://localhost:${PORT}/api/drugs/search/{query}`);
+  console.log(`📄 Environment: ${NODE_ENV}`);
 });
 
 // Graceful shutdown
