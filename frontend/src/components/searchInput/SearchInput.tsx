@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   TextInput,
   Text,
   FlatList,
   TouchableOpacity,
-  TouchableWithoutFeedback,
 } from 'react-native';
 import { LoadingSpinner } from '../common/LoadingSpinner';
 import { DrugDetailsModal } from '../modal/Modal';
 import { useSearchHooks } from '../../hooks/SearchHooks';
 import { globalStyles } from '../../styles/styles';
+import { Ionicons } from "@expo/vector-icons";
 
 export const DrugSearchComponent = () => {
   const {
@@ -26,28 +26,69 @@ export const DrugSearchComponent = () => {
     handleFocus,
     handleDrugSelect,
     clearSelectedDrug,
-    clearSearch,
   } = useSearchHooks();
 
   // Determine if we should show fullscreen search
   const isSearchActive = query.length > 0 || showResults;
+  const handleClearSearch = () => {
+    setQuery('')
+  };
 
   return (
-    <View style={[globalStyles.medicalContainer, { flex: 1 }, isSearchActive && { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 1000, backgroundColor: 'rgba(248, 250, 252, 0.98)' }]}>
-      {/* Header Section */}
-      <View style={[globalStyles.searchHeader, isSearchActive && globalStyles.searchHeaderFullscreen]}>
-        <Text style={globalStyles.captionText}>Search for a medication</Text>
+    <View style={[
+      globalStyles.medicalContainer,
+      { flex: 1 },
+      isSearchActive && {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 1000,
+        backgroundColor: 'rgba(248, 250, 252, 0.98)'
+      }
+    ]}>
+      <View style={[
+        globalStyles.searchHeader,
+        isSearchActive && {
+          paddingTop: 50,
+          paddingBottom: 16
+        }
+      ]}>
 
-        <TextInput
-          style={globalStyles.input}
-          placeholder="Enter medication name..."
-          placeholderTextColor="#9CA3AF"
-          value={query}
-          onChangeText={setQuery}
-          onFocus={handleFocus}
-          autoCapitalize="none"
-          autoCorrect={false}
-        />
+        <View style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: 8
+        }}>
+          <Text style={globalStyles.captionText}>Search for a medication</Text>
+          {isSearchActive && (
+            <TouchableOpacity
+              onPress={handleClearSearch}
+              style={{
+                padding: 8,
+                borderRadius: 8,
+                backgroundColor: '#F1F5F9'
+              }}
+            >
+              <Ionicons name="close" size={20} color="#666" />
+            </TouchableOpacity>
+          )}
+        </View>
+
+        <View style={{ position: 'relative' }}>
+          <TextInput
+            style={globalStyles.input}
+            placeholder="Enter medication name..."
+            placeholderTextColor="#9CA3AF"
+            value={query}
+            onChangeText={setQuery}
+            onFocus={handleFocus}
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+        </View>
 
         {/* Loading State */}
         {loading && (
@@ -109,7 +150,7 @@ export const DrugSearchComponent = () => {
       )}
 
       {/* Full Screen Empty State */}
-      {!showResults && !loading && query.length === 0 && (
+      {!showResults && !loading && query.length === 0 && !isSearchActive && (
         <View style={globalStyles.searchFullScreenEmpty}>
           <Text style={[globalStyles.bodyText, globalStyles.searchFullScreenEmptyText]}>
             Start typing to search for medications and their breastfeeding compatibility
@@ -122,6 +163,9 @@ export const DrugSearchComponent = () => {
         <View style={globalStyles.loadingDetailsOverlay}>
           <View style={globalStyles.loadingDetailsContent}>
             <LoadingSpinner />
+            <Text style={[globalStyles.bodyText, globalStyles.loadingDetailsText]}>
+              Loading details...
+            </Text>
           </View>
         </View>
       )}
