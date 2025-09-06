@@ -226,7 +226,6 @@ export const globalStyles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 999,
@@ -852,6 +851,10 @@ export const modalStyles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
+        // borderLeftColor: '#F59E0B',
+
+    borderLeftWidth: 4,
+
   },
 
   drugName: {
@@ -898,18 +901,15 @@ export const modalStyles = StyleSheet.create({
 
   // Risk Description
   riskDescriptionContainer: {
-    backgroundColor: '#FEF3C7',
-    padding: spacing.md,
+    padding: spacing.sm,
     borderRadius: 12,
-    borderLeftWidth: 4,
-    borderLeftColor: '#F59E0B',
     marginBottom: spacing.lg,
   },
 
   riskDescriptionText: {
     fontSize: typography.fontSizes.base,
     lineHeight: 22,
-    color: '#78350F',
+    color: '#000000ff',
   },
 
   // Description Card

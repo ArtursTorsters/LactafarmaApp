@@ -155,8 +155,7 @@ export const DrugSearchComponent = () => {
           <Text style={[globalStyles.bodyText, globalStyles.searchFullScreenEmptyText]}>
             Start typing to search for medications and their breastfeeding compatibility
           </Text>
-                    <MedicalDisclaimer/>
-
+            <MedicalDisclaimer/>
         </View>
       )}
 

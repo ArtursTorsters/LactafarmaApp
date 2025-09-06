@@ -1,4 +1,3 @@
-// components/modals/DrugDetailsModal.tsx
 import React from "react";
 import { View, Text, TouchableOpacity, Modal, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
@@ -16,7 +15,7 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
   onClose,
 }) => {
   // Get risk level info for styling
-  const riskLevelInfo = selectedDrugForUI ? RISK_LEVELS[selectedDrugForUI.riskLevel] : RISK_LEVELS.unknown;
+ const riskLevelInfo = selectedDrugForUI ? RISK_LEVELS[selectedDrugForUI.riskLevel] : RISK_LEVELS.unknown;
 
   return (
     <Modal
@@ -61,8 +60,14 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
             contentContainerStyle={modalStyles.scrollContent}
             showsVerticalScrollIndicator={false}
           >
+
             {/* Drug Header Card */}
-            <View style={modalStyles.drugHeaderCard}>
+          <View style={[
+              modalStyles.drugHeaderCard,
+              {
+                borderLeftColor: riskLevelInfo.color,
+              }
+            ]}>
               {/* Drug Name */}
               <Text style={modalStyles.drugName}>{selectedDrug.name}</Text>
 
@@ -89,7 +94,6 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
                     {riskLevelInfo.label}
                   </Text>
                 </View>
-
                 {selectedDrugForUI?.category && (
                   <Text style={modalStyles.category}>
                     {selectedDrugForUI.category}

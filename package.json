@@ -13,6 +13,7 @@
     "axios": "^1.11.0",
     "cors": "^2.8.5",
     "expo": "~53.0.20",
+    "expo-blur": "^14.1.5",
     "expo-constants": "~17.1.7",
     "expo-status-bar": "~2.2.3",
     "express": "^5.1.0",

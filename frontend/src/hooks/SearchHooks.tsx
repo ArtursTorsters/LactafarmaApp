@@ -63,7 +63,9 @@ export const useSearchHooks = () => {
     if (results.length > 0) {
       setShowResults(true);
     }
+
   };
+
 
   const handleDrugSelect = async (suggestion: DrugSuggestion) => {
     setShowResults(false);
