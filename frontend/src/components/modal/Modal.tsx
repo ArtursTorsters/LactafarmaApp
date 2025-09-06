@@ -6,16 +6,20 @@ import { modalStyles } from "../../styles/styles";
 import { RISK_LEVELS } from "../../utils/constants";
 import { DrugDetailsModalProps, RiskLevel } from "../../types";
 
-export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
+interface DrugDetailsModalPropsWithBack extends DrugDetailsModalProps {
+  onBack?: () => void;
+}
+
+export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
   visible,
   selectedDrug,
   selectedDrugForUI,
   loadingDetails,
   error,
   onClose,
+  onBack,
 }) => {
-  // Get risk level info for styling
- const riskLevelInfo = selectedDrugForUI ? RISK_LEVELS[selectedDrugForUI.riskLevel] : RISK_LEVELS.unknown;
+  const riskLevelInfo = selectedDrugForUI ? RISK_LEVELS[selectedDrugForUI.riskLevel] : RISK_LEVELS.unknown;
 
   return (
     <Modal
@@ -25,9 +29,24 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
       onRequestClose={onClose}
     >
       <View style={modalStyles.container}>
-        {/* Header */}
+        {/* Header with Back and Close buttons */}
         <View style={modalStyles.header}>
-          <Text style={modalStyles.headerTitle}>Drug Information</Text>
+          {/* Left side - Back button */}
+          <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+            {onBack && (
+              <TouchableOpacity
+                onPress={onBack}
+                style={[modalStyles.closeButton, { marginRight: 12 }]}
+              >
+                <Ionicons name="arrow-back" size={24} color="#666" />
+              </TouchableOpacity>
+            )}
+            <Text style={[modalStyles.headerTitle, { flex: 1 }]}>
+              Drug Information
+            </Text>
+          </View>
+
+          {/* Right side - Close button */}
           <TouchableOpacity onPress={onClose} style={modalStyles.closeButton}>
             <Ionicons name="close" size={24} color="#666" />
           </TouchableOpacity>
@@ -60,12 +79,14 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
             contentContainerStyle={modalStyles.scrollContent}
             showsVerticalScrollIndicator={false}
           >
-
             {/* Drug Header Card */}
-          <View style={[
+            <View style={[
               modalStyles.drugHeaderCard,
               {
+                borderLeftWidth: 6,
                 borderLeftColor: riskLevelInfo.color,
+                borderTopWidth: 2,
+                borderTopColor: riskLevelInfo.color + '40',
               }
             ]}>
               {/* Drug Name */}
@@ -103,8 +124,17 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalProps> = ({
 
               {/* Risk Description */}
               {selectedDrug.riskDescription && (
-                <View style={modalStyles.riskDescriptionContainer}>
-                  <Text style={modalStyles.riskDescriptionText}>
+                <View style={[
+                  modalStyles.riskDescriptionContainer,
+                  {
+                    backgroundColor: riskLevelInfo.color + '10',
+                    borderColor: riskLevelInfo.color + '40',
+                  }
+                ]}>
+                  <Text style={[
+                    modalStyles.riskDescriptionText,
+                    { color: riskLevelInfo.color === '#28a745' ? '#065f46' : '#78350F' }
+                  ]}>
                     {selectedDrug.riskDescription}
                   </Text>
                 </View>

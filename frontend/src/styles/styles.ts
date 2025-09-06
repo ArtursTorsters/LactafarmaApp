@@ -196,6 +196,8 @@ export const globalStyles = StyleSheet.create({
   searchEmptyStateText: {
     color: '#6B7280',
     textAlign: 'center',
+        marginTop: -24,
+
   },
 
   searchEmptyStateSubtext: {
@@ -225,10 +227,13 @@ export const globalStyles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
+    height: 100,
     bottom: 0,
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 999,
+        backgroundColor: '#ffffffff',
+
   },
 
   loadingDetailsContent: {
@@ -236,14 +241,6 @@ export const globalStyles = StyleSheet.create({
     padding: 24,
     borderRadius: 12,
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 8,
   },
 
   loadingDetailsText: {

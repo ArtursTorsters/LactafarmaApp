@@ -15,6 +15,7 @@ export const useSearchHooks = () => {
   const [showResults, setShowResults] = useState(false);
   const [selectedDrug, setSelectedDrug] = useState<DrugDetails | null>(null);
   const [loadingDetails, setLoadingDetails] = useState(false);
+  const [isSearchModalVisible, setIsSearchModalVisible] = useState(false);
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -47,25 +48,25 @@ export const useSearchHooks = () => {
       setResults(suggestions);
       setShowResults(true);
     } catch (err: any) {
-      setError(err?.message || 'Search failed')
+      setError(err?.message || 'Search failed');
     } finally {
       setLoading(false);
     }
   };
 
-  // const handleBlur = () => {
-  //   setTimeout(() => {
-  //     setShowResults(false);
-  //   }, 200);
-  // };
+  // Back button handler - goes from drug details back to search results
+  const onBack = () => {
+    setSelectedDrug(null)
+    setIsSearchModalVisible(true)
+    setShowResults(true)
+  };
 
   const handleFocus = () => {
+    setIsSearchModalVisible(true);
     if (results.length > 0) {
       setShowResults(true);
     }
-
   };
-
 
   const handleDrugSelect = async (suggestion: DrugSuggestion) => {
     setShowResults(false);
@@ -76,6 +77,7 @@ export const useSearchHooks = () => {
       const details = await drugSearchService.getDrugDetails(suggestion.name);
       if (details) {
         setSelectedDrug(details);
+        setIsSearchModalVisible(false)
       } else {
         setError('Drug details not found');
       }
@@ -95,6 +97,12 @@ export const useSearchHooks = () => {
     setResults([]);
     setShowResults(false);
     setError(null);
+    setIsSearchModalVisible(false);
+  };
+
+  const closeSearchModal = () => {
+    setIsSearchModalVisible(false);
+    setShowResults(false);
   };
 
   // Helper function to convert selectedDrug to UI Drug format
@@ -113,10 +121,12 @@ export const useSearchHooks = () => {
     selectedDrug,
     selectedDrugForUI: getSelectedDrugForUI(),
     loadingDetails,
-    // handleBlur,
+    isSearchModalVisible,
     handleFocus,
     handleDrugSelect,
     clearSelectedDrug,
     clearSearch,
+    onBack,
+    closeSearchModal,
   };
 };

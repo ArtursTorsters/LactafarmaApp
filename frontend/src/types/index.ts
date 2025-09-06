@@ -106,6 +106,7 @@ export interface DrugDetailsModalProps {
   loadingDetails: boolean;
   error: string | null;
   onClose: () => void;
+  onBack?: any;
 }
 
 // Utility functions for type conversion

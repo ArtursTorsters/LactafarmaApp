@@ -5,6 +5,7 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
+  Modal,
 } from 'react-native';
 import { LoadingSpinner } from '../common/LoadingSpinner';
 import { DrugDetailsModal } from '../modal/Modal';
@@ -24,141 +25,161 @@ export const DrugSearchComponent = () => {
     selectedDrug,
     selectedDrugForUI,
     loadingDetails,
+    isSearchModalVisible,
     handleFocus,
     handleDrugSelect,
+    onBack,
     clearSelectedDrug,
+    closeSearchModal,
   } = useSearchHooks();
 
-  // Determine if we should show fullscreen search
-  const isSearchActive = query.length > 0 || showResults;
-  const handleClearSearch = () => {
-    setQuery('')
-  };
-
   return (
-    <View style={[
-      globalStyles.searchContainer,
-      { flex: 1 },
-      isSearchActive && {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 1000,
-      }
-    ]}>
-      <View style={[
-        globalStyles.searchHeader,
-        isSearchActive && {
-          paddingTop: 50,
-          paddingBottom: 16
-        }
-      ]}>
+    <View style={globalStyles.searchContainer}>
+      {/* Regular Search Input */}
+      <View style={globalStyles.searchHeader}>
+        <Text style={globalStyles.captionText}>Search for a medication</Text>
 
-        <View style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: 8
-        }}>
-          <Text style={globalStyles.captionText}>Search for a medication</Text>
-          {isSearchActive && (
+        <TouchableOpacity onPress={handleFocus}>
+          <View style={{ position: 'relative' }}>
+            <TextInput
+              style={globalStyles.input}
+              placeholder="Enter medication name..."
+              placeholderTextColor="#9CA3AF"
+              value={query}
+              editable={false}
+              pointerEvents="none"
+            />
+          </View>
+        </TouchableOpacity>
+      </View>
+
+      {/* Empty State */}
+      {!isSearchModalVisible && (
+        <View style={globalStyles.searchFullScreenEmpty}>
+          <Text style={[globalStyles.bodyText, globalStyles.searchFullScreenEmptyText]}>
+            Start typing to search for medications and their breastfeeding compatibility
+          </Text>
+          <MedicalDisclaimer/>
+        </View>
+      )}
+
+      {/* Search Modal that opens on focus */}
+      <Modal
+        visible={isSearchModalVisible}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={closeSearchModal}
+      >
+        <View style={{ flex: 1, backgroundColor: '#F8FAFC' }}>
+          {/* Modal Header */}
+          <View style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: 16,
+            paddingTop: 50,
+            borderBottomWidth: 1,
+            borderBottomColor: '#E2E8F0',
+            backgroundColor: '#FFFFFF',
+          }}>
+            {/* open modal with empty search */}
+            <Text style={globalStyles.title}>Search Medications</Text>
             <TouchableOpacity
-              onPress={handleClearSearch}
+              onPress={closeSearchModal}
               style={{
                 padding: 8,
                 borderRadius: 8,
                 backgroundColor: '#F1F5F9'
               }}
             >
-              <Ionicons name="close" size={20} color="#666" />
+              <Ionicons name="close" size={24} color="#666" />
             </TouchableOpacity>
+          </View>
+
+          {/* Modal Search Input */}
+          <View style={{ padding: 16 }}>
+            <TextInput
+              style={globalStyles.input}
+              placeholder="Enter medication name..."
+              placeholderTextColor="#9CA3AF"
+              value={query}
+              onChangeText={setQuery}
+              autoFocus={true} // Auto focus when modal opens
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+
+            {/* Loading State */}
+            {loading && (
+              <View style={globalStyles.searchLoadingContainer}>
+                <LoadingSpinner />
+              </View>
+            )}
+
+            {/* Search Error */}
+            {error && !loading && (
+              <View style={globalStyles.searchErrorContainer}>
+                <Text style={[globalStyles.errorText, { color: '#DC2626' }]}>
+                  {error}
+                </Text>
+              </View>
+            )}
+          </View>
+
+          {/* Results Section */}
+          {showResults && !loading && (
+            <View style={{ flex: 1, paddingHorizontal: 16 }}>
+              <FlatList
+                data={results}
+                keyExtractor={(item, index) => `${item.name}-${index}`}
+                renderItem={({ item }) => (
+                  <TouchableOpacity
+                    style={globalStyles.searchResultItem}
+                    onPress={() => {
+                      handleDrugSelect(item);
+                      closeSearchModal()
+                    }}
+                    activeOpacity={0.7}
+                  >
+                    <Text style={[globalStyles.bodyText, globalStyles.searchResultItemText]}>
+                      {item.name}
+                    </Text>
+                    {item.category && (
+                      <Text style={[globalStyles.category, globalStyles.searchResultItemCategory]}>
+                        {item.category}
+                      </Text>
+                    )}
+                  </TouchableOpacity>
+                )}
+                ListEmptyComponent={
+                  query.length >= 2 ? (
+                    <View style={globalStyles.searchEmptyStateContainer}>
+                      <Text style={[globalStyles.bodyText, globalStyles.searchEmptyStateText]}>
+                        No medications found for "{query}"
+                      </Text>
+                      <Text style={[globalStyles.captionText, globalStyles.searchEmptyStateSubtext]}>
+                        Try a different search term
+                      </Text>
+                    </View>
+                  ) : (
+                    <View style={globalStyles.searchEmptyStateContainer}>
+                      <Text style={[globalStyles.bodyText, globalStyles.searchEmptyStateText]}>
+                        Start typing to search for medications
+                      </Text>
+                    </View>
+                  )
+                }
+                style={globalStyles.flatListContainer}
+                contentContainerStyle={globalStyles.flatListContent}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+              />
+            </View>
           )}
         </View>
+      </Modal>
 
-        <View style={{ position: 'relative' }}>
-          <TextInput
-            style={globalStyles.input}
-            placeholder="Enter medication name..."
-            placeholderTextColor="#9CA3AF"
-            value={query}
-            onChangeText={setQuery}
-            onFocus={handleFocus}
-            autoCapitalize="none"
-            autoCorrect={false}
-          />
-        </View>
-
-        {/* Loading State */}
-        {loading && (
-          <View style={globalStyles.searchLoadingContainer}>
-            <LoadingSpinner />
-          </View>
-        )}
-
-        {/* Search Error */}
-        {error && !loading && (
-          <View style={globalStyles.searchErrorContainer}>
-            <Text style={[globalStyles.errorText, { color: '#DC2626' }]}>
-              {error}
-            </Text>
-          </View>
-        )}
-      </View>
-
-      {/* Results Section */}
-      {showResults && !loading && (
-        <View style={globalStyles.searchResultsContainer}>
-          <FlatList
-            data={results}
-            keyExtractor={(item, index) => `${item.name}-${index}`}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                style={globalStyles.searchResultItem}
-                onPress={() => handleDrugSelect(item)}
-                activeOpacity={0.7}
-              >
-                <Text style={[globalStyles.bodyText, globalStyles.searchResultItemText]}>
-                  {item.name}
-                </Text>
-                {item.category && (
-                  <Text style={[globalStyles.category, globalStyles.searchResultItemCategory]}>
-                    {item.category}
-                  </Text>
-                )}
-              </TouchableOpacity>
-            )}
-            ListEmptyComponent={
-              query.length >= 2 ? (
-                <View style={globalStyles.searchEmptyStateContainer}>
-                  <Text style={[globalStyles.bodyText, globalStyles.searchEmptyStateText]}>
-                    No medications found for "{query}"
-                  </Text>
-                  <Text style={[globalStyles.captionText, globalStyles.searchEmptyStateSubtext]}>
-                    Try a different search term
-                  </Text>
-                </View>
-              ) : null
-            }
-            style={globalStyles.flatListContainer}
-            contentContainerStyle={globalStyles.flatListContent}
-            showsVerticalScrollIndicator={true}
-            bounces={true}
-          />
-        </View>
-      )}
-
-      {/* Full Screen Empty State */}
-      {!showResults && !loading && query.length === 0 && !isSearchActive && (
-        <View style={globalStyles.searchFullScreenEmpty}>
-          <Text style={[globalStyles.bodyText, globalStyles.searchFullScreenEmptyText]}>
-            Start typing to search for medications and their breastfeeding compatibility
-          </Text>
-            <MedicalDisclaimer/>
-        </View>
-      )}
-
+      {/* Loading Details Overlay */}
       {loadingDetails && (
         <View style={globalStyles.loadingDetailsOverlay}>
           <View style={globalStyles.loadingDetailsContent}>
@@ -169,6 +190,7 @@ export const DrugSearchComponent = () => {
 
       {/* Drug Details Modal */}
       <DrugDetailsModal
+        onBack={onBack}
         visible={selectedDrug !== null}
         selectedDrug={selectedDrug}
         selectedDrugForUI={selectedDrugForUI}
