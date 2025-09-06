@@ -8,7 +8,7 @@ interface MedicalDisclaimerProps {
   style?: any;
 }
 
-export const MedicalDisclaimer: React.FC<MedicalDisclaimerProps> = ({ style }) => {
+export const MedicalDisclaimer: React.FC<MedicalDisclaimerProps> = ({}) => {
   return (
     <View style={globalStyles.warningContainer}>
             <View style={styles.header}>

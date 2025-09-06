@@ -127,13 +127,11 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
                 <View style={[
                   modalStyles.riskDescriptionContainer,
                   {
-                    backgroundColor: riskLevelInfo.color + '10',
                     borderColor: riskLevelInfo.color + '40',
                   }
                 ]}>
                   <Text style={[
                     modalStyles.riskDescriptionText,
-                    { color: riskLevelInfo.color === '#28a745' ? '#065f46' : '#78350F' }
                   ]}>
                     {selectedDrug.riskDescription}
                   </Text>
