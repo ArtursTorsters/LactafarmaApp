@@ -1,12 +1,9 @@
 import React from "react";
-import { View, Text, StyleSheet, Linking } from "react-native";
+import { View, Text, Linking } from "react-native";
 import { globalStyles } from '../../styles/styles'
 
-interface AboutAppProps {
-  style?: any;
-}
 
-export const AboutApp: React.FC<AboutAppProps> = ({ style }) => {
+export const AboutApp: React.FC = ({  }) => {
   const openELactancia = () => {
     Linking.openURL("https://www.e-lactancia.org")
   }
@@ -15,7 +12,7 @@ export const AboutApp: React.FC<AboutAppProps> = ({ style }) => {
   }
 
   return (
-    <View style={[globalStyles.medicalContainer, style]}>
+    <View style={[globalStyles.medicalContainer]}>
       <View style={globalStyles.medicalContainer}>
         <Text style={globalStyles.title}>About LactaMed</Text>
       <Text style={globalStyles.bodyText}>
