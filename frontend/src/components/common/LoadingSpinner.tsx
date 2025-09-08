@@ -1,12 +1,8 @@
 import React from 'react';
-import { View, ActivityIndicator, Text, StyleSheet } from 'react-native';
-import { colors, typography, spacing, globalStyles } from '../../styles/styles';
+import { View, ActivityIndicator, Text} from 'react-native';
+import { colors, globalStyles } from '../../styles/styles';
+import {LoadingSpinnerProps} from '../../types/index'
 
-interface LoadingSpinnerProps {
-  message?: string;
-  size?: 'small' | 'large';
-  color?: string;
-}
 
 export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
   message = "Loading...",

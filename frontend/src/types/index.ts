@@ -121,6 +121,19 @@ export const convertDetailsToUIDrug = (details: DrugDetails): Drug => {
   };
 };
 
+export interface LoadingSpinnerProps {
+  message?: string;
+  size?: 'small' | 'large';
+  color?: string;
+}
+
+export interface ErrorMessageProps {
+  message: string;
+  onPress?: () => void;
+  retryText?: string;
+}
+
+
 export const mapRiskLevelString = (riskLevel?: string): RiskLevel => {
   if (!riskLevel) return 'unknown';
 

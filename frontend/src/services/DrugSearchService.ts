@@ -11,7 +11,7 @@ export class DrugSearchService {
       (__DEV__
         ? 'http://192.168.8.46:3000'
         : 'https://your-production-backend.com');
-    this.timeout = 15000; // 15 seconds
+    this.timeout = 15000
   }
 
   private async makeRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
@@ -78,7 +78,7 @@ export class DrugSearchService {
       return response.details;
     } catch (error: any) {
       if (error.message.includes('404')) {
-        return null; // Drug not found
+        return null;
       }
       console.error('Get drug details failed:', error);
       throw new Error(`Failed to get details: ${error.message}`);
@@ -86,30 +86,30 @@ export class DrugSearchService {
   }
 
   // Search multiple drugs at once
-  async batchSearch(queries: string[]): Promise<{ [key: string]: DrugSuggestion[] }> {
-    if (!Array.isArray(queries) || queries.length === 0) {
-      return {};
-    }
+  // async batchSearch(queries: string[]): Promise<{ [key: string]: DrugSuggestion[] }> {
+  //   if (!Array.isArray(queries) || queries.length === 0) {
+  //     return {};
+  //   }
 
-    if (queries.length > 10) {
-      throw new Error('Maximum 10 queries allowed per batch');
-    }
+  //   if (queries.length > 10) {
+  //     throw new Error('Maximum 10 queries allowed per batch');
+  //   }
 
-    try {
-      const response = await this.makeRequest<{
-        success: boolean;
-        results: { [key: string]: DrugSuggestion[] };
-      }>('/api/drugs/batch-search', {
-        method: 'POST',
-        body: JSON.stringify({ queries }),
-      });
+  //   try {
+  //     const response = await this.makeRequest<{
+  //       success: boolean;
+  //       results: { [key: string]: DrugSuggestion[] };
+  //     }>('/api/drugs/batch-search', {
+  //       method: 'POST',
+  //       body: JSON.stringify({ queries }),
+  //     });
 
-      return response.results;
-    } catch (error: any) {
-      console.error('Batch search failed:', error);
-      throw new Error(`Batch search failed: ${error.message}`);
-    }
-  }
+  //     return response.results;
+  //   } catch (error: any) {
+  //     console.error('Batch search failed:', error);
+  //     throw new Error(`Batch search failed: ${error.message}`);
+  //   }
+  // }
 
   // Health check method
   async checkHealth(): Promise<boolean> {

@@ -35,7 +35,6 @@ export const DrugSearchComponent = () => {
 
   return (
     <View style={globalStyles.searchContainer}>
-      {/* Regular Search Input */}
       <View style={globalStyles.searchHeader}>
         <Text style={globalStyles.captionText}>Search for a medication</Text>
 
@@ -53,7 +52,6 @@ export const DrugSearchComponent = () => {
         </TouchableOpacity>
       </View>
 
-      {/* Empty State */}
       {!isSearchModalVisible && (
         <View style={globalStyles.searchFullScreenEmpty}>
           <Text style={[globalStyles.bodyText, globalStyles.searchFullScreenEmptyText]}>
@@ -63,7 +61,6 @@ export const DrugSearchComponent = () => {
         </View>
       )}
 
-      {/* Search Modal that opens on focus */}
       <Modal
         visible={isSearchModalVisible}
         animationType="slide"
@@ -71,7 +68,6 @@ export const DrugSearchComponent = () => {
         onRequestClose={closeSearchModal}
       >
         <View style={{ flex: 1, backgroundColor: '#F8FAFC' }}>
-          {/* Modal Header */}
           <View style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
@@ -82,7 +78,6 @@ export const DrugSearchComponent = () => {
             borderBottomColor: '#E2E8F0',
             backgroundColor: '#FFFFFF',
           }}>
-            {/* open modal with empty search */}
             <Text style={globalStyles.title}>Search Medications</Text>
             <TouchableOpacity
               onPress={closeSearchModal}
@@ -96,7 +91,6 @@ export const DrugSearchComponent = () => {
             </TouchableOpacity>
           </View>
 
-          {/* Modal Search Input */}
           <View style={{ padding: 16 }}>
             <TextInput
               style={globalStyles.input}
@@ -104,19 +98,17 @@ export const DrugSearchComponent = () => {
               placeholderTextColor="#9CA3AF"
               value={query}
               onChangeText={setQuery}
-              autoFocus={true} // Auto focus when modal opens
+              autoFocus={true}
               autoCapitalize="none"
               autoCorrect={false}
             />
 
-            {/* Loading State */}
             {loading && (
               <View style={globalStyles.searchLoadingContainer}>
                 <LoadingSpinner />
               </View>
             )}
 
-            {/* Search Error */}
             {error && !loading && (
               <View style={globalStyles.searchErrorContainer}>
                 <Text style={[globalStyles.errorText, { color: '#DC2626' }]}>
@@ -126,7 +118,6 @@ export const DrugSearchComponent = () => {
             )}
           </View>
 
-          {/* Results Section */}
           {showResults && !loading && (
             <View style={{ flex: 1, paddingHorizontal: 16 }}>
               <FlatList
@@ -179,7 +170,6 @@ export const DrugSearchComponent = () => {
         </View>
       </Modal>
 
-      {/* Loading Details Overlay */}
       {loadingDetails && (
         <View style={globalStyles.loadingDetailsOverlay}>
           <View style={globalStyles.loadingDetailsContent}>
@@ -188,7 +178,6 @@ export const DrugSearchComponent = () => {
         </View>
       )}
 
-      {/* Drug Details Modal */}
       <DrugDetailsModal
         onBack={onBack}
         visible={selectedDrug !== null}

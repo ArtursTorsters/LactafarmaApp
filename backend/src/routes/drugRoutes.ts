@@ -3,8 +3,6 @@ import { DrugController } from '../controllers/drugController';
 
 const router: Router = express.Router();
 const drugController = new DrugController();
-
-// Simple rate limiting
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT = 100; // requests per hour
 const RATE_WINDOW = 60 * 60 * 1000; // 1 hour
@@ -69,11 +67,10 @@ router.get('/details/:name', async (req, res) => {
 });
 
 // Search multiple drugs at once
-router.post('/batch-search', async (req, res) => {
-  await drugController.batchSearch(req, res);
-});
+// router.post('/batch-search', async (req, res) => {
+//   await drugController.batchSearch(req, res);
+// });
 
-// Health check endpoint
 router.get('/health', async (req, res) => {
   await drugController.healthCheck(req, res);
 });

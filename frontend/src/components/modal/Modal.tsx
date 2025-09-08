@@ -5,6 +5,7 @@ import { LoadingSpinner } from "../common/LoadingSpinner";
 import { modalStyles } from "../../styles/styles";
 import { RISK_LEVELS } from "../../utils/constants";
 import { DrugDetailsModalProps, RiskLevel } from "../../types";
+import { ErrorMessage } from "../common/ErrorMessage";
 
 interface DrugDetailsModalPropsWithBack extends DrugDetailsModalProps {
   onBack?: () => void;
@@ -46,13 +47,11 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
             </Text>
           </View>
 
-          {/* Right side - Close button */}
           <TouchableOpacity onPress={onClose} style={modalStyles.closeButton}>
             <Ionicons name="close" size={24} color="#666" />
           </TouchableOpacity>
         </View>
 
-        {/* Loading State */}
         {loadingDetails && (
           <View style={modalStyles.loadingContainer}>
             <LoadingSpinner />
@@ -60,19 +59,16 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
           </View>
         )}
 
-        {/* Error State */}
         {!loadingDetails && error && !selectedDrug && (
           <View style={modalStyles.errorContainer}>
-            <Ionicons name="alert-circle-outline" size={48} color="#EF4444" />
-            <Text style={modalStyles.errorTitle}>Unable to Load Drug Details</Text>
-            <Text style={modalStyles.errorText}>{error}</Text>
-            <TouchableOpacity style={modalStyles.errorButton} onPress={onClose}>
-              <Text style={modalStyles.errorButtonText}>Close</Text>
-            </TouchableOpacity>
+          <ErrorMessage
+            message="Unable to Load Drug Details"
+            onPress={onClose}
+            retryText="Close"
+          />
           </View>
         )}
 
-        {/* Content */}
         {!loadingDetails && selectedDrug && (
           <ScrollView
             style={modalStyles.scrollView}
@@ -89,10 +85,8 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
                 borderTopColor: riskLevelInfo.color + '40',
               }
             ]}>
-              {/* Drug Name */}
               <Text style={modalStyles.drugName}>{selectedDrug.name}</Text>
 
-              {/* Risk Badge and Category */}
               <View style={modalStyles.riskBadgeContainer}>
                 <View
                   style={[
@@ -139,7 +133,6 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
               )}
             </View>
 
-            {/* Description Section */}
             {selectedDrug.description && (
               <View style={modalStyles.descriptionCard}>
                 <Text style={modalStyles.sectionLabel}>Description</Text>
@@ -149,7 +142,6 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
               </View>
             )}
 
-            {/* Alternatives Section */}
             {selectedDrug.alternatives && selectedDrug.alternatives.length > 0 && (
               <View style={modalStyles.alternativesCard}>
                 <View style={modalStyles.alternativesHeader}>
@@ -169,7 +161,6 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
               </View>
             )}
 
-            {/* Last Update */}
             {selectedDrug.lastUpdate && (
               <View style={modalStyles.lastUpdateContainer}>
                 <Text style={modalStyles.lastUpdateText}>

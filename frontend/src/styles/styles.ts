@@ -94,20 +94,18 @@ export const globalStyles = StyleSheet.create({
     backgroundColor: colors.medical.background,
     paddingHorizontal: 10,
     marginTop: spacing.xs,
+    marginBottom: spacing.xl,
     zIndex: 10,
   },
   searchContainer: {
     flex: 1,
-    backgroundColor: colors.medical.background,
+    // backgroundColor: colors.medical.background,
     paddingHorizontal: 20,
-    marginTop: spacing["2xl"],
+    marginTop: spacing["3xl"],
     zIndex: 10,
   },
   warningContainer: {
-    // backgroundColor: colors.info,
-    // padding: spacing.md,
     marginTop: spacing.xl,
-
     zIndex: -1,
   },
 
@@ -245,8 +243,6 @@ export const globalStyles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // paddingHorizontal: 32,
-    // width: 100,
   },
 
   searchFullScreenEmptyText: {
@@ -254,6 +250,7 @@ export const globalStyles = StyleSheet.create({
     textAlign: "center",
     fontSize: 16,
     lineHeight: 24,
+    marginBottom: 10,
   },
 
   // Loading Details Overlay
@@ -1013,5 +1010,59 @@ export const modalStyles = StyleSheet.create({
     fontSize: typography.fontSizes.sm,
     fontStyle: "italic",
     color: "#9CA3AF",
+  },
+});
+
+export const medicalDisclaimerStyles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.white,
+    borderRadius: 12,
+    padding: spacing.lg,
+    marginBottom: spacing.lg,
+    shadowColor: colors.black,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 2,
+    borderLeftWidth: 4,
+    borderLeftColor: colors.info,
+  },
+
+  header: {
+    flexDirection: "row",
+    marginBottom: spacing.sm,
+  },
+
+  title: {
+    fontSize: typography.fontSizes.lg,
+    fontWeight: typography.fontWeights.bold,
+    color: colors.gray800,
+    flex: 1,
+  },
+
+  text: {
+    fontSize: typography.fontSizes.sm,
+    color: colors.gray700,
+    lineHeight: typography.lineHeights.relaxed * typography.fontSizes.sm,
+    marginBottom: spacing.md,
+  },
+
+  attribution: {
+    paddingTop: spacing.sm,
+    borderTopWidth: 1,
+    borderTopColor: colors.gray300,
+  },
+
+  attributionTitle: {
+    fontSize: typography.fontSizes.sm,
+    fontWeight: typography.fontWeights.semibold,
+    color: colors.gray800,
+    marginBottom: spacing.xs,
+  },
+
+  attributionText: {
+    fontSize: typography.fontSizes.xs,
+    color: colors.gray600,
+    marginBottom: 2,
   },
 });

@@ -2,16 +2,11 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { colors, globalStyles } from '../../styles/styles';
-
-interface ErrorMessageProps {
-  message: string;
-  onRetry?: () => void;
-  retryText?: string;
-}
+import { ErrorMessageProps } from '../../types';
 
 export const ErrorMessage: React.FC<ErrorMessageProps> = ({
   message,
-  onRetry,
+  onPress,
   retryText = "Try Again",
 }) => {
   return (
@@ -19,10 +14,10 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({
       <Ionicons name="alert-circle" size={48} color={colors.error} />
       <Text style={globalStyles.message}>{message}</Text>
 
-      {onRetry && (
+      {onPress && (
         <TouchableOpacity
           style={globalStyles.retryButton}
-          onPress={onRetry}
+          onPress={onPress}
           accessibilityLabel={retryText}
           accessibilityRole="button"
         >
