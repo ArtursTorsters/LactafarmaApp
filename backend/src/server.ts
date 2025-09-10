@@ -19,7 +19,8 @@ app.use(helmet({
       defaultSrc: ["'self'"],
       styleSrc: ["'self'", "'unsafe-inline'"],
       scriptSrc: ["'self'"],
-      connectSrc: ["'self'"],
+      connectSrc: ["'self'", "https:", "wss:"],
+      imgSrc: ["'self'", "data:", "https:"],
     },
   },
   crossOriginEmbedderPolicy: false
@@ -30,26 +31,28 @@ const corsOptions = {
   origin: function (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) {
     if (!origin) return callback(null, true);
 
-    const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || [
-      'http://localhost:3000',
-      'http://localhost:8081',
-      'http://192.168.8.46:8081',
-      'exp://192.168.8.46:8081',
-      'http://192.168.8.38:8081',
-      'exp://192.168.8.38:8081'
-    ];
+    const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || [];
 
+    // Production origins
+    if (NODE_ENV === 'production') {
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error('Not allowed by CORS'), false);
+    }
+
+    // Development: allow localhost and local IPs
     if (NODE_ENV === 'development') {
-      if (origin.includes('localhost') || origin.includes('192.168.') || origin.includes('10.0.')) {
+      if (origin.includes('localhost') ||
+          origin.includes('127.0.0.1') ||
+          origin.includes('192.168.') ||
+          origin.includes('10.0.') ||
+          origin.includes('exp://')) {
         return callback(null, true);
       }
     }
 
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'), false);
-    }
+    callback(new Error('Not allowed by CORS'), false);
   },
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
@@ -68,15 +71,11 @@ app.get('/health', (req: Request, res: Response) => {
   res.json({
     success: true,
     status: 'healthy',
-    service: 'Drug Scraper API',
+    service: 'LactaMed API',
     version: '1.0.0',
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
-    environment: NODE_ENV,
-    memory: {
-      used: Math.round(process.memoryUsage().heapUsed / 1024 / 1024) + ' MB',
-      total: Math.round(process.memoryUsage().heapTotal / 1024 / 1024) + ' MB'
-    }
+    environment: NODE_ENV
   });
 });
 
@@ -87,15 +86,19 @@ app.use('/api/drugs', drugRoutes);
 app.get('/', (req: Request, res: Response) => {
   res.json({
     success: true,
-    message: 'Drug Scraper API is running',
+    message: 'LactaMed API is running',
     version: '1.0.0',
-    endpoints: {
-      health: '/health',
-      search: '/api/drugs/search/:query',
-      details: '/api/drugs/details/:name',
-      batchSearch: '/api/drugs/batch-search',
-      drugsHealth: '/api/drugs/health'
-    }
+    docs: '/api/docs',
+    health: '/health'
+  });
+});
+
+// 404 handler
+app.use('*', (req: Request, res: Response) => {
+  res.status(404).json({
+    success: false,
+    error: 'Endpoint not found',
+    message: `Cannot ${req.method} ${req.originalUrl}`
   });
 });
 
@@ -103,33 +106,40 @@ app.get('/', (req: Request, res: Response) => {
 app.use((error: any, req: Request, res: Response, next: NextFunction) => {
   const isDevelopment = NODE_ENV === 'development';
 
+  console.error('Error:', {
+    message: error.message,
+    stack: isDevelopment ? error.stack : undefined,
+    url: req.url,
+    method: req.method,
+    timestamp: new Date().toISOString()
+  });
+
   res.status(error.status || 500).json({
     success: false,
     error: 'Internal server error',
     message: isDevelopment ? error.message : 'Something went wrong',
-    stack: isDevelopment ? error.stack : undefined,
     timestamp: new Date().toISOString()
   });
 });
 
 // Start server
 const server = app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Drug Scraper API server running on http://0.0.0.0:${PORT}`);
-  console.log(`📋 Health check: http://localhost:${PORT}/health`);
-  console.log(`🔍 Search endpoint: http://localhost:${PORT}/api/drugs/search/{query}`);
-  console.log(`📄 Environment: ${NODE_ENV}`);
+  console.log(`LactaMed API running on port ${PORT} in ${NODE_ENV} mode`);
 });
 
 // Graceful shutdown
 const gracefulShutdown = (signal: string) => {
+
   server.close((err) => {
     if (err) {
+      console.error('Error during server shutdown:', err);
       process.exit(1);
     }
     process.exit(0);
   });
 
   setTimeout(() => {
+    console.error('Could not close connections in time, forcefully shutting down');
     process.exit(1);
   }, 10000);
 };
@@ -143,7 +153,7 @@ process.on('uncaughtException', (error: Error) => {
 });
 
 process.on('unhandledRejection', (reason: any, promise: Promise<any>) => {
-  console.error('Unhandled Rejection:', reason);
+  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
   process.exit(1);
 });
 

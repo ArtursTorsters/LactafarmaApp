@@ -10,7 +10,7 @@ export class DrugSearchService {
       Constants.expoConfig?.extra?.API_BASE_URL ||
       (__DEV__
         ? 'http://192.168.8.46:3000'
-        : 'https://your-production-backend.com');
+: 'https://lactamed-api.onrender.com')
     this.timeout = 15000
   }
 
@@ -84,34 +84,6 @@ export class DrugSearchService {
       throw new Error(`Failed to get details: ${error.message}`);
     }
   }
-
-  // Search multiple drugs at once
-  // async batchSearch(queries: string[]): Promise<{ [key: string]: DrugSuggestion[] }> {
-  //   if (!Array.isArray(queries) || queries.length === 0) {
-  //     return {};
-  //   }
-
-  //   if (queries.length > 10) {
-  //     throw new Error('Maximum 10 queries allowed per batch');
-  //   }
-
-  //   try {
-  //     const response = await this.makeRequest<{
-  //       success: boolean;
-  //       results: { [key: string]: DrugSuggestion[] };
-  //     }>('/api/drugs/batch-search', {
-  //       method: 'POST',
-  //       body: JSON.stringify({ queries }),
-  //     });
-
-  //     return response.results;
-  //   } catch (error: any) {
-  //     console.error('Batch search failed:', error);
-  //     throw new Error(`Batch search failed: ${error.message}`);
-  //   }
-  // }
-
-  // Health check method
   async checkHealth(): Promise<boolean> {
     try {
       await this.makeRequest('/health');
@@ -121,7 +93,6 @@ export class DrugSearchService {
     }
   }
 
-  // Update base URL (useful for switching environments)
   updateBaseURL(newBaseURL: string) {
     this.baseURL = newBaseURL;
   }

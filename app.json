@@ -1,5 +1,8 @@
 {
   "expo": {
+       "extra": {
+      "API_BASE_URL": "https://lactamed-api.onrender.com"
+    },
     "name": "LactaMed",
     "slug": "LactaMed",
     "version": "1.0.0",
@@ -14,7 +17,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.LactaMed"
+      "bundleIdentifier": "com.lactamed.app"
     },
     "android": {
       "adaptiveIcon": {
