@@ -1,19 +1,21 @@
 import Constants from 'expo-constants';
 import { DrugDetails, DrugSuggestion, SearchResponse, DetailsResponse } from '../types/index';
-import { response } from 'express';
 
 export class DrugSearchService {
   private baseURL: string;
   private timeout: number;
 
-  constructor(baseURL?: string) {
-    this.baseURL = baseURL ||
-      Constants.expoConfig?.extra?.API_BASE_URL ||
-      (__DEV__
-        ? 'http://192.168.8.46:3000'
-: 'https://lactamed-api.onrender.com')
-    this.timeout = 15000
-    this.keepServerAwake()
+constructor(baseURL?: string) {
+  this.baseURL = baseURL ||
+    Constants.expoConfig?.extra?.API_BASE_URL ||
+    (__DEV__ ? 'http://localhost:3000' : undefined);
+
+  if (!this.baseURL) {
+    throw new Error('API_BASE_URL not configured');
+  }
+
+  this.timeout = 15000;
+  this.keepServerAwake();
 }
 private keepServerAwake() {
   // Ping every 14 minutes (before 15-minute sleep)

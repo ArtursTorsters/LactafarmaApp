@@ -1,5 +1,7 @@
 {
   "expo": {
+     "name": "LactaMed",
+    "slug": "lactamed",
     "extra": {
       "API_BASE_URL": "https://lactamed-api.onrender.com",
       "eas": {
