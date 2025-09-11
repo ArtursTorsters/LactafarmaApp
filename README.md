@@ -128,7 +128,7 @@ This application provides general educational information only and is not intend
 
 ## License
 
-[Your chosen license]
+MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
