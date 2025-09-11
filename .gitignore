@@ -4,8 +4,10 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
+yarn.lock
 
-# Environment files
+# Environment variables
 .env
 .env.local
 .env.development.local
@@ -19,13 +21,54 @@ dist/
 build/
 */dist/
 */build/
+*.tgz
+*.tar.gz
 
 # TypeScript
 *.tsbuildinfo
 
+# Expo
+.expo/
+.expo-shared/
+web-build/
+expo-env.d.ts
+
+# React Native
+metro.config.js
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# iOS
+ios/build/
+ios/Pods/
+ios/Podfile.lock
+ios/**/*.xcworkspace/xcuserdata/
+ios/**/*.xcodeproj/xcuserdata/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# Android
+android/app/build/
+android/build/
+android/.gradle/
+android/captures/
+android/keystore.properties
+*.keystore
+*.apk
+*.aab
+
 # Logs
 logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Runtime data
 pids/
@@ -33,16 +76,17 @@ pids/
 *.seed
 *.pid.lock
 
-# Coverage
+# Coverage directory used by tools like istanbul
 coverage/
 *.lcov
-.nyc_output
+.nyc_output/
 
 # Cache directories
 .cache/
 .parcel-cache/
 .npm/
 .yarn/
+.eslintcache
 
 # OS generated files
 .DS_Store
@@ -60,35 +104,23 @@ Thumbs.db
 *.swo
 *~
 
-# React Native specific
-.expo/
-.expo-shared/
-web-build/
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-*.orig.*
-*.jks
-
-# Puppeteer cache
-.cache/
-backend/.cache/
-
-# Android
-android/app/debug
-android/app/release
-
-# iOS
-ios/build/
-ios/Pods/
-ios/**/*.xcworkspace/xcuserdata
-ios/**/*.xcodeproj/xcuserdata
-
 # Temporary files
 tmp/
 temp/
 
-DrugSearchService.ts
+# EAS
+.easignore
+
+# Testing
+coverage/
+*.lcov
+.nyc_output/
+jest-coverage/
+
+# Misc
+*.tgz
+*.tar.gz
+
+# Local configuration files that shouldn't be shared
+config/local.json
+.env.*.local

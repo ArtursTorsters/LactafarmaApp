@@ -1,5 +1,6 @@
 import Constants from 'expo-constants';
 import { DrugDetails, DrugSuggestion, SearchResponse, DetailsResponse } from '../types/index';
+import { response } from 'express';
 
 export class DrugSearchService {
   private baseURL: string;
@@ -12,7 +13,17 @@ export class DrugSearchService {
         ? 'http://192.168.8.46:3000'
 : 'https://lactamed-api.onrender.com')
     this.timeout = 15000
-  }
+    this.keepServerAwake()
+}
+private keepServerAwake() {
+  // Ping every 14 minutes (before 15-minute sleep)
+  setInterval(async () => {
+    try {
+      await fetch(`${this.baseURL}/health`);
+    } catch (error) {
+    }
+  }, 14 * 60 * 1000)
+}
 
   private async makeRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
     const controller = new AbortController();

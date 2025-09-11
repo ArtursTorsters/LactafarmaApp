@@ -1,11 +1,17 @@
 {
   "expo": {
-       "extra": {
-      "API_BASE_URL": "https://lactamed-api.onrender.com"
+    "extra": {
+      "API_BASE_URL": "https://lactamed-api.onrender.com",
+      "eas": {
+        "projectId": "8ede2204-0cfb-411d-8b0e-c6cda0d6e421"
+      }
     },
     "name": "LactaMed",
     "slug": "LactaMed",
     "version": "1.0.0",
+    "description": "Medication safety information for breastfeeding mothers",
+    "privacy": "public",
+    "platforms": ["ios", "android"],
     "orientation": "portrait",
     "icon": "./assets/adaptive-icon.png",
     "userInterfaceStyle": "light",
@@ -17,12 +23,18 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.lactamed.app"
+      "bundleIdentifier": "com.lactamed.app",
+        "privacyManifests": {
+        "NSPrivacyAccessedAPITypes": []
+      }
     },
     "android": {
+      "package": "com.lactamed.app",
+      "permissions": ["INTERNET"],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#ffffff",
+
       },
       "edgeToEdgeEnabled": true,
       "usesCleartextTraffic": true,
