@@ -71,7 +71,6 @@ npm start
 ```bash
 npm run ios     # iOS simulator
 npm run android # Android emulator
-npm run web     # Web browser
 ```
 
 ## Development
@@ -81,13 +80,6 @@ npm run web     # Web browser
 - `npm start` - Start Expo development server
 - `npm run ios` - Run on iOS simulator
 - `npm run android` - Run on Android emulator
-- `npm run web` - Run in web browser
-
-### Code Style
-
-- TypeScript for type safety
-- ESLint for code linting
-- Prettier for code formatting
 
 ## Building for Production
 
