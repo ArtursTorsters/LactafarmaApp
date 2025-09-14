@@ -18,15 +18,16 @@ constructor(baseURL?: string) {
   this.keepServerAwake();
 }
 private keepServerAwake() {
-  // Ping every 14 minutes (before 15-minute sleep)
+  // Only ping every 14min when app is actively being used
   setInterval(async () => {
-    try {
-      await fetch(`${this.baseURL}/health`);
-    } catch (error) {
+    if (document.visibilityState === 'visible') {
+      try {
+        await fetch(`${this.baseURL}/health`);
+      } catch (error) {
+      }
     }
-  }, 14 * 60 * 1000)
+  }, 14 * 60 * 1000);
 }
-
   private async makeRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), this.timeout);
