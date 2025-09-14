@@ -9,7 +9,7 @@ export const MedicalDisclaimer: React.FC = () => {
         <Text style={medicalDisclaimerStyles.title}>Important Medical Disclaimer</Text>
       </View>
       <Text style={medicalDisclaimerStyles.text}>
-        This information does not substitute the advice of a healthcare professional.
+         ⚠️ This information does not substitute the advice of a healthcare professional.
         Always consult your doctor before making medication decisions during breastfeeding.
       </Text>
     </View>
