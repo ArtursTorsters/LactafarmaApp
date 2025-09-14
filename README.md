@@ -48,7 +48,7 @@ LactaMed helps breastfeeding mothers make informed decisions about medication sa
 1. Clone the repository
 ```bash
 git clone [your-repo-url]
-cd lactafarmaapp
+cd lactamed
 ```
 
 2. Install dependencies
