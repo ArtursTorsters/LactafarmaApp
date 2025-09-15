@@ -13,6 +13,7 @@
     "version": "1.0.0",
     "description": "Medication safety information for breastfeeding mothers",
     "privacy": "public",
+    "privacyPolicyUrl": "https://arturstorsters.github.io/",
     "platforms": ["ios", "android"],
     "orientation": "portrait",
     "icon": "./assets/adaptive-icon.png",
