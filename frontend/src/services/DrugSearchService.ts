@@ -1,5 +1,6 @@
 import Constants from 'expo-constants';
 import { DrugDetails, DrugSuggestion, SearchResponse, DetailsResponse } from '../types/index';
+import { AppState } from 'react-native';
 
 export class DrugSearchService {
   private baseURL: string;
@@ -18,12 +19,13 @@ constructor(baseURL?: string) {
   this.keepServerAwake();
 }
 private keepServerAwake() {
-  // Only ping every 14min when app is actively being used
   setInterval(async () => {
-    if (document.visibilityState === 'visible') {
+    const currentState = AppState.currentState;
+    if (currentState === 'active') {
       try {
         await fetch(`${this.baseURL}/health`);
       } catch (error) {
+        // Silent fail
       }
     }
   }, 14 * 60 * 1000);

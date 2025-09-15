@@ -40,8 +40,10 @@
 
       },
       "edgeToEdgeEnabled": true,
-      "usesCleartextTraffic": true,
-      "networkSecurityConfig": "network_security_config"
+      "networkSecurityConfig": "network_security_config",
+      "usesCleartextTraffic": false
+
+
     },
     "web": {
       "favicon": "./assets/favicon.png"
