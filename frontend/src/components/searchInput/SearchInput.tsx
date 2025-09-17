@@ -54,9 +54,6 @@ export const DrugSearchComponent = () => {
 
       {!isSearchModalVisible && (
         <View style={globalStyles.searchFullScreenEmpty}>
-          <Text style={[globalStyles.bodyText, globalStyles.searchFullScreenEmptyText]}>
-            Start typing to search for medications and their breastfeeding compatibility
-          </Text>
           <MedicalDisclaimer/>
         </View>
       )}

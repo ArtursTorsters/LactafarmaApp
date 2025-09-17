@@ -248,7 +248,7 @@ export const globalStyles = StyleSheet.create({
   searchFullScreenEmptyText: {
     color: "#9CA3AF",
     textAlign: "center",
-    fontSize: 16,
+    fontSize: 12,
     lineHeight: 24,
     marginBottom: 10,
   },
@@ -1041,7 +1041,7 @@ export const medicalDisclaimerStyles = StyleSheet.create({
   },
 
   text: {
-    fontSize: typography.fontSizes.sm,
+    fontSize: typography.fontSizes.xs,
     color: colors.gray700,
     lineHeight: typography.lineHeights.relaxed * typography.fontSizes.sm,
     marginBottom: spacing.md,
@@ -1065,4 +1065,10 @@ export const medicalDisclaimerStyles = StyleSheet.create({
     color: colors.gray600,
     marginBottom: 2,
   },
+  textSmall: {
+       fontSize: typography.fontSizes.xs,
+    color: colors.gray700,
+    lineHeight: typography.lineHeights.relaxed * typography.fontSizes.sm,
+    marginBottom: spacing.md,
+  }
 });

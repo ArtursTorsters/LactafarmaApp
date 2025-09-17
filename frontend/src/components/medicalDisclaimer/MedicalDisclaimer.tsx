@@ -21,7 +21,11 @@ export const MedicalDisclaimer: React.FC = () => {
         ⚠️ This information does not substitute the advice of a healthcare
         professional. Always consult your doctor before making medication
         decisions during breastfeeding.
-
+<Text>
+  This app provides general information and is not intended
+for medical diagnosis, treatment, or advice. Information is
+for educational purposes only.
+</Text>
       </Text>
 
       <View
