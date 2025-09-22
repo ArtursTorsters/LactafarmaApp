@@ -128,11 +128,6 @@ This application provides general educational information only and is not intend
 
 MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Contact
-
-- Email: [your-email]
-- Website: [your-website]
-
 ## Support
 
 For technical support or bug reports, please open an issue in this repository.
