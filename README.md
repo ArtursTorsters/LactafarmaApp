@@ -30,8 +30,6 @@ LactaMed helps breastfeeding mothers make informed decisions about medication sa
 - React Native + Expo
 - Express.js API server
 - TypeScript
-- Real-time web scraping (no database needed)
-- In-memory caching with TTL
 
 ## Installation
 
