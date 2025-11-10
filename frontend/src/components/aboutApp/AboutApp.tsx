@@ -22,7 +22,7 @@ export const AboutApp: React.FC = ({  }) => {
       </Text>
         <Text style={globalStyles.title}>Licensing & Usage</Text>
         <Text style={globalStyles.bodyText}>
-          The medication data provided is sourced from:      {" "}
+          The medication data provided is sourced from:{" "}
           <Text style={globalStyles.link} onPress={openELactancia}>
             → e-lactancia.org
           </Text>{" "}
