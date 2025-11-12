@@ -91,18 +91,16 @@ export const globalStyles = StyleSheet.create({
   // Container styles
   medicalContainer: {
     flex: 1,
-    backgroundColor: colors.medical.background,
     paddingHorizontal: 10,
     marginTop: spacing.xs,
-    marginBottom: spacing.xl,
+    marginBottom: 64,
     zIndex: 10,
   },
   searchContainer: {
     flex: 1,
-    // backgroundColor: colors.medical.background,
-    paddingHorizontal: 30,
-    // marginTop: spacing["3xl"],
-    zIndex: 10,
+    zIndex: 1,
+    paddingTop: 0,
+
   },
   warningContainer: {
     marginTop: spacing.xl,

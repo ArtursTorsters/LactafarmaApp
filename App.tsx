@@ -6,8 +6,8 @@ import {
 import { DrugSearchComponent } from './frontend/src/components/searchInput/SearchInput'
 import { LoadingSpinner } from './frontend/src/components/common/LoadingSpinner'
 import { globalStyles } from './frontend/src/styles/styles'
-import {MedicalDisclaimer} from './frontend/src/components/medicalDisclaimer/MedicalDisclaimer'
 import {AboutApp} from './frontend/src/components/aboutApp/AboutApp'
+import { Contacts } from './frontend/src/components/contacts/contacts';
 
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -25,7 +25,7 @@ export default function App() {
         >
           {loading && <LoadingSpinner />}
           <AboutApp />
-          <DrugSearchComponent />
+          <Contacts/>
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
     </SafeAreaView>

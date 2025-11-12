@@ -62,10 +62,6 @@ export const DrugSearchComponent = () => {
           },
         ]}
       >
-        <Text style={[globalStyles.captionText, { fontSize: Math.max(16, width * 0.04) }]}>
-          Search for a medication
-        </Text>
-
         <TouchableOpacity onPress={handleFocus} activeOpacity={0.8}>
           <View style={{ position: "relative" }}>
             <TextInput
@@ -77,7 +73,7 @@ export const DrugSearchComponent = () => {
                   borderColor: "#E5E7EB",
                   borderRadius: 12,
                   paddingLeft: 40,
-                  marginBottom: 20
+                  // marginBottom: 20
                 },
               ]}
               placeholder="Enter medication name..."

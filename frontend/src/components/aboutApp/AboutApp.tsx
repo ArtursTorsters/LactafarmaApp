@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Linking, ScrollView, useWindowDimensions } from "react-native";
 import { globalStyles } from "../../styles/styles";
+import { DrugSearchComponent } from "../searchInput/SearchInput";
 
 export const AboutApp: React.FC = () => {
   const { width, height } = useWindowDimensions();
@@ -8,32 +9,31 @@ export const AboutApp: React.FC = () => {
   const openELactancia = () => Linking.openURL("https://www.e-lactancia.org");
   const openLegal = () => Linking.openURL("https://www.e-lactancia.org/aviso_legal/");
 
-  // 📏 Dynamically scale text sizes — slightly smaller for narrow screens
-  const scale = width < 360 ? 0.9 : width < 400 ? 0.95 : 1;
+  // --- Dynamic scaling based on width & height ---
+  const scaleWidth = width / 375; // base width
+  const scaleHeight = height / 812; // base height (iPhone X)
+  const scale = Math.min(scaleWidth, scaleHeight); // choose smaller to avoid overflow
+
   const baseFont = 14 * scale;
   const titleFont = 20 * scale;
   const subtitleFont = 18 * scale;
+  const lineHeight = baseFont * 1.45;
 
   return (
     <ScrollView
-      style={{ flex: 1, backgroundColor: "#fff" }}
+      style={{ flex: 1 }}
       contentContainerStyle={{
         paddingHorizontal: width * 0.05,
-        paddingVertical: 16,
+        paddingVertical: height * 0.02,
       }}
-      showsVerticalScrollIndicator={true}
+      showsVerticalScrollIndicator
     >
       <View style={globalStyles.medicalContainer}>
-        {/* --- Section: About --- */}
+        {/* About Section */}
         <Text
           style={[
             globalStyles.title,
-            {
-              fontSize: titleFont,
-              textAlign: "left",
-              marginBottom: 8,
-              color: "#111827",
-            },
+            { fontSize: titleFont, marginBottom: height * 0.01, color: "#111827" },
           ]}
         >
           About LactaMed
@@ -42,29 +42,20 @@ export const AboutApp: React.FC = () => {
         <Text
           style={[
             globalStyles.bodyText,
-            {
-              fontSize: baseFont,
-              lineHeight: baseFont * 1.45,
-              textAlign: "justify",
-              color: "#374151",
-            },
+            { fontSize: baseFont, lineHeight, textAlign: "justify", color: "#374151" },
           ]}
         >
           LactaMed helps breastfeeding mothers quickly find reliable information about medication
           safety during lactation. It provides instant access to comprehensive drug compatibility
-          data and scientific evidence.
-          LactaMed uses this data in a non-commercial way, with proper attribution. Any derived
-          information is distributed under the same license terms.
+          data and scientific evidence. LactaMed uses this data in a non-commercial way, with proper
+          attribution. Any derived information is distributed under the same license terms.
+        </Text>
+
         <Text
           style={[
             globalStyles.bodyText,
             globalStyles.link,
-            {
-              marginTop: 14,
-              textAlign: "center",
-              fontSize: baseFont,
-              color: "#2563EB",
-            },
+            { marginTop: height * 0.015, textAlign: "left", fontSize: baseFont, color: "#2563EB" },
           ]}
           onPress={openLegal}
           accessibilityRole="button"
@@ -72,18 +63,12 @@ export const AboutApp: React.FC = () => {
         >
           → View e-lactancia.org Legal Notice
         </Text>
-        </Text>
 
-        {/* --- Section: Licensing --- */}
+        {/* Licensing Section */}
         <Text
           style={[
             globalStyles.title,
-            {
-              fontSize: subtitleFont,
-              textAlign: "left",
-              marginVertical: 10,
-              color: "#111827",
-            },
+            { fontSize: subtitleFont, marginVertical: height * 0.015, color: "#111827" },
           ]}
         >
           Licensing & Usage
@@ -92,15 +77,10 @@ export const AboutApp: React.FC = () => {
         <Text
           style={[
             globalStyles.bodyText,
-            {
-              fontSize: baseFont,
-              lineHeight: baseFont * 1.45,
-              textAlign: "justify",
-              color: "#374151",
-            },
+            { fontSize: baseFont, lineHeight, textAlign: "justify", color: "#374151" },
           ]}
         >
-          The medication data provided is sourced from{" "}
+          The medication data is sourced from{" "}
           <Text style={globalStyles.link} onPress={openELactancia}>
             e-lactancia.org
           </Text>{" "}
@@ -108,23 +88,10 @@ export const AboutApp: React.FC = () => {
           ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
         </Text>
 
-        <Text
-          style={[
-            globalStyles.bodyText,
-            {
-              fontSize: baseFont,
-              lineHeight: baseFont * 1.45,
-              marginTop: 8,
-              textAlign: "justify",
-              color: "#374151",
-            },
-          ]}
-        >
-
-        </Text>
-
-        {/* --- Legal Link --- */}
-
+        {/* Drug Search */}
+        <View style={{ marginTop: height * 0.02 }}>
+          <DrugSearchComponent />
+        </View>
       </View>
     </ScrollView>
   );
