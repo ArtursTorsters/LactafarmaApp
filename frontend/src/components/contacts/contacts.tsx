@@ -50,12 +50,8 @@ export const Contacts: React.FC = () => {
                         labsoftoasty@gmail.com
                     </Text>
                 </View>
-
-                {/* Divider Dot */}
-                <Text style={{ color: "#D1D5DB", fontSize }}>•</Text>
-
                 {/* Buy Me a Coffee */}
-                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                {/* <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <Ionicons name="cafe-outline" size={iconSize} color="#F59E0B" style={{ marginRight: 4 }} />
                     <Text
                         style={{
@@ -66,9 +62,9 @@ export const Contacts: React.FC = () => {
                         accessibilityRole="button"
                         accessibilityLabel="Buy me a coffee link"
                     >
-                        Buy Me a Coffee
+                        Donations
                     </Text>
-                </View>
+                </View> */}
             </View>
 
             {/* Footer note */}
