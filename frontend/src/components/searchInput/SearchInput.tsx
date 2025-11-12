@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from "react";
 import {
   View,
   TextInput,
@@ -6,13 +6,16 @@ import {
   FlatList,
   TouchableOpacity,
   Modal,
-} from 'react-native';
-import { LoadingSpinner } from '../common/LoadingSpinner';
-import { DrugDetailsModal } from '../modal/Modal';
-import { useSearchHooks } from '../../hooks/SearchHooks';
-import { globalStyles } from '../../styles/styles';
+  Animated,
+  Easing,
+  useWindowDimensions,
+} from "react-native";
+import { LoadingSpinner } from "../common/LoadingSpinner";
+import { DrugDetailsModal } from "../modal/Modal";
+import { useSearchHooks } from "../../hooks/SearchHooks";
+import { globalStyles } from "../../styles/styles";
 import { Ionicons } from "@expo/vector-icons";
-import { MedicalDisclaimer } from '../medicalDisclaimer/MedicalDisclaimer';
+import { MedicalDisclaimer } from "../medicalDisclaimer/MedicalDisclaimer";
 
 export const DrugSearchComponent = () => {
   const {
@@ -33,28 +36,69 @@ export const DrugSearchComponent = () => {
     closeSearchModal,
   } = useSearchHooks();
 
-  return (
-    <View style={globalStyles.searchContainer}>
-      <View style={globalStyles.searchHeader}>
-        <Text style={globalStyles.captionText}>Search for a medication</Text>
+  const { width } = useWindowDimensions();
+  const fadeAnim = React.useRef(new Animated.Value(0)).current;
 
-        <TouchableOpacity onPress={handleFocus}>
-          <View style={{ position: 'relative' }}>
+  React.useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 450,
+      easing: Easing.out(Easing.ease),
+      useNativeDriver: true,
+    }).start();
+  }, [isSearchModalVisible]);
+
+  return (
+    <View style={[globalStyles.searchContainer, { flex: 1 }]}>
+      <Animated.View
+        style={[
+          globalStyles.searchHeader,
+          {
+            opacity: fadeAnim,
+            transform: [{ translateY: fadeAnim.interpolate({
+              inputRange: [0, 1],
+              outputRange: [20, 0],
+            }) }],
+          },
+        ]}
+      >
+        <Text style={[globalStyles.captionText, { fontSize: Math.max(16, width * 0.04) }]}>
+          Search for a medication
+        </Text>
+
+        <TouchableOpacity onPress={handleFocus} activeOpacity={0.8}>
+          <View style={{ position: "relative" }}>
             <TextInput
-              style={globalStyles.input}
+              style={[
+                globalStyles.input,
+                {
+                  backgroundColor: "#FFFFFF",
+                  borderWidth: 1,
+                  borderColor: "#E5E7EB",
+                  borderRadius: 12,
+                  paddingLeft: 40,
+                  marginBottom: 20
+                },
+              ]}
               placeholder="Enter medication name..."
               placeholderTextColor="#9CA3AF"
               value={query}
               editable={false}
               pointerEvents="none"
             />
+            <Ionicons
+              name="search"
+              size={20}
+              color="#6B7280"
+              style={{ position: "absolute", left: 12, top: 10 }}
+            />
           </View>
         </TouchableOpacity>
-      </View>
+      </Animated.View>
 
       {!isSearchModalVisible && (
-        <View style={globalStyles.searchFullScreenEmpty}>
-          <MedicalDisclaimer/>
+        <View style={[globalStyles.searchFullScreenEmpty, { justifyContent: "center" }]}>
+          <MedicalDisclaimer />
         </View>
       )}
 
@@ -64,41 +108,74 @@ export const DrugSearchComponent = () => {
         presentationStyle="pageSheet"
         onRequestClose={closeSearchModal}
       >
-        <View style={{ flex: 1, backgroundColor: '#F8FAFC' }}>
-          <View style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: 16,
-            paddingTop: 50,
-            borderBottomWidth: 1,
-            borderBottomColor: '#E2E8F0',
-            backgroundColor: '#FFFFFF',
-          }}>
-            <Text style={globalStyles.title}>Search Medications</Text>
+        <View style={{ flex: 1, backgroundColor: "#F8FAFC" }}>
+          {/* Header */}
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: 16,
+              paddingTop: 50,
+              borderBottomWidth: 1,
+              borderBottomColor: "#E2E8F0",
+              backgroundColor: "#FFFFFF",
+              shadowColor: "#000",
+              shadowOpacity: 0.05,
+              shadowRadius: 4,
+              elevation: 2,
+            }}
+          >
+            <Text
+              style={[
+                globalStyles.title,
+                { fontSize: Math.max(20, width * 0.05), fontWeight: "600" },
+              ]}
+            >
+              Search Medications
+            </Text>
             <TouchableOpacity
               onPress={closeSearchModal}
               style={{
                 padding: 8,
-                borderRadius: 8,
-                backgroundColor: '#F1F5F9'
+                borderRadius: 10,
+                backgroundColor: "#F1F5F9",
               }}
             >
-              <Ionicons name="close" size={24} color="#666" />
+              <Ionicons name="close" size={24} color="#475569" />
             </TouchableOpacity>
           </View>
 
+          {/* Search Input */}
           <View style={{ padding: 16 }}>
-            <TextInput
-              style={globalStyles.input}
-              placeholder="Enter medication name..."
-              placeholderTextColor="#9CA3AF"
-              value={query}
-              onChangeText={setQuery}
-              autoFocus={true}
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
+            <View style={{ position: "relative" }}>
+              <TextInput
+                style={[
+                  globalStyles.input,
+                  {
+                    backgroundColor: "#FFFFFF",
+                    borderWidth: 1,
+                    borderColor: "#E5E7EB",
+                    borderRadius: 12,
+                    paddingLeft: 40,
+                    fontSize: Math.max(14, width * 0.04),
+                  },
+                ]}
+                placeholder="Enter medication name..."
+                placeholderTextColor="#9CA3AF"
+                value={query}
+                onChangeText={setQuery}
+                autoFocus
+                autoCapitalize="none"
+                autoCorrect={false}
+              />
+              <Ionicons
+                name="search"
+                size={20}
+                color="#6B7280"
+                style={{ position: "absolute", left: 12, top: 14 }}
+              />
+            </View>
 
             {loading && (
               <View style={globalStyles.searchLoadingContainer}>
@@ -108,61 +185,117 @@ export const DrugSearchComponent = () => {
 
             {error && !loading && (
               <View style={globalStyles.searchErrorContainer}>
-                <Text style={[globalStyles.errorText, { color: '#DC2626' }]}>
+                <Text
+                  style={[
+                    globalStyles.errorText,
+                    { color: "#DC2626", textAlign: "center" },
+                  ]}
+                >
                   {error}
                 </Text>
               </View>
             )}
           </View>
 
+          {/* Search Results */}
           {showResults && !loading && (
-            <View style={{ flex: 1, paddingHorizontal: 16 }}>
+            <Animated.View
+              style={{
+                flex: 1,
+                opacity: fadeAnim,
+                transform: [
+                  {
+                    translateY: fadeAnim.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [20, 0],
+                    }),
+                  },
+                ],
+              }}
+            >
               <FlatList
                 data={results}
                 keyExtractor={(item, index) => `${item.name}-${index}`}
                 renderItem={({ item }) => (
                   <TouchableOpacity
-                    style={globalStyles.searchResultItem}
+                    style={{
+                      backgroundColor: "#fff",
+                      padding: 14,
+                      marginVertical: 6,
+                      borderRadius: 12,
+                      shadowColor: "#000",
+                      shadowOpacity: 0.05,
+                      shadowRadius: 4,
+                      elevation: 2,
+                      flexDirection: "column",
+                    }}
                     onPress={() => {
                       handleDrugSelect(item);
-                      closeSearchModal()
+                      closeSearchModal();
                     }}
-                    activeOpacity={0.7}
+                    activeOpacity={0.8}
                   >
-                    <Text style={[globalStyles.bodyText, globalStyles.searchResultItemText]}>
+                    <Text
+                      style={[
+                        globalStyles.bodyText,
+                        {
+                          fontSize: Math.max(15, width * 0.04),
+                          fontWeight: "500",
+                          color: "#111827",
+                        },
+                      ]}
+                    >
                       {item.name}
                     </Text>
                     {item.category && (
-                      <Text style={[globalStyles.category, globalStyles.searchResultItemCategory]}>
+                      <Text
+                        style={{
+                          color: "#6B7280",
+                          fontSize: Math.max(12, width * 0.035),
+                          marginTop: 2,
+                        }}
+                      >
                         {item.category}
                       </Text>
                     )}
                   </TouchableOpacity>
                 )}
                 ListEmptyComponent={
-                  query.length >= 2 ? (
-                    <View style={globalStyles.searchEmptyStateContainer}>
-                      <Text style={[globalStyles.bodyText, globalStyles.searchEmptyStateText]}>
-                        No medications found for "{query}"
-                      </Text>
-                      <Text style={[globalStyles.captionText, globalStyles.searchEmptyStateSubtext]}>
-                        Try a different search term
-                      </Text>
-                    </View>
-                  ) : (
-                    <View style={globalStyles.searchEmptyStateContainer}>
-                      <Text style={[globalStyles.bodyText, globalStyles.searchEmptyStateText]}>
-                        Start typing to search for medications
-                      </Text>
-                    </View>
-                  )
+                  <View
+                    style={{
+                      alignItems: "center",
+                      marginTop: 80,
+                    }}
+                  >
+                    <Ionicons name="medkit-outline" size={48} color="#94A3B8" />
+                    <Text
+                      style={{
+                        color: "#475569",
+                        fontSize: Math.max(15, width * 0.04),
+                        marginTop: 10,
+                        fontWeight: "500",
+                      }}
+                    >
+                      {query.length >= 2
+                        ? `No medications found for "${query}"`
+                        : "Start typing to search for medications"}
+                    </Text>
+                    <Text
+                      style={{
+                        color: "#94A3B8",
+                        fontSize: Math.max(13, width * 0.035),
+                        marginTop: 4,
+                      }}
+                    >
+                      Try a different search term
+                    </Text>
+                  </View>
                 }
-                style={globalStyles.flatListContainer}
-                contentContainerStyle={globalStyles.flatListContent}
-                showsVerticalScrollIndicator={true}
-                bounces={true}
+                contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 40 }}
+                showsVerticalScrollIndicator={false}
+                bounces
               />
-            </View>
+            </Animated.View>
           )}
         </View>
       </Modal>

@@ -21,28 +21,28 @@ export const MedicalDisclaimer: React.FC = () => {
         ⚠️ This information does not substitute the advice of a healthcare
         professional. Always consult your doctor before making medication
         decisions during breastfeeding.
-<Text>
-  This app provides general information and is not intended
-for medical diagnosis, treatment, or advice. Information is
-for educational purposes only.
-</Text>
+        <Text>
+          This app provides general information and is not intended
+          for medical diagnosis, treatment, or advice. Information is
+          for educational purposes only.
+        </Text>
       </Text>
 
       <View
-       style={[
-        {
-          justifyContent: 'space-between',
-          flexDirection: 'row',
-        },
-      ]}>
+        style={[
+          {
+            justifyContent: 'space-between',
+            flexDirection: 'row',
+          },
+        ]}>
 
-          <Text
+        <Text
           style={[globalStyles.bodyText, globalStyles.link]}
           onPress={openPolicy}
           accessibilityRole="button"
           accessibilityLabel="Read our policy"
         >
-          → Read our policy
+          → Read policy
         </Text>
         <Text
           style={[globalStyles.bodyText, globalStyles.link]}
@@ -50,14 +50,9 @@ for educational purposes only.
           accessibilityRole="button"
           accessibilityLabel="Read our terms"
         >
-          → Read our terms
+          → Read terms
         </Text>
-
-
-
-
       </View>
-
     </View>
   );
 };

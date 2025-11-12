@@ -100,8 +100,8 @@ export const globalStyles = StyleSheet.create({
   searchContainer: {
     flex: 1,
     // backgroundColor: colors.medical.background,
-    paddingHorizontal: 20,
-    marginTop: spacing["3xl"],
+    paddingHorizontal: 30,
+    // marginTop: spacing["3xl"],
     zIndex: 10,
   },
   warningContainer: {
@@ -526,14 +526,13 @@ export const globalStyles = StyleSheet.create({
   },
 
   bodyText: {
-    fontSize: typography.fontSizes.base,
+    fontSize: typography.fontSizes.sm,
     color: colors.medical.text,
-    lineHeight: typography.fontSizes.base * typography.lineHeights.normal,
+    // lineHeight: typography.fontSizes.base * typography.lineHeights.normal,
   },
 
   link: {
     color: colors.primary,
-    textDecorationLine: "underline",
   },
 
   lightText: {
