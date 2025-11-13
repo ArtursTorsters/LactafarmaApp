@@ -3,7 +3,6 @@ import { KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard } fr
 import {
   SafeAreaView,
 } from 'react-native';
-import { DrugSearchComponent } from './frontend/src/components/searchInput/SearchInput'
 import { LoadingSpinner } from './frontend/src/components/common/LoadingSpinner'
 import { globalStyles } from './frontend/src/styles/styles'
 import {AboutApp} from './frontend/src/components/aboutApp/AboutApp'

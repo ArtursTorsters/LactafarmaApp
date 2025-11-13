@@ -42,7 +42,6 @@ export const Contacts: React.FC = () => {
                             fontSize: Math.max(11, width * 0.03),
                             color: "#9CA3AF",
                         }}
-
                         onPress={openEmail}
                         accessibilityRole="button"
                         accessibilityLabel="Send an email"

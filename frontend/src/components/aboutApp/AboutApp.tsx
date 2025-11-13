@@ -9,10 +9,9 @@ export const AboutApp: React.FC = () => {
   const openELactancia = () => Linking.openURL("https://www.e-lactancia.org");
   const openLegal = () => Linking.openURL("https://www.e-lactancia.org/aviso_legal/");
 
-  // --- Dynamic scaling based on width & height ---
-  const scaleWidth = width / 375; // base width
-  const scaleHeight = height / 812; // base height (iPhone X)
-  const scale = Math.min(scaleWidth, scaleHeight); // choose smaller to avoid overflow
+  const scaleWidth = width / 375;
+  const scaleHeight = height / 812;
+  const scale = Math.min(scaleWidth, scaleHeight)
 
   const baseFont = 14 * scale;
   const titleFont = 20 * scale;
