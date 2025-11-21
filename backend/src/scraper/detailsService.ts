@@ -43,6 +43,7 @@ export async function fetchDrugDetailsFromURL(suggestion: DrugSuggestion): Promi
 
   return drugDetails;
 }
+
 export async function getDrugDetails(drugName: string): Promise<DrugDetails | null> {
   try {
     const normalized = drugName.toLowerCase().trim();
@@ -68,6 +69,17 @@ export async function getDrugDetails(drugName: string): Promise<DrugDetails | nu
       category: 'Medicine',
     }));
 
+    // 🔹 Special case for Ibuprofen
+    if (normalized === 'ibuprofen') {
+      const ibuprofenMatch = mappedSuggestions.find(
+        s => s.name.toLowerCase().trim() === 'ibuprofen'
+      );
+      if (ibuprofenMatch) {
+        const result = await fetchDrugDetailsFromURL(ibuprofenMatch);
+        if (result) return result; // immediately return the correct page
+      }
+    }
+
     // 3️⃣ Exact match first
     const exactMatches = mappedSuggestions.filter(
       s => s.name.toLowerCase().trim() === normalized
@@ -84,7 +96,7 @@ export async function getDrugDetails(drugName: string): Promise<DrugDetails | nu
     const filtered = mappedSuggestions.filter(s => {
       const n = s.name.toLowerCase();
 
-      // Special case: skip Dexibuprofen if searching Ibuprofen
+      // Skip Dexibuprofen if searching Ibuprofen
       if (normalized === 'ibuprofen' && n.includes('dexi')) return false;
 
       return true;
@@ -97,7 +109,7 @@ export async function getDrugDetails(drugName: string): Promise<DrugDetails | nu
       } catch {}
     }
 
-    // 5️⃣ Final attempt: try slug-based URL patterns
+    // 5️⃣ Final attempt: slug-based URL patterns
     const slug = createSlug(drugName);
     const patterns = ['product', 'tradename', 'writing'];
 

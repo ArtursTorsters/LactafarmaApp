@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
@@ -6,6 +6,7 @@ import {
   Keyboard,
   View
 } from 'react-native';
+import { cache } from './frontend/src/utils/cache';
 import { LoadingSpinner } from './frontend/src/components/common/LoadingSpinner'
 import { globalStyles } from './frontend/src/styles/styles'
 import { AboutApp } from './frontend/src/components/aboutApp/AboutApp'
@@ -16,7 +17,12 @@ export default function App() {
   const [loading, setLoading] = useState(false);
 
   const dismissKeyboard = () => Keyboard.dismiss();
-
+  // useEffect(() => {
+  //   // Clear the entire cache on app start
+  //   cache.clearAll().then(() => {
+  //     console.log('Cache cleared!');
+  //   });
+  // }, []);
   return (
     <SafeAreaProvider>
     <SafeAreaView style={globalStyles.safeArea}>
