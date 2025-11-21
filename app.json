@@ -8,13 +8,11 @@
         "projectId": "8ede2204-0cfb-411d-8b0e-c6cda0d6e421"
       }
     },
-    "name": "LactaMed",
-    "slug": "LactaMed",
     "version": "1.0.0",
     "description": "Medication safety information for breastfeeding mothers",
     "privacy": "public",
     "privacyPolicyUrl": "https://arturstorsters.github.io/",
-    "platforms": ["ios", "android"],
+    "platforms": ["ios", "android", "web"],
     "orientation": "portrait",
     "icon": "./assets/adaptive-icon.png",
     "userInterfaceStyle": "light",
@@ -36,8 +34,7 @@
       "permissions": ["INTERNET"],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff",
-
+        "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
       "networkSecurityConfig": "network_security_config",

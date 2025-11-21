@@ -9,7 +9,7 @@ export const Contacts: React.FC = () => {
     const openEmail = () => Linking.openURL("mailto:labsoftoasty@gmail.com");
     const openCoffee = () => Linking.openURL("https://www.buymeacoffee.com/yourusername");
 
-    const fontSize = Math.max(13, width * 0.035); // slightly smaller for compact layout
+    const fontSize = Math.max(13, width * 0.035);
     const iconSize = Math.max(16, width * 0.04);
     const gap = Math.min(16, width * 0.04);
 
@@ -19,9 +19,8 @@ export const Contacts: React.FC = () => {
                 borderTopWidth: 1,
                 borderTopColor: "#E5E7EB",
                 paddingHorizontal: width * 0.05,
-                paddingVertical: 4,
+                paddingVertical: 8,
                 alignItems: "center",
-                backgroundColor: "#fff",
             }}
         >
             {/* Horizontal Row */}

@@ -109,6 +109,7 @@ export const globalStyles = StyleSheet.create({
 
   safeArea: {
     flex: 1,
+    paddingTop: 28,
     backgroundColor: colors.medical.background,
   },
 

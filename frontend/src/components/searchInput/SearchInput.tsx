@@ -15,7 +15,7 @@ import { DrugDetailsModal } from "../modal/Modal";
 import { useSearchHooks } from "../../hooks/SearchHooks";
 import { globalStyles } from "../../styles/styles";
 import { Ionicons } from "@expo/vector-icons";
-import { MedicalDisclaimer } from "../medicalDisclaimer/MedicalDisclaimer";
+// import { MedicalDisclaimer } from "../medicalDisclaimer/MedicalDisclaimer";
 import { HapticFeedback } from "../../utils/haptics"; // ADD THIS
 
 export const DrugSearchComponent = () => {
@@ -114,11 +114,11 @@ export const DrugSearchComponent = () => {
         </TouchableOpacity>
       </Animated.View>
 
-      {!isSearchModalVisible && (
+      {/* {!isSearchModalVisible && (
         <View style={[globalStyles.searchFullScreenEmpty, { justifyContent: "center" }]}>
           <MedicalDisclaimer />
         </View>
-      )}
+      )} */}
 
       <Modal
         visible={isSearchModalVisible}

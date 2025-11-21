@@ -34,18 +34,21 @@ export async function searchDrugs(query: string): Promise<DrugSuggestion[]> {
       return [];
     }
 
-    const suggestions: DrugSuggestion[] = data.map((item: any) => {
-      const name = item.nombre_en || item.nombre || item.name || item.title || String(item);
-      const type = determineUrlType(item);
-      const slug = createSlug(name);
-      const url = buildDrugUrl(slug, type);
+ const suggestions: DrugSuggestion[] = data.map((item: any) => {
+  const name = item.nombre_en || item.nombre || item.name || item.title || String(item);
+  const type = determineUrlType(item);
 
-      return {
-        name: name,
-        url: url,
-        category: item.category || item.categoria || undefined
-      };
-    }).filter((suggestion: DrugSuggestion) =>
+  // Prefer backend ID if available
+  const url = item.id
+    ? buildDrugUrl(item.id, type)   // Use real ID
+    : buildDrugUrl(createSlug(name), type); // fallback
+
+  return {
+    name,
+    url,
+    category: item.category || item.categoria || undefined
+  };
+}).filter((suggestion: DrugSuggestion) =>
       suggestion.name &&
       suggestion.name.length > 0 &&
       suggestion.name !== 'undefined'

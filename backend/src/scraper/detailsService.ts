@@ -43,61 +43,81 @@ export async function fetchDrugDetailsFromURL(suggestion: DrugSuggestion): Promi
 
   return drugDetails;
 }
-
 export async function getDrugDetails(drugName: string): Promise<DrugDetails | null> {
   try {
-    let suggestions = await searchDrugs(drugName);
+    const normalized = drugName.toLowerCase().trim();
 
-    if (suggestions.length === 0) {
+    // 1️⃣ Fetch suggestions from backend
+    const rawSuggestions: any[] = await searchDrugs(drugName);
+
+    if (rawSuggestions.length === 0) {
+      // fallback: direct URL guess
       const slug = createSlug(drugName);
       const directSuggestion: DrugSuggestion = {
         name: drugName,
         url: buildDrugUrl(slug, 'product'),
-        category: 'Medicine'
+        category: 'Medicine',
       };
-      suggestions.push(directSuggestion);
+      return fetchDrugDetailsFromURL(directSuggestion);
     }
 
-    // Try each suggestion
-    for (const suggestion of suggestions) {
+    // 2️⃣ Map backend objects to frontend DrugSuggestion
+    const mappedSuggestions: DrugSuggestion[] = rawSuggestions.map(s => ({
+      name: s.nombre_en || s.nombre || s.term || 'Unknown',
+      url: s.url ?? buildDrugUrl(s.id, 'product'),
+      category: 'Medicine',
+    }));
+
+    // 3️⃣ Exact match first
+    const exactMatches = mappedSuggestions.filter(
+      s => s.name.toLowerCase().trim() === normalized
+    );
+
+    for (const suggestion of exactMatches) {
       try {
         const result = await fetchDrugDetailsFromURL(suggestion);
-        if (result) {
-          return result;
-        }
-      } catch (error) {
-        continue;
-      }
+        if (result) return result;
+      } catch {}
     }
 
-    // Try alternative patterns
+    // 4️⃣ Partial matches / fallback suggestions
+    const filtered = mappedSuggestions.filter(s => {
+      const n = s.name.toLowerCase();
+
+      // Special case: skip Dexibuprofen if searching Ibuprofen
+      if (normalized === 'ibuprofen' && n.includes('dexi')) return false;
+
+      return true;
+    });
+
+    for (const suggestion of filtered) {
+      try {
+        const result = await fetchDrugDetailsFromURL(suggestion);
+        if (result) return result;
+      } catch {}
+    }
+
+    // 5️⃣ Final attempt: try slug-based URL patterns
     const slug = createSlug(drugName);
-    const alternativePatterns = [
-      'product',
-      'tradename',
-      'writing'
-    ];
+    const patterns = ['product', 'tradename', 'writing'];
 
-    for (const pattern of alternativePatterns) {
+    for (const pattern of patterns) {
+      const suggestion: DrugSuggestion = {
+        name: drugName,
+        url: buildDrugUrl(slug, pattern),
+        category: 'Medicine',
+      };
+
       try {
-        const suggestion: DrugSuggestion = {
-          name: drugName,
-          url: buildDrugUrl(slug, pattern),
-          category: 'Medicine'
-        };
         const result = await fetchDrugDetailsFromURL(suggestion);
-        if (result) {
-          return result;
-        }
-      } catch (error) {
-        continue;
-      }
+        if (result) return result;
+      } catch {}
     }
 
     return null;
 
   } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
-    throw new Error(`Failed to get drug details: ${errorMessage}`);
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    throw new Error(`Failed to get drug details: ${message}`);
   }
 }
