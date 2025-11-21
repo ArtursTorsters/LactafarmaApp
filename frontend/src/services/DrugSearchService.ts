@@ -1,118 +1,144 @@
-import Constants from 'expo-constants';
-import { DrugDetails, DrugSuggestion, SearchResponse, DetailsResponse } from '../types/index';
-import { AppState } from 'react-native';
+import { ELactanciaScraper } from '../../../backend/src/scraper/index'
+import { DrugSuggestion, DrugDetails } from '../types';
+import { cache } from '../utils/cache';
+import NetInfo from '@react-native-community/netinfo';
 
-export class DrugSearchService {
-  private baseURL: string;
-  private timeout: number;
+class DrugSearchService {
+  private scraper: ELactanciaScraper;
+  private isOnline: boolean = true;
 
-constructor(baseURL?: string) {
-  this.baseURL = baseURL ||
-    Constants.expoConfig?.extra?.API_BASE_URL ||
-    (__DEV__ ? 'http://localhost:3000' : undefined);
-
-  if (!this.baseURL) {
-    throw new Error('API_BASE_URL not configured');
+  constructor() {
+    this.scraper = new ELactanciaScraper();
+    this.initNetworkListener();
   }
 
-  this.timeout = 15000;
-  this.keepServerAwake();
-}
-private keepServerAwake() {
-  setInterval(async () => {
-    const currentState = AppState.currentState;
-    if (currentState === 'active') {
-      try {
-        await fetch(`${this.baseURL}/health`);
-      } catch (error) {
-        // Silent fail
-      }
-    }
-  }, 14 * 60 * 1000);
-}
-  private async makeRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), this.timeout);
+  private initNetworkListener() {
+    NetInfo.addEventListener(state => {
+      this.isOnline = state.isConnected ?? false;
+    });
+  }
 
+  async searchDrugs(query: string): Promise<DrugSuggestion[]> {
     try {
-      const response = await fetch(`${this.baseURL}${endpoint}`, {
-        ...options,
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          ...options.headers,
-        },
-        signal: controller.signal,
-      });
+      const normalizedQuery = query.toLowerCase().trim();
+      const cacheKey = `search_${normalizedQuery}`;
 
-      clearTimeout(timeoutId);
+      // Always check cache first
+      const cachedResults = await cache.get<DrugSuggestion[]>(cacheKey);
 
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || `HTTP ${response.status}: ${response.statusText}`);
+      // If offline, return cached data or empty
+      if (!this.isOnline) {
+        return cachedResults || [];
       }
 
-      return await response.json();
-    } catch (error: any) {
-      clearTimeout(timeoutId);
-      if (error.name === 'AbortError') {
-        throw new Error('Request timeout');
+
+      if (cachedResults) {
+        const cacheAge = await this.getCacheAge(cacheKey);
+        if (cacheAge > 7) {
+          this.refreshInBackground(query);
+        }
+
+        return cachedResults;
       }
+
+      // No cache, fetch from scraper
+      const results = await this.scraper.searchDrugs(query);
+
+      // Cache the results
+      await cache.set(cacheKey, results);
+
+      return results;
+    } catch (error) {
+      // If fetch fails, try to return cached data
+      const cacheKey = `search_${query.toLowerCase().trim()}`;
+      const cachedResults = await cache.get<DrugSuggestion[]>(cacheKey);
+
+      if (cachedResults) {
+        return cachedResults;
+      }
+
       throw error;
     }
   }
 
-  // Search for drug suggestions
-  async searchDrugs(query: string): Promise<DrugSuggestion[]> {
-    if (!query || query.length < 2) {
-      return []
-    }
-
-    try {
-      const response = await this.makeRequest<SearchResponse>(
-        `/api/drugs/search/${encodeURIComponent(query)}`
-      );
-
-      return response.suggestions;
-    } catch (error: any) {
-      console.error('Drug search failed:', error);
-      throw new Error(`Search failed: ${error.message}`);
-    }
-  }
-
-  // Get detailed drug information
   async getDrugDetails(drugName: string): Promise<DrugDetails | null> {
-    if (!drugName) {
-      throw new Error('Drug name is required');
-    }
-
     try {
-      const response = await this.makeRequest<DetailsResponse>(
-        `/api/drugs/details/${encodeURIComponent(drugName)}`
-      );
+      const normalizedName = drugName.toLowerCase().trim();
+      const cacheKey = `details_${normalizedName}`;
 
-      return response.details;
-    } catch (error: any) {
-      if (error.message.includes('404')) {
-        return null;
+      // Check cache first
+      const cachedDetails = await cache.get<DrugDetails>(cacheKey);
+
+      // If offline, return cached data
+      if (!this.isOnline) {
+        return cachedDetails;
       }
-      console.error('Get drug details failed:', error);
-      throw new Error(`Failed to get details: ${error.message}`);
-    }
-  }
-  async checkHealth(): Promise<boolean> {
-    try {
-      await this.makeRequest('/health');
-      return true;
-    } catch {
-      return false;
+
+      if (cachedDetails) {
+
+        // Refresh in background if old
+        const cacheAge = await this.getCacheAge(cacheKey);
+        if (cacheAge > 7) {
+          this.refreshDetailsInBackground(drugName);
+        }
+
+        return cachedDetails;
+      }
+
+      // No cache, fetch from scraper
+      const details = await this.scraper.getDrugDetails(drugName);
+
+      if (details) {
+        await cache.set(cacheKey, details);
+      }
+
+      return details;
+    } catch (error) {
+      // Try stale cache on error
+      const cacheKey = `details_${drugName.toLowerCase().trim()}`;
+      const cachedDetails = await cache.get<DrugDetails>(cacheKey);
+
+      if (cachedDetails) {
+        return cachedDetails;
+      }
+
+      throw error;
     }
   }
 
-  updateBaseURL(newBaseURL: string) {
-    this.baseURL = newBaseURL;
+  // Background refresh (non-blocking)
+  private async refreshInBackground(query: string): Promise<void> {
+    try {
+      const results = await this.scraper.searchDrugs(query);
+      const cacheKey = `search_${query.toLowerCase().trim()}`;
+      await cache.set(cacheKey, results);
+    } catch (error) {
+    }
+  }
+
+  private async refreshDetailsInBackground(drugName: string): Promise<void> {
+    try {
+      const details = await this.scraper.getDrugDetails(drugName);
+      if (details) {
+        const cacheKey = `details_${drugName.toLowerCase().trim()}`;
+        await cache.set(cacheKey, details);
+      }
+    } catch (error) {
+    }
+  }
+
+  private async getCacheAge(cacheKey: string): Promise<number> {
+    // Return days since cached
+    return 0;
+  }
+
+  async getCacheStats() {
+    return await cache.getCacheInfo();
+  }
+
+  async clearCache() {
+    await cache.clearAll();
   }
 }
 
-export const drugSearchService = new DrugSearchService();
-export default drugSearchService;
+export default new DrugSearchService();
