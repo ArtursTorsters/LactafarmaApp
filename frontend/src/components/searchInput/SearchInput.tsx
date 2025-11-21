@@ -16,6 +16,7 @@ import { useSearchHooks } from "../../hooks/SearchHooks";
 import { globalStyles } from "../../styles/styles";
 import { Ionicons } from "@expo/vector-icons";
 import { MedicalDisclaimer } from "../medicalDisclaimer/MedicalDisclaimer";
+import { HapticFeedback } from "../../utils/haptics"; // ADD THIS
 
 export const DrugSearchComponent = () => {
   const {
@@ -48,6 +49,28 @@ export const DrugSearchComponent = () => {
     }).start();
   }, [isSearchModalVisible]);
 
+  // Wrapped handlers with haptics
+  const handleSearchPress = () => {
+    HapticFeedback.medium();
+    handleFocus();
+  };
+
+  const handleCloseModal = () => {
+    HapticFeedback.medium();
+    closeSearchModal();
+  };
+
+  const handleItemSelect = (item: any) => {
+    HapticFeedback.selection();
+    handleDrugSelect(item);
+    closeSearchModal();
+  };
+
+  const handleBackPress = () => {
+    HapticFeedback.medium();
+    onBack();
+  };
+
   return (
     <View style={[globalStyles.searchContainer, { flex: 1 }]}>
       <Animated.View
@@ -62,7 +85,7 @@ export const DrugSearchComponent = () => {
           },
         ]}
       >
-        <TouchableOpacity onPress={handleFocus} activeOpacity={0.8}>
+        <TouchableOpacity onPress={handleSearchPress} activeOpacity={0.8}>
           <View style={{ position: "relative" }}>
             <TextInput
               style={[
@@ -73,7 +96,6 @@ export const DrugSearchComponent = () => {
                   borderColor: "#E5E7EB",
                   borderRadius: 12,
                   paddingLeft: 40,
-                  // marginBottom: 20
                 },
               ]}
               placeholder="Enter medication name..."
@@ -102,7 +124,7 @@ export const DrugSearchComponent = () => {
         visible={isSearchModalVisible}
         animationType="slide"
         presentationStyle="pageSheet"
-        onRequestClose={closeSearchModal}
+        onRequestClose={handleCloseModal}
       >
         <View style={{ flex: 1, backgroundColor: "#F8FAFC" }}>
           {/* Header */}
@@ -131,7 +153,7 @@ export const DrugSearchComponent = () => {
               Search Medications
             </Text>
             <TouchableOpacity
-              onPress={closeSearchModal}
+              onPress={handleCloseModal}
               style={{
                 padding: 8,
                 borderRadius: 10,
@@ -160,7 +182,14 @@ export const DrugSearchComponent = () => {
                 placeholder="Enter medication name..."
                 placeholderTextColor="#9CA3AF"
                 value={query}
-                onChangeText={setQuery}
+                onChangeText={(text) => {
+                  // Small haptic on each key press (optional)
+                  if (text.length > query.length) {
+                    HapticFeedback.selection();
+                  }
+                  setQuery(text);
+                }}
+                onFocus={() => HapticFeedback.medium()}
                 autoFocus
                 autoCapitalize="none"
                 autoCorrect={false}
@@ -225,10 +254,7 @@ export const DrugSearchComponent = () => {
                       elevation: 2,
                       flexDirection: "column",
                     }}
-                    onPress={() => {
-                      handleDrugSelect(item);
-                      closeSearchModal();
-                    }}
+                    onPress={() => handleItemSelect(item)}
                     activeOpacity={0.8}
                   >
                     <Text
@@ -305,13 +331,16 @@ export const DrugSearchComponent = () => {
       )}
 
       <DrugDetailsModal
-        onBack={onBack}
+        onBack={handleBackPress}
         visible={selectedDrug !== null}
         selectedDrug={selectedDrug}
         selectedDrugForUI={selectedDrugForUI}
         loadingDetails={loadingDetails}
         error={error}
-        onClose={clearSelectedDrug}
+        onClose={() => {
+          HapticFeedback.medium();
+          clearSelectedDrug();
+        }}
       />
     </View>
   );

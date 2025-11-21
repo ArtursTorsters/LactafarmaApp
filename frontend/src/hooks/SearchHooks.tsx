@@ -6,6 +6,7 @@ import {
   convertDetailsToUIDrug,
   Drug
 } from '../types/index';
+import { HapticFeedback } from '../utils/haptics';
 
 export const useSearchHooks = () => {
   const [query, setQuery] = useState('');
@@ -39,20 +40,26 @@ export const useSearchHooks = () => {
     };
   }, [query]);
 
-  const handleSearch = async (text: string) => {
-    setError(null);
-    setLoading(true);
+const handleSearch = async (text: string) => {
+  setError(null);
+  setLoading(true);
 
-    try {
-      const suggestions = await drugSearchService.searchDrugs(text);
-      setResults(suggestions);
-      setShowResults(true);
-    } catch (err: any) {
-      setError(err?.message || 'Search failed');
-    } finally {
-      setLoading(false);
+  try {
+    const suggestions = await drugSearchService.searchDrugs(text);
+    setResults(suggestions);
+    setShowResults(true);
+
+    // Haptic feedback when results arrive
+    if (suggestions.length > 0) {
+      HapticFeedback.success(); // Success haptic for results
     }
-  };
+  } catch (err: any) {
+    setError(err?.message || 'Search failed');
+    HapticFeedback.error(); // Error haptic
+  } finally {
+    setLoading(false);
+  }
+};
 
   // Back button handler - goes from drug details back to search results
   const onBack = () => {

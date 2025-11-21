@@ -1,3 +1,4 @@
+// DrugDetailsModal.tsx
 import React from "react";
 import { View, Text, TouchableOpacity, Modal, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
@@ -6,6 +7,7 @@ import { modalStyles } from "../../styles/styles";
 import { RISK_LEVELS } from "../../utils/constants";
 import { DrugDetailsModalProps, RiskLevel } from "../../types";
 import { ErrorMessage } from "../common/ErrorMessage";
+import { HapticFeedback } from "../../utils/haptics"; // ADD THIS
 
 interface DrugDetailsModalPropsWithBack extends DrugDetailsModalProps {
   onBack?: () => void;
@@ -22,12 +24,35 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
 }) => {
   const riskLevelInfo = selectedDrugForUI ? RISK_LEVELS[selectedDrugForUI.riskLevel] : RISK_LEVELS.unknown;
 
+  // Wrapped handlers with haptics
+  const handleBack = () => {
+    HapticFeedback.medium();
+    onBack?.();
+  };
+
+  const handleClose = () => {
+    HapticFeedback.medium();
+    onClose();
+  };
+
+  const handleErrorClose = () => {
+    HapticFeedback.warning();
+    onClose();
+  };
+
+  // Haptic feedback when modal opens with content
+  React.useEffect(() => {
+    if (visible && selectedDrug && !loadingDetails) {
+      HapticFeedback.success();
+    }
+  }, [visible, selectedDrug, loadingDetails]);
+
   return (
     <Modal
       visible={visible}
       animationType="slide"
       presentationStyle="pageSheet"
-      onRequestClose={onClose}
+      onRequestClose={handleClose}
     >
       <View style={modalStyles.container}>
         {/* Header with Back and Close buttons */}
@@ -36,7 +61,7 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
           <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
             {onBack && (
               <TouchableOpacity
-                onPress={onBack}
+                onPress={handleBack}
                 style={[modalStyles.closeButton, { marginRight: 12 }]}
               >
                 <Ionicons name="arrow-back" size={24} color="#666" />
@@ -47,7 +72,7 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
             </Text>
           </View>
 
-          <TouchableOpacity onPress={onClose} style={modalStyles.closeButton}>
+          <TouchableOpacity onPress={handleClose} style={modalStyles.closeButton}>
             <Ionicons name="close" size={24} color="#666" />
           </TouchableOpacity>
         </View>
@@ -61,11 +86,11 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
 
         {!loadingDetails && error && !selectedDrug && (
           <View style={modalStyles.errorContainer}>
-          <ErrorMessage
-            message="Unable to Load Drug Details"
-            onPress={onClose}
-            retryText="Close"
-          />
+            <ErrorMessage
+              message="Unable to Load Drug Details"
+              onPress={handleErrorClose}
+              retryText="Close"
+            />
           </View>
         )}
 
@@ -74,6 +99,7 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
             style={modalStyles.scrollView}
             contentContainerStyle={modalStyles.scrollContent}
             showsVerticalScrollIndicator={false}
+            onScrollBeginDrag={() => HapticFeedback.selection()} // Optional: haptic when scrolling starts
           >
             {/* Drug Header Card */}
             <View style={[
@@ -153,10 +179,19 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
                   <Text style={modalStyles.alternativesTitle}>Alternatives</Text>
                 </View>
                 {selectedDrug.alternatives.map((alt, index) => (
-                  <View key={index} style={modalStyles.alternativeItem}>
+                  <TouchableOpacity
+                    key={index}
+                    style={modalStyles.alternativeItem}
+                    onPress={() => {
+                      // If you want alternatives to be clickable for future features
+                      HapticFeedback.medium();
+                      // Could navigate to that alternative drug details
+                    }}
+                    activeOpacity={0.7}
+                  >
                     <View style={modalStyles.alternativeBullet} />
                     <Text style={modalStyles.alternativeText}>{alt}</Text>
-                  </View>
+                  </TouchableOpacity>
                 ))}
               </View>
             )}

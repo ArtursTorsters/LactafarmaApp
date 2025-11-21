@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ELactanciaScraper } from '../scraper/ELactanciaScraper';
+import { ELactanciaScraper } from '../scraper/index';
 
 interface CacheItem {
   data: any;
