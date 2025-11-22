@@ -1,46 +1,44 @@
 {
   "expo": {
-     "name": "LactaMed",
+    "name": "LactaMed",
     "slug": "lactamed",
     "extra": {
       "API_BASE_URL": "https://lactamed-api.onrender.com",
       "eas": {
-        "projectId": "8ede2204-0cfb-411d-8b0e-c6cda0d6e421"
+        "projectId": "afc8a3d2-cb8c-4d12-b4c2-e480c963f998"
       }
     },
     "version": "1.0.0",
     "description": "Medication safety information for breastfeeding mothers",
     "privacy": "public",
-    "privacyPolicyUrl": "https://arturstorsters.github.io/",
-    "platforms": ["ios", "android", "web"],
+    "primaryColor": "#2E86AB",
+    "backgroundColor": "#ffffff",
+    "privacyPolicyUrl": "https://arturstorsters.github.io/lactamed-legal/privacy",
     "orientation": "portrait",
-    "icon": "./assets/adaptive-icon.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2E86AB"
     },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.lactamed.app",
-        "privacyManifests": {
+      "privacyManifests": {
         "NSPrivacyAccessedAPITypes": []
-      }
+      },
+      "buildNumber": "1"
     },
     "android": {
       "package": "com.lactamed.app",
-      "permissions": ["INTERNET"],
+      "versionCode": 1,
+      "permissions": [],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true,
-      "networkSecurityConfig": "network_security_config",
-      "usesCleartextTraffic": false
-
-
+        "backgroundColor": "#2E86AB"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
