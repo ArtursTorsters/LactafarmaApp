@@ -71,7 +71,7 @@ app.get('/health', (req: Request, res: Response) => {
   res.json({
     success: true,
     status: 'healthy',
-    service: 'LactaMed API',
+    service: 'LactaHelp API',
     version: '1.0.0',
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
@@ -86,7 +86,7 @@ app.use('/api/drugs', drugRoutes);
 app.get('/', (req: Request, res: Response) => {
   res.json({
     success: true,
-    message: 'LactaMed API is running',
+    message: 'LactaHelp API is running',
     version: '1.0.0',
     docs: '/api/docs',
     health: '/health'
@@ -124,7 +124,7 @@ app.use((error: any, req: Request, res: Response, next: NextFunction) => {
 
 // Start server
 const server = app.listen(PORT, '0.0.0.0', () => {
-  console.log(`LactaMed API running on port ${PORT} in ${NODE_ENV} mode`);
+  console.log(`LactaHelp API running on port ${PORT} in ${NODE_ENV} mode`);
 });
 
 // Graceful shutdown

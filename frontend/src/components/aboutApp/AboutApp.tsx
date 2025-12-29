@@ -32,8 +32,8 @@ export const AboutApp: React.FC = () => {
   const openLegal = () => Linking.openURL("https://www.e-lactancia.org/aviso_legal/");
 
   // Update these with your actual URLs
-  const openPolicy = () => Linking.openURL("https://your-privacy-policy-url.com");
-  const openTerms = () => Linking.openURL("https://your-terms-of-service-url.com");
+  const openPolicy = () => Linking.openURL("https://arturstorsters.github.io/privacy-policy");
+  const openTerms = () => Linking.openURL("https://arturstorsters.github.io/terms-of-service");
 
   const scaleWidth = width / 375;
   const scaleHeight = height / 812;
@@ -88,7 +88,7 @@ export const AboutApp: React.FC = () => {
               { fontSize: titleFont, color: "#111827", flex: 1 },
             ]}
           >
-            About LactaMed
+            About LactaHelp
           </Text>
           <Ionicons
             name={expandedSections.about ? "chevron-up" : "chevron-down"}
@@ -105,9 +105,9 @@ export const AboutApp: React.FC = () => {
                 { fontSize: baseFont, lineHeight, textAlign: "justify", color: "#374151" },
               ]}
             >
-              LactaMed helps breastfeeding mothers quickly find reliable information about medication
+              LactaHelp helps breastfeeding mothers quickly find reliable information about medication
               safety during lactation. It provides instant access to comprehensive drug compatibility
-              data and scientific evidence. LactaMed uses this data in a non-commercial way, with proper
+              data and scientific evidence. LactaHelp uses this data in a non-commercial way, with proper
               attribution. Any derived information is distributed under the same license terms.
             </Text>
 

@@ -114,12 +114,6 @@ export const DrugSearchComponent = () => {
         </TouchableOpacity>
       </Animated.View>
 
-      {/* {!isSearchModalVisible && (
-        <View style={[globalStyles.searchFullScreenEmpty, { justifyContent: "center" }]}>
-          <MedicalDisclaimer />
-        </View>
-      )} */}
-
       <Modal
         visible={isSearchModalVisible}
         animationType="slide"
@@ -340,6 +334,10 @@ export const DrugSearchComponent = () => {
         onClose={() => {
           HapticFeedback.medium();
           clearSelectedDrug();
+        }}
+        onSelectAlternative={(drugName) => {
+          HapticFeedback.selection();
+          handleDrugSelect({ name: drugName, category: 'Medicine' });
         }}
       />
     </View>

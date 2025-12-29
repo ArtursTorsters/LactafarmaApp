@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "LactaMed",
-    "slug": "lactamed",
+    "name": "LactaHelp",
+    "slug": "LactaHelp",
     "extra": {
-      "API_BASE_URL": "https://lactamed-api.onrender.com",
+      "API_BASE_URL": "https://LactaHelp-api.onrender.com",
       "eas": {
         "projectId": "afc8a3d2-cb8c-4d12-b4c2-e480c963f998"
       }
@@ -13,7 +13,7 @@
     "privacy": "public",
     "primaryColor": "#2E86AB",
     "backgroundColor": "#ffffff",
-    "privacyPolicyUrl": "https://arturstorsters.github.io/lactamed-legal/privacy",
+    "privacyPolicyUrl": "https://arturstorsters.github.io/LactaHelp-legal/privacy",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -25,14 +25,14 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.lactamed.app",
+      "bundleIdentifier": "com.LactaHelp.app",
       "privacyManifests": {
         "NSPrivacyAccessedAPITypes": []
       },
       "buildNumber": "1"
     },
     "android": {
-      "package": "com.lactamed.app",
+      "package": "com.LactaHelp.app",
       "versionCode": 1,
       "permissions": [],
       "adaptiveIcon": {

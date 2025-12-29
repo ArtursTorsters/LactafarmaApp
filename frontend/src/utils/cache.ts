@@ -11,7 +11,7 @@ interface CacheEntry<T> {
 class CacheManager {
     // Updated to 30 days
     private readonly DEFAULT_TTL = 30 * 24 * 60 * 60 * 1000; // 30 days
-    private readonly CACHE_PREFIX = '@lactamed_cache_';
+    private readonly CACHE_PREFIX = '@LactaHelp_cache_';
     private readonly MAX_CACHE_SIZE = 500; // Limit number of cached items
 
     private getCacheKey(key: string): string {

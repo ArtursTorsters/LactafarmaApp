@@ -99,6 +99,9 @@ export async function getDrugDetails(drugName: string): Promise<DrugDetails | nu
       // Skip Dexibuprofen if searching Ibuprofen
       if (normalized === 'ibuprofen' && n.includes('dexi')) return false;
 
+      // Exclude Analgesine and Antipyrine
+      if (n.includes('analgesine') || n.includes('antipyrine')) return false;
+
       return true;
     });
 

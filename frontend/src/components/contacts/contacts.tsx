@@ -75,7 +75,7 @@ export const Contacts: React.FC = () => {
                     textAlign: "center",
                 }}
             >
-                © {new Date().getFullYear()} LactaMed — All rights reserved.
+                © {new Date().getFullYear()} LactaHelp — All rights reserved.
             </Text>
         </View>
     );

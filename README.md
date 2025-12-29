@@ -1,10 +1,10 @@
-# LactaMed
+# LactaHelp
 
 A mobile application providing medication safety information for breastfeeding mothers.
 
 ## Overview
 
-LactaMed helps breastfeeding mothers make informed decisions about medication safety by providing easy access to drug compatibility information. The app scrapes real-time data from reliable medical sources like e-lactancia.org to offer current educational information.
+LactaHelp helps breastfeeding mothers make informed decisions about medication safety by providing easy access to drug compatibility information. The app scrapes real-time data from reliable medical sources like e-lactancia.org to offer current educational information.
 
 **Important**: This app provides general information only and is not a substitute for professional medical advice.
 

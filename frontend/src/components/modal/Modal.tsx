@@ -11,6 +11,7 @@ import { HapticFeedback } from "../../utils/haptics"; // ADD THIS
 
 interface DrugDetailsModalPropsWithBack extends DrugDetailsModalProps {
   onBack?: () => void;
+  onSelectAlternative?: (drugName: string) => void;
 }
 
 export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
@@ -21,6 +22,7 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
   error,
   onClose,
   onBack,
+  onSelectAlternative,
 }) => {
   const riskLevelInfo = selectedDrugForUI ? RISK_LEVELS[selectedDrugForUI.riskLevel] : RISK_LEVELS.unknown;
 
@@ -68,7 +70,7 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
               </TouchableOpacity>
             )}
             <Text style={[modalStyles.headerTitle, { flex: 1 }]}>
-              Drug Information
+              Medication
             </Text>
           </View>
 
@@ -178,19 +180,18 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
                   />
                   <Text style={modalStyles.alternativesTitle}>Alternatives</Text>
                 </View>
-                {selectedDrug.alternatives.map((alt, index) => (
+                {selectedDrug.alternatives.map((drugName, index) => (
                   <TouchableOpacity
                     key={index}
                     style={modalStyles.alternativeItem}
                     onPress={() => {
-                      // If you want alternatives to be clickable for future features
                       HapticFeedback.medium();
-                      // Could navigate to that alternative drug details
+                      onSelectAlternative?.(drugName);
                     }}
                     activeOpacity={0.7}
                   >
                     <View style={modalStyles.alternativeBullet} />
-                    <Text style={modalStyles.alternativeText}>{alt}</Text>
+                    <Text style={modalStyles.alternativeText}>{drugName}</Text>
                   </TouchableOpacity>
                 ))}
               </View>
