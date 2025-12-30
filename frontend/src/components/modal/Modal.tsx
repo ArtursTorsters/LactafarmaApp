@@ -53,10 +53,28 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
     <Modal
       visible={visible}
       animationType="slide"
-      presentationStyle="pageSheet"
+      transparent={true}
       onRequestClose={handleClose}
     >
-      <View style={modalStyles.container}>
+      <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' }}>
+      <View style={[
+        modalStyles.container,
+        {
+          marginTop: 120,
+          borderTopLeftRadius: 32,
+          borderTopRightRadius: 32,
+          backgroundColor: '#F8FAFC', // Light gray background for the modal container
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: -2 },
+          shadowOpacity: 0.1,
+          shadowRadius: 10,
+          elevation: 5,
+          overflow: 'hidden',
+          flex: 1,
+        }
+      ]}>
+
+
         {/* Header with Back and Close buttons */}
         <View style={modalStyles.header}>
           {/* Left side - Back button */}
@@ -152,9 +170,7 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
                     borderColor: riskLevelInfo.color + '40',
                   }
                 ]}>
-                  <Text style={[
-                    modalStyles.riskDescriptionText,
-                  ]}>
+                  <Text style={modalStyles.riskDescriptionText}>
                     {selectedDrug.riskDescription}
                   </Text>
                 </View>
@@ -170,33 +186,6 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
               </View>
             )}
 
-            {selectedDrug.alternatives && selectedDrug.alternatives.length > 0 && (
-              <View style={modalStyles.alternativesCard}>
-                <View style={modalStyles.alternativesHeader}>
-                  <Ionicons
-                    name="swap-horizontal-outline"
-                    size={20}
-                    color="#059669"
-                  />
-                  <Text style={modalStyles.alternativesTitle}>Alternatives</Text>
-                </View>
-                {selectedDrug.alternatives.map((drugName, index) => (
-                  <TouchableOpacity
-                    key={index}
-                    style={modalStyles.alternativeItem}
-                    onPress={() => {
-                      HapticFeedback.medium();
-                      onSelectAlternative?.(drugName);
-                    }}
-                    activeOpacity={0.7}
-                  >
-                    <View style={modalStyles.alternativeBullet} />
-                    <Text style={modalStyles.alternativeText}>{drugName}</Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            )}
-
             {selectedDrug.lastUpdate && (
               <View style={modalStyles.lastUpdateContainer}>
                 <Text style={modalStyles.lastUpdateText}>
@@ -206,6 +195,7 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
             )}
           </ScrollView>
         )}
+      </View>
       </View>
     </Modal>
   );

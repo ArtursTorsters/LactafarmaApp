@@ -117,10 +117,23 @@ export const DrugSearchComponent = () => {
       <Modal
         visible={isSearchModalVisible}
         animationType="slide"
-        presentationStyle="pageSheet"
+        transparent={true}
         onRequestClose={handleCloseModal}
       >
-        <View style={{ flex: 1, backgroundColor: "#F8FAFC" }}>
+        <View style={{ flex: 1, backgroundColor: "rgba(0,0,0,0.5)" }}>
+          <View style={{
+            flex: 1,
+            backgroundColor: "#F8FAFC",
+            marginTop: 120,
+            borderTopLeftRadius: 32,
+            borderTopRightRadius: 32,
+            overflow: "hidden",
+            shadowColor: "#000",
+            shadowOffset: { width: 0, height: -2 },
+            shadowOpacity: 0.1,
+            shadowRadius: 10,
+            elevation: 5,
+          }}>
           {/* Header */}
           <View
             style={{
@@ -128,7 +141,7 @@ export const DrugSearchComponent = () => {
               justifyContent: "space-between",
               alignItems: "center",
               padding: 16,
-              paddingTop: 50,
+              paddingTop: 16,
               borderBottomWidth: 1,
               borderBottomColor: "#E2E8F0",
               backgroundColor: "#FFFFFF",
@@ -313,6 +326,7 @@ export const DrugSearchComponent = () => {
               />
             </Animated.View>
           )}
+          </View>
         </View>
       </Modal>
 
