@@ -3,7 +3,10 @@
     "name": "LactaHelp",
     "slug": "LactaHelp",
     "extra": {
-      "API_BASE_URL": "https://LactaHelp-api.onrender.com"
+      "API_BASE_URL": "https://LactaHelp-api.onrender.com",
+      "eas": {
+        "projectId": "758ba3cf-de0d-4531-9494-710f0c37d6dc"
+      }
     },
     "version": "1.0.1",
     "description": "Medication safety information for breastfeeding mothers",

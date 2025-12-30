@@ -17,12 +17,12 @@ export default function App() {
   const [loading, setLoading] = useState(false);
 
   const dismissKeyboard = () => Keyboard.dismiss();
-  useEffect(() => {
-    // Clear the entire cache on app start
-    cache.clearAll().then(() => {
-      console.log('Cache cleared!');
-    });
-  }, []);
+  // useEffect(() => {
+  //   // Clear the entire cache on app start
+  //   cache.clearAll().then(() => {
+  //     console.log('Cache cleared!');
+  //   });
+  // }, []);
   return (
     <SafeAreaProvider>
     <SafeAreaView style={globalStyles.safeArea}>
