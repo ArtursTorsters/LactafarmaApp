@@ -89,7 +89,7 @@ android {
 
     namespace 'com.LactaHelp.app'
     defaultConfig {
-        applicationId 'com.LactaHelp.app'
+        applicationId "com.lactamed"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
