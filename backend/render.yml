@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: LactaHelp-api
+    name: lactamed-api
     env: node
     buildCommand: npm install && npm run build
     startCommand: npm start

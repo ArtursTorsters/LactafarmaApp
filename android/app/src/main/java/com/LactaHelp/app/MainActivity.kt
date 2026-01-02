@@ -1,4 +1,4 @@
-package com.LactaHelp.app
+package com.lactamed.app
 
 import android.os.Build
 import android.os.Bundle
