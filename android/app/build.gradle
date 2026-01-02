@@ -87,7 +87,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.LactaHelp.app'
+    namespace 'com.lactamed'
     defaultConfig {
         applicationId "com.lactamed"
         minSdkVersion rootProject.ext.minSdkVersion
