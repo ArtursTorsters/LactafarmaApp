@@ -32,7 +32,7 @@
       "buildNumber": "1"
     },
     "android": {
-      "package": "com.LactaHelp.app",
+      "package": "com.lactamed",
       "versionCode": 2,
       "permissions": [],
       "adaptiveIcon": {
