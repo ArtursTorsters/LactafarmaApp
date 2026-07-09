@@ -13,6 +13,7 @@ export interface DrugDetails {
   lastUpdate?: string;
   description?: string;
   id?: string;
+  sourceUrl?: string;
 }
 export interface SearchResponse {
   success: boolean;

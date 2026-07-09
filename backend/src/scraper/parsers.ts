@@ -39,7 +39,7 @@ export function extractDescription(html: string): string | undefined {
         .trim();
 
       if (cleanText.length > 50) {
-        return cleanText.substring(0, 500);
+        return cleanText;
       }
     }
   }

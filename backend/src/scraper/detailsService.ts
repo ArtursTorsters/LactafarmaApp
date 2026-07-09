@@ -38,7 +38,8 @@ export async function fetchDrugDetailsFromURL(suggestion: DrugSuggestion): Promi
     description: extractDescription(html),
     riskDescription: extractRiskDescription(html),
     lastUpdate: extractLastUpdate(html),
-    alternatives: extractAlternatives(html)
+    alternatives: extractAlternatives(html),
+    sourceUrl: detailUrl,
   };
 
   return drugDetails;

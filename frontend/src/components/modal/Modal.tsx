@@ -1,6 +1,6 @@
 // DrugDetailsModal.tsx
 import React from "react";
-import { View, Text, TouchableOpacity, Modal, ScrollView } from "react-native";
+import { View, Text, TouchableOpacity, Modal, ScrollView, Linking } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { LoadingSpinner } from "../common/LoadingSpinner";
 import { modalStyles } from "../../styles/styles";
@@ -186,6 +186,21 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
               </View>
             )}
 
+            {selectedDrug.alternatives && selectedDrug.alternatives.length > 0 && (
+              <View style={modalStyles.descriptionCard}>
+                <Text style={modalStyles.sectionLabel}>Alternatives</Text>
+                {selectedDrug.alternatives.map((alt) => (
+                  <TouchableOpacity
+                    key={alt}
+                    onPress={() => onSelectAlternative?.(alt)}
+                    style={{ paddingVertical: 6 }}
+                  >
+                    <Text style={{ color: "#2563EB", fontSize: 15 }}>• {alt}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
+
             {selectedDrug.lastUpdate && (
               <View style={modalStyles.lastUpdateContainer}>
                 <Text style={modalStyles.lastUpdateText}>
@@ -193,6 +208,15 @@ export const DrugDetailsModal: React.FC<DrugDetailsModalPropsWithBack> = ({
                 </Text>
               </View>
             )}
+
+            <View style={[modalStyles.lastUpdateContainer, { marginTop: 4, marginBottom: 24 }]}>
+              <Text style={modalStyles.lastUpdateText}>Source: </Text>
+              <TouchableOpacity
+                onPress={() => Linking.openURL(selectedDrug.sourceUrl ?? "https://www.e-lactancia.org")}
+              >
+                <Text style={{ color: "#2563EB", fontSize: 13 }}>e-lactancia.org (APILAM)</Text>
+              </TouchableOpacity>
+            </View>
           </ScrollView>
         )}
       </View>

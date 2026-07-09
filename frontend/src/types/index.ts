@@ -18,6 +18,7 @@ export interface DrugDetails {
   lastUpdate?: string;
   description?: string;
   id?: string;
+  sourceUrl?: string;
 }
 
 // UI Drug interface (for components)
