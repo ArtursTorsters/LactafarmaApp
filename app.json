@@ -1,6 +1,6 @@
 {
   "expo": {
-  "name": "LactaHelp",
+    "name": "LactaHelp",
     "slug": "LactaHelp",
     "extra": {
       "API_BASE_URL": "https://lactamed-api.onrender.com",
@@ -29,7 +29,7 @@
       "privacyManifests": {
         "NSPrivacyAccessedAPITypes": []
       },
-      "buildNumber": "1"
+      "buildNumber": "2"
     },
     "android": {
       "package": "com.lactamed",
