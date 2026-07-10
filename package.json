@@ -28,7 +28,7 @@
     "expo-updates": "~29.0.15"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
+    "@babel/core": "^8.0.1",
     "@types/express": "^5.0.3",
     "@types/puppeteer": "^5.4.7",
     "@types/react": "~19.1.10",
