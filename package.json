@@ -30,7 +30,7 @@
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@types/express": "^5.0.3",
-    "@types/puppeteer": "^5.4.7",
+    "@types/puppeteer": "^7.0.4",
     "@types/react": "~19.1.10",
     "@types/react-native-sqlite-storage": "^6.0.5",
     "typescript": "~5.9.2"
